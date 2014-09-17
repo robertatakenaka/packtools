@@ -38,7 +38,8 @@
    These are being used to help on tests isolation.
   -->
   <phase id="phase.journal-id">
-    <active pattern="journal-id_type_nlm-ta_or_publisher-id"/>
+    <active pattern="journal-id_attributes"/>
+    <active pattern="journal-id_journal-id-type_values"/>
   </phase>
 
   <phase id="phase.journal-title-group">
@@ -264,10 +265,36 @@
   <!--
    Patterns - sets of rules.
   -->
-  <pattern id="journal-id_type_nlm-ta_or_publisher-id">
+  <pattern id="journal-id_attributes">
+    <title>
+      Make sure all journal-id elements have @journal-id-type attr, and 
+      at exactly one @journal-id-type="publisher-id" is provided.
+    </title>
+
     <rule context="article/front/journal-meta">
-      <assert test="journal-id[@journal-id-type='nlm-ta'] or journal-id[@journal-id-type='publisher-id']">
-        Element 'journal-meta': Missing element journal-id with journal-id-type=("nlm-ta" or "publisher-id").
+      <assert test="count(journal-id[@journal-id-type='publisher-id']) = 1">
+        Element 'journal-meta': There must be one element journal-id with journal-id-type="publisher-id".
+      </assert>
+      <assert test="count(journal-id[@journal-id-type='nlm-ta']) &lt; 2">
+        Element 'journal-meta': There must be only one element journal-id with journal-id-type="nlm-ta".
+      </assert>
+    </rule>
+    <rule context="article/front/journal-meta/journal-id">
+      <assert test="@journal-id-type">
+        Element 'journal-id': Missing attribute journal-id-type.
+      </assert>
+    </rule>
+  </pattern>
+
+  <pattern id="journal-id_journal-id-type_values">
+    <title>
+      We only accept "publisher-id" and "nlm-ta" as journal-ids.
+    </title>
+
+    <rule context="article/front/journal-meta/journal-id[@journal-id-type]">
+      <assert test="@journal-id-type = 'publisher-id' or
+                    @journal-id-type = 'nlm-ta'">
+        Element 'journal-id', attribute journal-id-type: Invalid value "<value-of select="@journal-id-type"/>". 
       </assert>
     </rule>
   </pattern>

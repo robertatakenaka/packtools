@@ -12,6 +12,8 @@ SCH = etree.parse(SCHEMAS['scielo-style.sch'])
 
 class JournalIdTests(unittest.TestCase):
     """Tests for article/front/journal-meta/journal-id elements.
+
+    @journal-id-type="publisher-id" is mandatory.
     """
     def _run_validation(self, sample):
         schematron = isoschematron.Schematron(SCH, phase='phase.journal-id')
@@ -21,7 +23,6 @@ class JournalIdTests(unittest.TestCase):
         """
         presence(@nlm-ta) is True
         presence(@publisher-id) is True
-        presence(@nlm-ta) v presence(@publisher-id) is True
         """
         sample = """<article>
                       <front>
@@ -44,7 +45,6 @@ class JournalIdTests(unittest.TestCase):
         """
         presence(@nlm-ta) is True
         presence(@publisher-id) is False
-        presence(@nlm-ta) v presence(@publisher-id) is True
         """
         sample = """<article>
                       <front>
@@ -58,13 +58,12 @@ class JournalIdTests(unittest.TestCase):
                  """
         sample = StringIO(sample)
 
-        self.assertTrue(self._run_validation(sample))
+        self.assertFalse(self._run_validation(sample))
 
     def test_case3(self):
         """
         presence(@nlm-ta) is False
         presence(@publisher-id) is True
-        presence(@nlm-ta) v presence(@publisher-id) is True
         """
         sample = """<article>
                       <front>
@@ -84,13 +83,34 @@ class JournalIdTests(unittest.TestCase):
         """
         presence(@nlm-ta) is False
         presence(@publisher-id) is False
-        presence(@nlm-ta) v presence(@publisher-id) is False
         """
         sample = """<article>
                       <front>
                         <journal-meta>
                           <journal-id journal-id-type='doi'>
                             123.plin
+                          </journal-id>
+                        </journal-meta>
+                      </front>
+                    </article>
+                 """
+        sample = StringIO(sample)
+
+        self.assertFalse(self._run_validation(sample))
+
+    def test_case5(self):
+        """
+        presence(@doi) is True
+        presence(@publisher-id) is True
+        """
+        sample = """<article>
+                      <front>
+                        <journal-meta>
+                          <journal-id journal-id-type="doi">
+                            Rev Saude Publica
+                          </journal-id>
+                          <journal-id journal-id-type="publisher-id">
+                            RSP
                           </journal-id>
                         </journal-meta>
                       </front>
