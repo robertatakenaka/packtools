@@ -6,6 +6,7 @@ import sys
 import pkg_resources
 import json
 import glob
+import logging
 
 from lxml import etree
 # import pygments if here
@@ -17,6 +18,9 @@ except ImportError:
     pygments = False    # NOQA
 
 import packtools
+
+
+logger = logging.getLogger(__file__)
 
 
 class XMLError(Exception):
@@ -61,14 +65,33 @@ def get_xmlvalidator(xmlpath, no_network):
 
 
 def summarize(validator, assets_basedir=None):
+
+    def _make_err_message(err):
+        """ An error message is comprised of the message itself and the
+        element sourceline.
+        """
+        err_msg = {'message': err.message}
+
+        try:
+            err_element = err.get_apparent_element(validator.lxml)
+        except ValueError:
+            logger.info('Could not locate the element name in: %s' % err.message)
+            err_element = None
+
+        if err_element is not None:
+            err_msg['apparent_line'] = err_element.sourceline
+        else:
+            err_msg['apparent_line'] = None
+
+        return err_msg
+
+
     dtd_is_valid, dtd_errors = validator.validate()
     sps_is_valid, sps_errors = validator.validate_style()
 
     summary = {
-        'dtd_errors': ['{message}'.format(message=err.message)
-                       for err in dtd_errors],
-        'sps_errors': ['{message}'.format(message=err.message)
-                       for err in sps_errors],
+        'dtd_errors': [_make_err_message(err) for err in dtd_errors],
+        'sps_errors': [_make_err_message(err) for err in sps_errors],
     }
 
     if assets_basedir:
