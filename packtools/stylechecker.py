@@ -64,7 +64,7 @@ def get_xmlvalidator(xmlpath, no_network):
     return xml
 
 
-def summarize(validator, assets_basedir=None):
+def summarize(validator, assets_basedir=None, verbose=False):
 
     def _make_err_message(err):
         """ An error message is comprised of the message itself and the
@@ -78,10 +78,13 @@ def summarize(validator, assets_basedir=None):
             logger.info('Could not locate the element name in: %s' % err.message)
             err_element = None
 
-        if err_element is not None:
-            err_msg['apparent_line'] = err_element.sourceline
-        else:
-            err_msg['apparent_line'] = None
+        if verbose:
+            if err_element is not None:
+                err_msg['apparent_line'] = err_element.sourceline
+                err_msg['apparent_snippet'] = etree.tostring(err_element, encoding='unicode')
+            else:
+                err_msg['apparent_line'] = None
+                err_msg['apparent_snippet'] = None
 
         return err_msg
 
@@ -129,6 +132,8 @@ def main():
     parser.add_argument('XML', nargs='+',
                         help='filesystem path or URL to the XML')
     parser.add_argument('--version', action='version', version=packtools_version)
+    parser.add_argument('--verbose', action='store_true',
+                        help='add the apparent source line and snippet to the summary')
     args = parser.parse_args()
 
     print('Please wait, this may take a while...')
@@ -160,7 +165,7 @@ def main():
                 else:
                     assets_basedir = args.assetsdir or os.path.dirname(xml)
 
-                summary = summarize(xml_validator, assets_basedir=assets_basedir)
+                summary = summarize(xml_validator, assets_basedir=assets_basedir, verbose=args.verbose)
             except TypeError as e:
                 sys.exit('Error validating %s. %s.' % (xml_validator, e))
 
