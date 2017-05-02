@@ -62,7 +62,12 @@
         
     <xsl:template match="*" mode="text-body">
         <div class="articleSection">
-            <xsl:attribute name="data-anchor"><xsl:apply-templates select="body" mode="generated-label"/></xsl:attribute>
+            <xsl:attribute name="data-anchor"><xsl:choose>
+                <xsl:when test=".//abstract"><xsl:apply-templates select="body" mode="generated-label"/></xsl:when>
+                <xsl:otherwise><xsl:apply-templates select="." mode="text-labels">
+                    <xsl:with-param name="text" select="@article-type"/>
+                </xsl:apply-templates></xsl:otherwise>
+            </xsl:choose></xsl:attribute>
             <!-- FIXME: body ou sub-article/body -->
             <a name="articleSection{$body_index}"/>
             <xsl:choose>
@@ -117,6 +122,21 @@
         </h2>
     </xsl:template>
             
+    <xsl:template match="sig-block">
+        <p class="articleSignature">
+            <xsl:apply-templates select="*"></xsl:apply-templates>
+        </p>
+    </xsl:template>
     
+    <xsl:template match="sig">
+        <xsl:choose>
+            <xsl:when test="position()=1">
+                <xsl:apply-templates></xsl:apply-templates>
+            </xsl:when>
+            <xsl:otherwise>
+                <small><xsl:apply-templates></xsl:apply-templates></small>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
     
 </xsl:stylesheet>
