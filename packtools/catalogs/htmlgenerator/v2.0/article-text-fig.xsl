@@ -16,6 +16,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
     <xsl:template match="fig[graphic]">
         <xsl:variable name="location"><xsl:apply-templates select="." mode="file-location"></xsl:apply-templates></xsl:variable>
         <div class="row fig" id="{@id}">
@@ -31,6 +32,13 @@
             <div class="col-md-8">
                 <xsl:apply-templates select="." mode="label-caption"></xsl:apply-templates>
             </div>
+        </div>
+    </xsl:template>
+    
+    <xsl:template match="bio//fig[graphic] | product/graphic | product/inline-graphic">
+        <xsl:variable name="location"><xsl:apply-templates select="." mode="file-location"></xsl:apply-templates></xsl:variable>
+        <div class="blockgraphic" id="{@id}">
+            <xsl:apply-templates select="* | text()"></xsl:apply-templates>
         </div>
     </xsl:template>
     

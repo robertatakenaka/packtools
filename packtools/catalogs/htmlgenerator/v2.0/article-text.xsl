@@ -64,8 +64,11 @@
         <div class="articleSection">
             <xsl:attribute name="data-anchor"><xsl:choose>
                 <xsl:when test=".//abstract"><xsl:apply-templates select="body" mode="generated-label"/></xsl:when>
-                <xsl:otherwise><xsl:apply-templates select="." mode="text-labels">
+                <xsl:when test=".//response or .//sub-article[@article-type!='translation']"><xsl:apply-templates select="." mode="text-labels">
                     <xsl:with-param name="text" select="@article-type"/>
+                </xsl:apply-templates></xsl:when>
+                <xsl:otherwise><xsl:apply-templates select="." mode="text-labels">
+                    <xsl:with-param name="text">top</xsl:with-param>
                 </xsl:apply-templates></xsl:otherwise>
             </xsl:choose></xsl:attribute>
             <!-- FIXME: body ou sub-article/body -->

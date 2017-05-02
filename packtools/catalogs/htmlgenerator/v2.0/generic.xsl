@@ -39,6 +39,9 @@
         <br/>
     </xsl:template>
     
+    <xsl:template match="title | label">
+        <strong><xsl:apply-templates select="*|text()"></xsl:apply-templates></strong>
+    </xsl:template>
     
     <xsl:template match="ext-link">
         <xsl:choose>

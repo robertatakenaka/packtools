@@ -9,15 +9,21 @@
 		<xsl:variable name="sep"><xsl:apply-templates select="text()"></xsl:apply-templates></xsl:variable>
 		<xsl:comment> <xsl:value-of select="$sep"/></xsl:comment>
 		<blockquote>
-		<xsl:choose>
-			<xsl:when test="normalize-space($sep)=''">
-				<xsl:apply-templates select="*" mode="build"></xsl:apply-templates>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:apply-templates select="*|text()"></xsl:apply-templates>
-			</xsl:otherwise>
-		</xsl:choose>
+			<xsl:choose>
+				<xsl:when test="normalize-space($sep)=''">
+					<xsl:apply-templates select="*" mode="build"></xsl:apply-templates>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:apply-templates select="*|text()"></xsl:apply-templates>
+				</xsl:otherwise>
+			</xsl:choose>
 		</blockquote>
+	</xsl:template>
+	
+	<xsl:template match="article-meta/product">
+		<xsl:variable name="sep"><xsl:apply-templates select="text()"></xsl:apply-templates></xsl:variable>
+		<xsl:comment> <xsl:value-of select="$sep"/></xsl:comment>
+		<xsl:apply-templates select="." mode="block"></xsl:apply-templates>
 	</xsl:template>
 	
 	<xsl:template match="product//*" mode="build">

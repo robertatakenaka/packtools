@@ -6,6 +6,7 @@
   exclude-result-prefixes="xlink mml">
 
     <xsl:template match="graphic | inline-graphic">
+        <xsl:param name="max-width">100%</xsl:param>
         <xsl:variable name="location"><xsl:apply-templates select="@xlink:href"></xsl:apply-templates></xsl:variable>
         <xsl:variable name="s"><xsl:value-of select="substring(.,string-length(.)-4)"/></xsl:variable>
         <xsl:variable name="ext"><xsl:if test="contains($s,'.')">.<xsl:value-of select="substring-after($s,'.')"/></xsl:if></xsl:variable>
@@ -18,7 +19,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <img>
-                    <xsl:attribute name="style">max-width:100%</xsl:attribute>
+                    <xsl:attribute name="style">max-width:<xsl:value-of select="$max-width"/></xsl:attribute>
                     <xsl:attribute name="src"><xsl:value-of select="$location"/></xsl:attribute>
                 </img>
             </xsl:otherwise>

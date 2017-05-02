@@ -49,5 +49,7 @@
             </div>
         </div>
     </xsl:template>
+    <xsl:template match="bio//fig | product//fig" mode="modal">
+    </xsl:template>
     
 </xsl:stylesheet>

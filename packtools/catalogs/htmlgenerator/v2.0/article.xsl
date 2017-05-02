@@ -91,6 +91,19 @@
         <xsl:if test="$PRINT_CSS_PATH!=''">
             <link rel="stylesheet" href="{$PRINT_CSS_PATH}" media="print"/>
         </xsl:if>
+        <xsl:apply-templates select="." mode="styles"></xsl:apply-templates>
+    </xsl:template>
+    <xsl:template match="/" mode="styles">
+        <style>
+            
+            .blockgraphic {
+            width: 10%;
+            float: left;
+            padding-right: 30px;
+            background-color: #DADFE5;
+            }
+            
+        </style>
     </xsl:template>
     <xsl:template match="/" mode="js">
         <xsl:choose>
@@ -165,7 +178,7 @@
                 <div class="articleTxt">
                     <div class="row">
                         <div class="hidden-sm articleFigure">
-                            <xsl:apply-templates select=".//product//*[contains(name(), 'graphic')]"/>
+                            <xsl:apply-templates select=".//product//*[contains(name(), 'graphic')]" mode="resenha"/>
                         </div>
                         <div class="col-md-10 col-md-offset-2 col-sm-12 col-sm-offset-0">
                             <div class="articleBadge">
@@ -194,31 +207,27 @@
                                 </div>
                                 <div>
                                     <xsl:apply-templates select="." mode="article-meta-doi"/>
-
                                 </div>
                             </div>
                           <xsl:apply-templates select="." mode="article-meta-contrib"/>
-
-                    <div class="row">
-                        <ul class="col-md-2 hidden-sm articleMenu">
-
-                        </ul>
-
-                        <article id="articleText" class="col-md-10 col-md-offset-2 col-sm-12 col-sm-offset-0">
-                            <xsl:apply-templates select="." mode="article-meta-product"></xsl:apply-templates>
-                            <xsl:apply-templates select="." mode="article-meta-abstract"></xsl:apply-templates>
-                            <xsl:apply-templates select="." mode="text-body"></xsl:apply-templates>
-                            <xsl:apply-templates select="." mode="text-back"></xsl:apply-templates>
-                            <xsl:apply-templates select="." mode="text-fn"></xsl:apply-templates>
-                            <xsl:apply-templates select=".//article-meta" mode="generic-history"/>
-                            <xsl:apply-templates select="." mode="article-text-sub-articles"></xsl:apply-templates>
-                        </article>
+                        </div>
+                        <div class="row">
+                            <ul class="col-md-2 hidden-sm articleMenu">    
+                            </ul>
+                            <article id="articleText" class="col-md-10 col-md-offset-2 col-sm-12 col-sm-offset-0">
+                                <xsl:apply-templates select="." mode="article-meta-product"></xsl:apply-templates>
+                                <xsl:apply-templates select="." mode="article-meta-abstract"></xsl:apply-templates>
+                                <xsl:apply-templates select="." mode="text-body"></xsl:apply-templates>
+                                <xsl:apply-templates select="." mode="text-back"></xsl:apply-templates>
+                                <xsl:apply-templates select="." mode="text-fn"></xsl:apply-templates>
+                                <xsl:apply-templates select=".//article-meta" mode="generic-history"/>
+                                <xsl:apply-templates select="." mode="article-text-sub-articles"></xsl:apply-templates>
+                            </article>
+                        </div>
                     </div>
-
                 </div>
             </div>
-        </section>
-        
+        </section>        
     </xsl:template>
 
 </xsl:stylesheet>
