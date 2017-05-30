@@ -9,4 +9,11 @@
             <xsl:apply-templates select="*|text()"></xsl:apply-templates>
         </div>
     </xsl:template>
+    
+    <xsl:template match="boxed-text/label">
+        <strong><xsl:apply-templates select="*|text()"/></strong>
+    </xsl:template>
+    <xsl:template match="boxed-text/caption">
+        &#160;<strong><xsl:apply-templates select="*|text()"/></strong>
+    </xsl:template>
 </xsl:stylesheet>
