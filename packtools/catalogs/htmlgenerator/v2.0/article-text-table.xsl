@@ -18,7 +18,16 @@
             </div>
         </div>
     </xsl:template>
-    <xsl:template match="table-wrap/table| table/* | table/*/* | table/*/*/*">
+    <xsl:template match="table-wrap/table/@*">
+        <xsl:attribute name="{name()}"><xsl:value-of select="."/></xsl:attribute>
+    </xsl:template>
+    <xsl:template match="table-wrap/table">
+        <xsl:element name="{name()}">
+            <xsl:attribute name="class">table</xsl:attribute>
+            <xsl:apply-templates select="*|text()"></xsl:apply-templates>
+        </xsl:element>
+    </xsl:template>
+    <xsl:template match="table/* | table/*/* | table/*/*/*">
         <xsl:element name="{name()}">
             <xsl:apply-templates select="@*|*|text()"></xsl:apply-templates>
         </xsl:element>
