@@ -21,8 +21,12 @@
         <xsl:apply-templates select=".//front-stub//contrib-group | .//front//contrib-group"></xsl:apply-templates>
     </xsl:template>
     
+    <xsl:template match="front/contrib-group | front-stub/contrib-group" mode="modal-id"><xsl:value-of select="../../@id"/></xsl:template>
+    <xsl:template match="article-meta/contrib-group | sub-article[@article-type='translation']//contrib-group" mode="modal-id">    
+    </xsl:template>
+    
     <xsl:template match="article-meta/contrib-group | front/contrib-group | front-stub/contrib-group">
-        <xsl:variable name="id"><xsl:if test="../../@article-type!='translation'"><xsl:value-of select="../../@id"/></xsl:if></xsl:variable>
+        <xsl:variable name="id"><xsl:apply-templates select="." mode="modal-id"></xsl:apply-templates></xsl:variable>
         <div>
             <xsl:attribute name="class">contribGroup contribGroupAlignLeft</xsl:attribute>
             <xsl:apply-templates select="contrib" mode="article-meta-contrib"/>

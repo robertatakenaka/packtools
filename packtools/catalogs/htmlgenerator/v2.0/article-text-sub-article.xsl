@@ -5,22 +5,30 @@
     <xsl:template match="article" mode="article-text-sub-articles">
         <xsl:apply-templates select="response[@xml:lang=$TEXT_LANG] | sub-article[@xml:lang=$TEXT_LANG and @article-type!='translation']"></xsl:apply-templates>
     </xsl:template>
-
-    <!--xsl:template match="front-stub/aff | article/*/front/aff |front-stub/history | article/*/front/history ">        
+    
+    
+    <xsl:template match="sub-article[@article-type!='translation']//subject | response//subject">
     </xsl:template>
     
-    <xsl:template match="front-stub//subject | article/*/front//subject">
+    
+    <xsl:template match="sub-article[@article-type!='translation']//subject | response//subject">
+        <h2><xsl:apply-templates select="*|text()"></xsl:apply-templates></h2>
      </xsl:template>
-    <xsl:template match="front-stub//article-title | article/*/front//article-title">
+    
+    <xsl:template match="sub-article[@article-type!='translation']//article-title | response//article-title">
         <h2>
             <xsl:apply-templates select="*|text()"></xsl:apply-templates>
         </h2>
     </xsl:template>
-    <xsl:template match="front-stub//trans-title | article/*/front//trans-title">
-        <h3>
+    <xsl:template match="sub-article[@article-type!='translation']//trans-title | response//trans-title">
+        <h2>
             <xsl:apply-templates select="*|text()"></xsl:apply-templates>
-        </h3>
-    </xsl:template-->
+        </h2>
+    </xsl:template>
+    <xsl:template match="sub-article[@article-type!='translation']//aff | response//aff">
+    </xsl:template>
+    <xsl:template match="sub-article[@article-type!='translation']//history | response//history">
+    </xsl:template>
     
     <xsl:template match="sub-article[@article-type!='translation'] | response">
         <div class="articleSection">

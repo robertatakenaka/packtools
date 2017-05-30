@@ -94,6 +94,7 @@
                     <xsl:apply-templates select="." mode="article"/>
                     <xsl:apply-templates select="." mode="article-modals"/>
                 </div>
+                <xsl:if test="$graphic_elements_title!=''">
                 <ul class="floatingMenu fm-slidein" data-fm-toogle="hover">
                     <li class="fm-wrap">
                         <a href="javascript:;" class="fm-button-main">
@@ -109,7 +110,7 @@
                             	
                         </ul>
                     </li>
-                </ul>
+                </ul></xsl:if>
                 <xsl:comment> $q_abstract_title=<xsl:value-of select="$q_abstract_title"/></xsl:comment>
                 <xsl:comment> $q_abstract=<xsl:value-of select="$q_abstract"/></xsl:comment>
                 <xsl:comment> $q_front=<xsl:value-of select="$q_front"/></xsl:comment>
