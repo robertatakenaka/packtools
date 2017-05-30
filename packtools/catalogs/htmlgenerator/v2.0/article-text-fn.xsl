@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 col-sm-12">
+                <div class="col-md-12 col-sm-12 ref-list">
                     <ul class="refList footnote"> 
                         <xsl:comment> body note </xsl:comment>
                         <xsl:apply-templates select=".//*[(fn or fn-group) and name()!='table-wrap-foot']/*[contains(name(),'fn')]" mode="display-body-footnotes"></xsl:apply-templates>
@@ -60,18 +60,17 @@
     
     <xsl:template match="back/fn" mode="back-section-content">
         <div class="row">
-            <div class="col-md-12 col-sm-12">                
+            <div class="col-md-12 col-sm-12 ref-list">                
                 <ul class="refList footnote">
                     <xsl:apply-templates select="." mode="list-item"></xsl:apply-templates>
                 </ul>
             </div>
         </div>
-        
     </xsl:template>
     
     <xsl:template match="back/fn-group" mode="back-section-content">
         <div class="row">
-            <div class="col-md-12 col-sm-12">                
+            <div class="col-md-12 col-sm-12 ref-list">
                 <ul class="refList footnote">
                     <xsl:apply-templates select="*[name()!='title']|text()"></xsl:apply-templates>
                 </ul>
@@ -79,5 +78,10 @@
         </div>
     </xsl:template>
     
+    <xsl:template match="back/fn-group/fn">
+        <li>
+            <xsl:apply-templates select="*|text()"></xsl:apply-templates>
+        </li>
+    </xsl:template>
     
 </xsl:stylesheet>
