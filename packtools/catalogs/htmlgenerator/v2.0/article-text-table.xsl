@@ -22,10 +22,11 @@
         <xsl:attribute name="{name()}"><xsl:value-of select="."/></xsl:attribute>
     </xsl:template>
     <xsl:template match="table-wrap/table">
-        <xsl:element name="{name()}">
-            <xsl:attribute name="class">table</xsl:attribute>
-            <xsl:apply-templates select="*|text()"></xsl:apply-templates>
-        </xsl:element>
+        <div class="table table-hover">
+            <xsl:element name="{name()}">
+                <xsl:apply-templates select="@*|*|text()"></xsl:apply-templates>
+            </xsl:element>
+        </div>
     </xsl:template>
     <xsl:template match="table/* | table/*/* | table/*/*/*">
         <xsl:element name="{name()}">
