@@ -42,8 +42,7 @@
                     <xsl:otherwise>Abstract</xsl:otherwise>
                 </xsl:choose></xsl:with-param>
             </xsl:apply-templates></xsl:attribute>
-            <a name="articleSection0"></a>
-            <h1><xsl:apply-templates select="." mode="text-labels">
+            <h1 class="articleSectionTitle"><xsl:apply-templates select="." mode="text-labels">
                 <xsl:with-param name="text"><xsl:choose>
                     <xsl:when test="count(.//abstract)+count(.//trans-abstract) &gt; 1">Abstracts</xsl:when>
                     <xsl:otherwise>Abstract</xsl:otherwise>
@@ -61,32 +60,16 @@
         <xsl:variable name="lang" select="@xml:lang"/>
         
         <xsl:variable name="index"><xsl:apply-templates select="..//*[contains(name(),'abstract') and title]" mode="index"><xsl:with-param name="lang" select="$lang"></xsl:with-param></xsl:apply-templates></xsl:variable>
-        <xsl:if test="$q_abstract_title &gt; 0">
-           <a name="articleSection{$index - 1}"></a>
-        </xsl:if>
         
-        <div class="articleSection">
+        <div>
             <xsl:if test="@xml:lang='ar'">
                 <xsl:attribute name="dir">rtl</xsl:attribute>
             </xsl:if>
             <xsl:if test="title">
+                <xsl:attribute name="class">articleSection</xsl:attribute>
                 <xsl:attribute name="data-anchor"><xsl:apply-templates select="." mode="title"/></xsl:attribute>
-            </xsl:if>
-            <div class="row">
-                <a name="resumo-heading-01"></a>
-                <div class="col-md-8 col-sm-8">
-                    <h1>
-                        <xsl:choose>
-                            <xsl:when test="title">
-                                <xsl:apply-templates select="." mode="title"></xsl:apply-templates>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </h1>
-                </div>
-            </div>
+                    <h1 class="articleSectionTitle"><xsl:apply-templates select="." mode="title"></xsl:apply-templates></h1>
+            </xsl:if>           
             <xsl:apply-templates select="*[name()!='title']"/>
             <xsl:apply-templates select="../kwd-group[@xml:lang=$lang]" mode="keywords"></xsl:apply-templates>
             <xsl:if test="not(../kwd-group[@xml:lang=$lang])">

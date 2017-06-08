@@ -14,7 +14,6 @@
                 <xsl:otherwise><xsl:apply-templates select="body" mode="generated-label"/></xsl:otherwise>
             </xsl:choose></xsl:attribute>
             <!-- FIXME: body ou sub-article/body -->
-            <a name="articleSection{$q_front}"/>
             <xsl:choose>
                 <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG]">
                     <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG]//body/*"/>
@@ -48,7 +47,6 @@
                 <xsl:variable name="index"><xsl:apply-templates select="../../body" mode="index">
                     <xsl:with-param name="sectype"><xsl:value-of select="@sec-type"/></xsl:with-param>
                 </xsl:apply-templates></xsl:variable>
-                <a name="as{$q_front}-heading{$index}"/>
                 <xsl:apply-templates select="*|text()"/>
             </xsl:when>
             <xsl:otherwise>
@@ -76,7 +74,7 @@
     </xsl:template>
     
     <xsl:template match="body/sec[@sec-type]/title">
-        <h1 id="text-{../@sec-type}">
+        <h1 class="articleSectionTitle">
             <xsl:apply-templates select="*|text()"/>
         </h1>
     </xsl:template>

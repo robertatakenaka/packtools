@@ -7,10 +7,9 @@
             <xsl:attribute name="data-anchor"><xsl:apply-templates select="." mode="text-labels">
                 <xsl:with-param name="text">History</xsl:with-param>
                 </xsl:apply-templates></xsl:attribute>
-            <xsl:apply-templates select="." mode="generic-history-section"></xsl:apply-templates>
             <div class="row">
                 <div class="col-md-12 col-sm-12">
-                    <h1><xsl:apply-templates select="." mode="text-labels">
+                    <h1 class="articleSectionTitle"><xsl:apply-templates select="." mode="text-labels">
                         <xsl:with-param name="text">History</xsl:with-param>
                     </xsl:apply-templates></h1>
                 </div>
@@ -53,14 +52,6 @@
             </div>
         </div>
     </xsl:template-->
-    
-    <xsl:template match="article-meta" mode="generic-history-section">
-        <a name="articleSection{$q_front + $q_back + $q_body_fn + 1}"></a>
-    </xsl:template>
-
-    <xsl:template match="*[name()!='article']/front | front-stub" mode="generic-history-section">
-        <a name="articleSection{$q_front + $q_back + $q_body_fn + 3}"></a>
-    </xsl:template>
     
     <xsl:template match="article-meta" mode="generic-history-history-dates">
         <xsl:choose>
