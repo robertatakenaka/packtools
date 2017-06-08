@@ -160,44 +160,35 @@
         <section class="articleCtt">
             <div class="container">
                 <div class="articleTxt">
-                    <div class="row">
-                        <!--div>
-                            <xsl:attribute name="class">hidden-sm<xsl:if test=".//product//*[@xlink:href]"> articleFigure</xsl:if></xsl:attribute>
-                            <xsl:apply-templates select=".//product//*[@xlink:href]"/>
-                        </div-->
-                        <div class="col-md-10 col-md-offset-2 col-sm-12 col-sm-offset-0">
-                            <div class="articleBadge">
-                                <span><xsl:apply-templates select="." mode="article-meta-subject"/></span>
-                            </div>
-                           <div class="editionMeta">
-                                <span>
-                                    <xsl:apply-templates select="." mode="journal-meta-bibstrip-title"/>
-                                    <xsl:text> </xsl:text>
-                                    <xsl:apply-templates select="." mode="journal-meta-bibstrip-issue"/>
-                                    <!-- FIXME location -->
-                                    <xsl:apply-templates select="." mode="issue-meta-pub-dates"/>
-                                </span>
-                                <xsl:text> </xsl:text>
-                                <xsl:apply-templates select="." mode="journal-meta-issn"/>
-                            </div>
-                            <h1 class="article-title">
-                                <xsl:apply-templates select="." mode="article-meta-title"/>
-                            </h1>
-                            <div class="articleMeta">
-                                <div>
-                                    <!-- FIXME -->
-                                    <span>
-                                        <xsl:apply-templates select="." mode="article-meta-pub-dates"/></span>
-                                    <xsl:apply-templates select="." mode="article-meta-permissions"/>
-                                </div>
-                                <div>
-                                    <xsl:apply-templates select="." mode="article-meta-doi"/>
-
-                                </div>
-                            </div>
-                            <xsl:apply-templates select="." mode="article-meta-contrib"/>
+                    <div class="articleBadge">
+                        <span><xsl:apply-templates select="." mode="article-meta-subject"/></span>
+                    </div>
+                    <div class="editionMeta">
+                         <span>
+                             <xsl:apply-templates select="." mode="journal-meta-bibstrip-title"/>
+                             <xsl:text> </xsl:text>
+                             <xsl:apply-templates select="." mode="journal-meta-bibstrip-issue"/>
+                             <!-- FIXME location -->
+                             <xsl:apply-templates select="." mode="issue-meta-pub-dates"/>
+                         </span>
+                         <xsl:text> </xsl:text>
+                         <xsl:apply-templates select="." mode="journal-meta-issn"/>
+                    </div>
+                    <h1 class="article-title">
+                         <xsl:apply-templates select="." mode="article-meta-title"/>
+                    </h1>
+                    <div class="articleMeta">
+                        <div>
+                             <!-- FIXME -->
+                             <span>
+                                 <xsl:apply-templates select="." mode="article-meta-pub-dates"/></span>
+                             <xsl:apply-templates select="." mode="article-meta-permissions"/>
+                        </div>
+                        <div>
+                            <xsl:apply-templates select="." mode="article-meta-doi"/>
                         </div>
                     </div>
+                    <xsl:apply-templates select="." mode="article-meta-contrib"/>
                     <div class="row">
                         <ul class="col-md-2 hidden-sm articleMenu">
 
