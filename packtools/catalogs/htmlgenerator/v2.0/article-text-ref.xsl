@@ -12,13 +12,9 @@
                 <xsl:apply-templates select="*"></xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 ref-list">
                         <ul class="refList">
                             <xsl:apply-templates select="." mode="ref-items"></xsl:apply-templates>
                         </ul>
-                    </div>
-                </div>   
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>

@@ -64,23 +64,9 @@
     
     <xsl:variable name="q_abstract_title"><xsl:apply-templates select="article" mode="count_abstract_title"></xsl:apply-templates></xsl:variable>
     <xsl:variable name="q_abstract"><xsl:apply-templates select="article" mode="count_abstracts"></xsl:apply-templates></xsl:variable>
-    <xsl:variable name="q_front"><xsl:choose>
-        <xsl:when test="$q_abstract_title=0"><xsl:value-of select="$q_abstract"/></xsl:when>
-        <xsl:otherwise><xsl:value-of select="$q_abstract_title"/></xsl:otherwise>
-    </xsl:choose></xsl:variable>
-    <xsl:variable name="q_back"><xsl:apply-templates select="article" mode="count_back_elements"></xsl:apply-templates></xsl:variable>
-    <xsl:variable name="q_body_fn">0<!--xsl:apply-templates select="article" mode="count_body_fn"></xsl:apply-templates--></xsl:variable>
-    <xsl:variable name="q_history"><xsl:apply-templates select="article" mode="count_history"/></xsl:variable>
-    <xsl:variable name="q_subarticle"><xsl:apply-templates select="article" mode="count_subarticle"></xsl:apply-templates></xsl:variable>
-    
-    <xsl:template match="/">
-        <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-        <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-        <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-        <!--[if gt IE 8]><!-->
+     <xsl:template match="/">
         <html class="no-js">
-            <!--<![endif]-->
-            <head>
+             <head>
                 <meta charset="utf-8"/>
                 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
                 <xsl:apply-templates select="." mode="html-head-title"/>
@@ -111,13 +97,6 @@
                         </ul>
                     </li>
                 </ul></xsl:if>
-                <xsl:comment> $q_abstract_title=<xsl:value-of select="$q_abstract_title"/></xsl:comment>
-                <xsl:comment> $q_abstract=<xsl:value-of select="$q_abstract"/></xsl:comment>
-                <xsl:comment> $q_front=<xsl:value-of select="$q_front"/></xsl:comment>
-                <xsl:comment> $q_back=<xsl:value-of select="$q_back"/></xsl:comment>
-                <xsl:comment> $q_body_fn=<xsl:value-of select="$q_body_fn"/></xsl:comment>
-                <xsl:comment> $q_history=<xsl:value-of select="$q_history"/></xsl:comment>
-                <xsl:comment> $q_subarticle=<xsl:value-of select="$q_subarticle"/></xsl:comment>
                 
                 <xsl:apply-templates select="." mode="js"/>
             </body>

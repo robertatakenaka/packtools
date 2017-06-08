@@ -42,31 +42,15 @@
     </xsl:template>
     
     <xsl:template match="*" mode="back-section">
-        <xsl:comment> <xsl:value-of select="name()"/>, mode="back-section" </xsl:comment>
-        <xsl:comment> title//text()=<xsl:apply-templates select="title//text()"/> </xsl:comment>
-        <xsl:comment> title=<xsl:value-of select="title"/> </xsl:comment>
-        
-        <xsl:variable name="index"><xsl:if test="title"><xsl:apply-templates select="../../back" mode="index">
-            <xsl:with-param name="title"><xsl:value-of select="title"/></xsl:with-param>
-        </xsl:apply-templates></xsl:if></xsl:variable>
-        <xsl:comment> index: <xsl:value-of select="$index"/> </xsl:comment>
-        <xsl:if test="$index!=''">
-            <a name="articleSection{$q_front+number($index)}"/>
-        </xsl:if>
-        
-        <div class="articleSection">
+        <div>
             <xsl:if test="title">
+                <xsl:attribute name="class">articleSection</xsl:attribute>
                 <xsl:attribute name="data-anchor"><xsl:apply-templates select="." mode="title"></xsl:apply-templates></xsl:attribute>    
+              <h1>
+                <xsl:attribute name="class">articleSectionTitle</xsl:attribute>
+                <xsl:apply-templates select="." mode="title"></xsl:apply-templates>    
+            </h1>
             </xsl:if>
-            <div class="row">
-                <div class="col-md-12 col-sm-12">                    
-                    <h1>
-                        <xsl:if test="title">
-                            <xsl:apply-templates select="." mode="title"></xsl:apply-templates>    
-                        </xsl:if>
-                    </h1>
-                </div>
-            </div>
             <xsl:apply-templates select="." mode="back-section-content"></xsl:apply-templates>
         </div>
     </xsl:template>

@@ -12,7 +12,7 @@
     
     
     <xsl:template match="sub-article[@article-type!='translation']//subject | response//subject">
-        <h2><xsl:apply-templates select="*|text()"></xsl:apply-templates></h2>
+        <h1 class="articleSectionTitle"><xsl:apply-templates select="*|text()"></xsl:apply-templates></h1>
      </xsl:template>
     
     <xsl:template match="sub-article[@article-type!='translation']//article-title | response//article-title">
@@ -35,7 +35,6 @@
             <xsl:attribute name="data-anchor"><xsl:apply-templates select="." mode="text-labels">
                 <xsl:with-param name="text" select="concat(@article-type,@response-type)"/>
             </xsl:apply-templates></xsl:attribute>
-            <a name="articleSection{$q_front + $q_back + $q_body_fn + 1 + position()}"/>
             <xsl:apply-templates select="*|text()"></xsl:apply-templates>      
         </div>
         <xsl:apply-templates select="front-stub | front" mode="generic-history"></xsl:apply-templates>
