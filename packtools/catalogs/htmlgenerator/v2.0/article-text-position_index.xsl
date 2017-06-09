@@ -8,7 +8,7 @@
                 <xsl:apply-templates select=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]" mode="count_abstract_title"></xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="count(.//article-meta//abstract[title])+count(.//article-meta//trans-abstract[title])"/>
+                <xsl:value-of select="count(front/article-meta//abstract[title])+count(front/article-meta//trans-abstract[title])"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -19,7 +19,7 @@
     <xsl:template match="article" mode="count_abstracts">
         <xsl:choose>
             <xsl:when test=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]//abstract">1</xsl:when>
-            <xsl:when test=".//article-meta//abstract">1</xsl:when>
+            <xsl:when test="front/article-meta//abstract">1</xsl:when>
             <xsl:otherwise>0</xsl:otherwise>
         </xsl:choose>
     </xsl:template>

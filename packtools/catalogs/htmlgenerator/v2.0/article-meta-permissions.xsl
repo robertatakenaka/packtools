@@ -4,17 +4,17 @@
     version="1.0">
     <xsl:template match="article" mode="article-meta-permissions">
         <xsl:choose>
-            <xsl:when test=".//article-meta//license[@xml:lang=$TEXT_LANG]">
-                <xsl:apply-templates select=".//article-meta//license[@xml:lang=$TEXT_LANG]"></xsl:apply-templates>
+            <xsl:when test="front/article-meta//license[@xml:lang=$TEXT_LANG]">
+                <xsl:apply-templates select="front/article-meta//license[@xml:lang=$TEXT_LANG]"></xsl:apply-templates>
             </xsl:when>
-            <xsl:when test=".//article-meta//license[@xml:lang='en']">
-                <xsl:apply-templates select=".//article-meta//license[@xml:lang='en']"></xsl:apply-templates>
+            <xsl:when test="front/article-meta//license[@xml:lang='en']">
+                <xsl:apply-templates select="front/article-meta//license[@xml:lang='en']"></xsl:apply-templates>
             </xsl:when>
-            <xsl:when test=".//article-meta//license">
-                <xsl:apply-templates select=".//article-meta//license[1]"></xsl:apply-templates>
+            <xsl:when test="front/article-meta//license">
+                <xsl:apply-templates select="front/article-meta//license[1]"></xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select=".//article-meta//permissions"></xsl:apply-templates>
+                <xsl:apply-templates select="front/article-meta//permissions"></xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>        
     </xsl:template>

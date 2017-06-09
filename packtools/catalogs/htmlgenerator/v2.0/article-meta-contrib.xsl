@@ -3,7 +3,7 @@
     <xsl:template match="article" mode="article-meta-contrib">
         <xsl:choose>
             <xsl:when
-                test=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]//front-stub//contrib-group">
+                test=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]//contrib-group">
                 <xsl:apply-templates
                     select=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]" mode="contrib-group"/>
             </xsl:when>
@@ -14,7 +14,7 @@
     </xsl:template>
     
     <xsl:template match="article" mode="contrib-group">
-        <xsl:apply-templates select=".//article-meta//contrib-group"/>
+        <xsl:apply-templates select="front/article-meta//contrib-group"/>
     </xsl:template>
     
     <xsl:template match="sub-article" mode="contrib-group">
@@ -55,7 +55,6 @@
                 <span>
                     <xsl:apply-templates select="name|collab|on-behalf-of"/>
                 </span>
-                
             </a>
             <xsl:apply-templates select="." mode="contrib-dropdown-menu">
                 <xsl:with-param name="id">

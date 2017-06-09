@@ -2,18 +2,14 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     version="1.0">
     
-    <xsl:template match="article-meta | front-stub | *[name()!='article']/front" mode="generic-history">
-        <div class="articleSection">
+    <xsl:template match="article-meta | sub-article | response" mode="generic-history">
+       <div class="articleSection">
             <xsl:attribute name="data-anchor"><xsl:apply-templates select="." mode="text-labels">
                 <xsl:with-param name="text">History</xsl:with-param>
-                </xsl:apply-templates></xsl:attribute>
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <h1 class="articleSectionTitle"><xsl:apply-templates select="." mode="text-labels">
-                        <xsl:with-param name="text">History</xsl:with-param>
-                    </xsl:apply-templates></h1>
-                </div>
-            </div>
+            </xsl:apply-templates></xsl:attribute>
+            <h1 class="articleSectionTitle"><xsl:apply-templates select="." mode="text-labels">
+                <xsl:with-param name="text">History</xsl:with-param>
+            </xsl:apply-templates></h1>
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <ul class="articleTimeline">
@@ -64,35 +60,42 @@
         </xsl:choose>
     </xsl:template>
     
-    <xsl:template match="*[name()!='article']/front | front-stub" mode="generic-history-history-dates">
-        <xsl:apply-templates select="history/date" mode="generic-history-list-item"></xsl:apply-templates>
+    <xsl:template match="sub-article | response" mode="generic-history-history-dates">
+        <xsl:apply-templates select=".//history/date" mode="generic-history-list-item"></xsl:apply-templates>
     </xsl:template>
     
     <xsl:template match="history/date" mode="generic-history-list-item">
         <li><strong><xsl:apply-templates select="." mode="generated-label"></xsl:apply-templates></strong><br/> <xsl:apply-templates select="."></xsl:apply-templates></li>
     </xsl:template>
     
-    <xsl:template match="article-meta | *[name()!='article']/front | front-stub" mode="generic-history-epub-date">
-        <xsl:choose>
-            <xsl:when test="pub-date[@pub-type='epub']">
-                <li>
-                    <strong>
-                        <xsl:apply-templates select="." mode="text-labels">
-                            <xsl:with-param name="text">Online publication</xsl:with-param>
-                        </xsl:apply-templates>
-                    </strong><br/> 
-                    <xsl:apply-templates select="pub-date[@pub-type='epub']"></xsl:apply-templates>
-                </li>
-            </xsl:when>
-            <xsl:when test="name()!='article-meta'">
-                <xsl:apply-templates select="$article//article-meta" mode="generic-history-epub-date"></xsl:apply-templates>
-            </xsl:when>
-        </xsl:choose>
+    <xsl:template match="article-meta " mode="generic-history-epub-date">
+        <xsl:if test="pub-date[@pub-type='epub']">
+            <li>
+                <strong>
+                    <xsl:apply-templates select="." mode="text-labels">
+                        <xsl:with-param name="text">Online publication</xsl:with-param>
+                    </xsl:apply-templates>
+                </strong><br/> 
+                <xsl:apply-templates select="pub-date[@pub-type='epub']"></xsl:apply-templates>
+            </li>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template match="sub-article | response" mode="generic-history-epub-date">
+        <xsl:if test=".//pub-date[@pub-type='epub']">
+            <li>
+                <strong>
+                    <xsl:apply-templates select="." mode="text-labels">
+                        <xsl:with-param name="text">Online publication</xsl:with-param>
+                    </xsl:apply-templates>
+                </strong><br/> 
+                <xsl:apply-templates select=".//pub-date[@pub-type='epub']"></xsl:apply-templates>
+            </li>
+        </xsl:if>
     </xsl:template>
     
-    <xsl:template match="article-meta | *[name()!='article']/front | front-stub" mode="generic-history-publication-date">
-        <xsl:choose>
-            <xsl:when test="pub-date[@pub-type='epub-ppub'] or pub-date[@pub-type='ppub'] or pub-date[@pub-type='collection']">
+    <xsl:template match="article-meta" mode="generic-history-publication-date">
+        <xsl:if test="pub-date[@pub-type='epub-ppub'] or pub-date[@pub-type='ppub'] or pub-date[@pub-type='collection']">
                 <li><strong>
                     <xsl:apply-templates select="." mode="text-labels">
                         <xsl:with-param name="text"><xsl:choose>
@@ -112,12 +115,31 @@
                         </xsl:when>
                     </xsl:choose>
                 </li>
-            </xsl:when>
-            <xsl:when test="name()!='article-meta'">
-                <xsl:apply-templates select="$article//article-meta" mode="generic-history-publication-date"></xsl:apply-templates>
-            </xsl:when>
-        </xsl:choose>
-        
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="sub-article | response" mode="generic-history-publication-date">
+        <xsl:if test=".//pub-date[@pub-type='epub-ppub'] or .//pub-date[@pub-type='ppub'] or .//pub-date[@pub-type='collection']">
+                <li><strong>
+                    <xsl:apply-templates select="." mode="text-labels">
+                        <xsl:with-param name="text"><xsl:choose>
+                            <xsl:when test=".//pub-date[@pub-type='epub-ppub']">Publication</xsl:when>
+                            <xsl:otherwise>Issue publication</xsl:otherwise>
+                        </xsl:choose></xsl:with-param>
+                    </xsl:apply-templates></strong><br/> 
+                    <xsl:choose>
+                        <xsl:when test=".//pub-date[@pub-type='epub-ppub']">
+                            <xsl:apply-templates select=".//pub-date[@pub-type='epub-ppub']"></xsl:apply-templates>             
+                        </xsl:when>
+                        <xsl:when test=".//pub-date[@pub-type='collection']">
+                            <xsl:apply-templates select=".//pub-date[@pub-type='collection']"></xsl:apply-templates>             
+                        </xsl:when>
+                        <xsl:when test=".//pub-date[@pub-type='ppub']">
+                            <xsl:apply-templates select=".//pub-date[@pub-type='ppub']"></xsl:apply-templates>             
+                        </xsl:when>
+                    </xsl:choose>
+                </li>
+        </xsl:if>
     </xsl:template>
     
     <xsl:template match="*" mode="generic-history-errata-date">

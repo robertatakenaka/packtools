@@ -16,7 +16,7 @@
                     select=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]" mode="modal-contrib"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select=".//article-meta" mode="modal-contrib"></xsl:apply-templates>
+                <xsl:apply-templates select="front/article-meta" mode="modal-contrib"></xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
         <xsl:apply-templates select=".//sub-article[@article-type!='translation' and  @xml:lang=$TEXT_LANG]| .//response[@xml:lang=$TEXT_LANG]" mode="modal-contrib"></xsl:apply-templates>            

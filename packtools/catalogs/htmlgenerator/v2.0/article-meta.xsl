@@ -11,7 +11,7 @@
                 <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//subject" mode="display"></xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select=".//article-meta//subject"></xsl:apply-templates>
+                <xsl:apply-templates select="front/article-meta//subject"></xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -21,16 +21,16 @@
             <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
                 <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']/*/title-group/article-title"></xsl:apply-templates>
             </xsl:when>
-            <xsl:when test=".//article-meta//trans-title-group[@xml:lang=$TEXT_LANG]/trans-title">
-                <xsl:apply-templates select=".//article-meta//trans-title-group[@xml:lang=$TEXT_LANG]/trans-title"></xsl:apply-templates>
+            <xsl:when test="front/article-meta//trans-title-group[@xml:lang=$TEXT_LANG]/trans-title">
+                <xsl:apply-templates select="front/article-meta//trans-title-group[@xml:lang=$TEXT_LANG]/trans-title"></xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select=".//article-meta//article-title"></xsl:apply-templates>
+                <xsl:apply-templates select="front/article-meta//article-title"></xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="*" mode="article-meta-doi">
-        <xsl:apply-templates select=".//article-meta//article-id[@pub-id-type='doi']" mode="display"></xsl:apply-templates>        
+        <xsl:apply-templates select="front/article-meta//article-id[@pub-id-type='doi']" mode="display"></xsl:apply-templates>        
     </xsl:template>
    
     <xsl:template match="article-id[@pub-id-type='doi']" mode="display">
@@ -48,33 +48,33 @@
     <xsl:template match="article" mode="issue-meta-pub-dates">
         
         <xsl:choose>
-            <xsl:when test=".//article-meta/pub-date[@pub-type='collection']">
-                <xsl:apply-templates  select=".//article-meta/pub-date[@pub-type='collection']"></xsl:apply-templates>
+            <xsl:when test="front/article-meta/pub-date[@pub-type='collection']">
+                <xsl:apply-templates  select="front/article-meta/pub-date[@pub-type='collection']"></xsl:apply-templates>
             </xsl:when>
-            <xsl:when test=".//article-meta/pub-date[@pub-type='ppub']">
-                <xsl:apply-templates  select=".//article-meta/pub-date[@pub-type='ppub']"></xsl:apply-templates>
+            <xsl:when test="front/article-meta/pub-date[@pub-type='ppub']">
+                <xsl:apply-templates  select="front/article-meta/pub-date[@pub-type='ppub']"></xsl:apply-templates>
             </xsl:when>
-            <xsl:when test=".//article-meta/pub-date[@pub-type='ppub-epub']">
-                <xsl:apply-templates  select=".//article-meta/pub-date[@pub-type='ppub-epub']"></xsl:apply-templates>
+            <xsl:when test="front/article-meta/pub-date[@pub-type='ppub-epub']">
+                <xsl:apply-templates  select="front/article-meta/pub-date[@pub-type='ppub-epub']"></xsl:apply-templates>
             </xsl:when>
-            <xsl:when test=".//article-meta/pub-date[@pub-type='epub-ppub']">
-                <xsl:apply-templates  select=".//article-meta/pub-date[@pub-type='epub-ppub']"></xsl:apply-templates>
+            <xsl:when test="front/article-meta/pub-date[@pub-type='epub-ppub']">
+                <xsl:apply-templates  select="front/article-meta/pub-date[@pub-type='epub-ppub']"></xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates  select=".//article-meta/pub-date"></xsl:apply-templates>
+                <xsl:apply-templates  select="front/article-meta/pub-date"></xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     
     <xsl:template match="article" mode="article-meta-pub-dates">
-        <xsl:apply-templates select=".//article-meta/pub-date[1]" mode="generated-label"></xsl:apply-templates>&#160;
+        <xsl:apply-templates select="front/article-meta/pub-date[1]" mode="generated-label"></xsl:apply-templates>&#160;
         
         <xsl:choose>
-            <xsl:when test=".//article-meta/pub-date[@pub-type='epub']">
-                <xsl:apply-templates  select=".//article-meta/pub-date[@pub-type='epub']"></xsl:apply-templates>
+            <xsl:when test="front/article-meta/pub-date[@pub-type='epub']">
+                <xsl:apply-templates  select="front/article-meta/pub-date[@pub-type='epub']"></xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates  select=".//article-meta/pub-date"></xsl:apply-templates>
+                <xsl:apply-templates  select="front/article-meta/pub-date"></xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
