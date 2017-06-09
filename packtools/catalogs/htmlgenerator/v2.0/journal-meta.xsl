@@ -3,22 +3,22 @@
     version="1.0">
     
     <xsl:template match="article" mode="journal-meta-bibstrip-title">
-        <xsl:apply-templates select=".//journal-meta//abbrev-journal-title"></xsl:apply-templates>
+        <xsl:apply-templates select="front/journal-meta//abbrev-journal-title"></xsl:apply-templates>
     </xsl:template>
     
     <xsl:template match="article" mode="journal-meta-bibstrip-issue">
-        <xsl:if test=".//article-meta">
-            <xsl:if test=".//article-meta/volume!='00'">
-                <xsl:apply-templates select=".//article-meta/volume"/>
+        <xsl:if test="front/article-meta">
+            <xsl:if test="front/article-meta/volume!='00'">
+                <xsl:apply-templates select="front/article-meta/volume"/>
             </xsl:if><xsl:text> </xsl:text>
-            <xsl:if test=".//article-meta/issue!='00'">
-                (<xsl:apply-templates select=".//article-meta/issue"/>)
+            <xsl:if test="front/article-meta/issue!='00'">
+                (<xsl:apply-templates select="front/article-meta/issue"/>)
             </xsl:if>
         </xsl:if>
     </xsl:template>
     
     <xsl:template match="article" mode="journal-meta-issn">
-        <xsl:apply-templates select=".//journal-meta//issn">
+        <xsl:apply-templates select="front/article-meta//issn">
             <xsl:sort select="@pub-type"/>
         </xsl:apply-templates>
     </xsl:template>

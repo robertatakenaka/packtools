@@ -180,7 +180,7 @@
                             <xsl:apply-templates select="." mode="article-meta-no-abstract-keywords"></xsl:apply-templates>
                             <xsl:apply-templates select="." mode="text-back"></xsl:apply-templates>
                             <xsl:apply-templates select="." mode="text-fn"></xsl:apply-templates>
-                            <xsl:apply-templates select=".//article-meta" mode="generic-history"/>
+                            <xsl:apply-templates select="front/article-meta" mode="generic-history"/>
                             <xsl:apply-templates select="." mode="article-text-sub-articles"></xsl:apply-templates>
                         </article>
                     </div>

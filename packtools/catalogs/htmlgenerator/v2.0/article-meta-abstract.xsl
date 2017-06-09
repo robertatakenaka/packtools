@@ -6,11 +6,11 @@
             <xsl:when test=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]//abstract">
                 <xsl:apply-templates select=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]" mode="article-meta-abstract"></xsl:apply-templates>
             </xsl:when>
-            <xsl:when test=".//article-meta//abstract">
+            <xsl:when test="front/article-meta//abstract">
                 <xsl:if test="$q_abstract_title=0">
                     <xsl:apply-templates select="." mode="abstract-anchor"></xsl:apply-templates>
                 </xsl:if>
-                <xsl:apply-templates select=".//article-meta//abstract|.//article-meta//trans-abstract" mode="layout"></xsl:apply-templates>
+                <xsl:apply-templates select="front/article-meta//abstract|front/article-meta//trans-abstract" mode="layout"></xsl:apply-templates>
             </xsl:when>
         </xsl:choose>
     </xsl:template>
@@ -21,8 +21,8 @@
                 <xsl:when test=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]//kwd-group">
                     <xsl:apply-templates select=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]//kwd-group" mode="keywords"/>
                 </xsl:when>
-                <xsl:when test=".//article-meta//kwd-group">
-                    <xsl:apply-templates select=".//article-meta//kwd-group" mode="keywords"/>
+                <xsl:when test="front/article-meta//kwd-group">
+                    <xsl:apply-templates select="front/article-meta//kwd-group" mode="keywords"/>
                 </xsl:when>
             </xsl:choose>
         </xsl:if>

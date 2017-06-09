@@ -3,7 +3,7 @@
 	xmlns:xlink="http://www.w3.org/1999/xlink" 
     version="1.0">
 	<xsl:template match="article" mode="article-meta-product">
-		<xsl:apply-templates select=".//article-meta//product"></xsl:apply-templates>
+		<xsl:apply-templates select="front/article-meta//product"></xsl:apply-templates>
 	</xsl:template>
 	
 	<xsl:template match="article-meta/product">

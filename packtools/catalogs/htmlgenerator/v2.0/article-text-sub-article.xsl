@@ -37,7 +37,7 @@
             </xsl:apply-templates></xsl:attribute>
             <xsl:apply-templates select="*|text()"></xsl:apply-templates>      
         </div>
-        <xsl:apply-templates select="front-stub | front" mode="generic-history"></xsl:apply-templates>
+        <xsl:apply-templates select="." mode="generic-history"></xsl:apply-templates>
     </xsl:template>
 
 </xsl:stylesheet>
