@@ -26,7 +26,7 @@
         <xsl:comment> <xsl:value-of select="$s"> </xsl:value-of></xsl:comment>
     </xsl:template>
 
-    <xsl:template match="@xlink:href">
+    <xsl:template match="graphic/@xlink:href | inline-graphic/@xlink:href">
         <xsl:variable name="s"><xsl:value-of select="substring(.,string-length(.)-4)"/></xsl:variable>
         <xsl:variable name="ext"><xsl:if test="contains($s,'.')">.<xsl:value-of select="substring-after($s,'.')"/></xsl:if></xsl:variable>
         <xsl:choose>

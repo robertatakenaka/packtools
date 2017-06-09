@@ -21,7 +21,8 @@
     <xsl:include href="article-meta-contrib.xsl"/>
     <xsl:include href="article-meta-abstract.xsl"/>
     <xsl:include href="article-meta-product.xsl"/>
-
+    <xsl:include href="article-meta-related-article.xsl"/>
+    
     <xsl:include href="generic-history.xsl"/>
 
     <xsl:include href="article-text-position_index.xsl"/>
@@ -153,6 +154,7 @@
                          <xsl:text> </xsl:text>
                          <xsl:apply-templates select="." mode="journal-meta-issn"/>
                     </div>
+                    <xsl:apply-templates select="." mode="article-meta-related-article"></xsl:apply-templates>
                     <h1 class="article-title">
                          <xsl:apply-templates select="." mode="article-meta-title"/>
                     </h1>

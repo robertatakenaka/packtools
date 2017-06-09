@@ -273,5 +273,11 @@
         <name lang="pt">Fórmulas</name>
         <name lang="es">Fórmulas</name>
     </term>
+    <term>
+        <name>This erratum corrects</name>
+        <name lang="en">This erratum corrects</name>
+        <name lang="pt">Esta errata corrige</name>
+        <name lang="es">Esta errata corrige</name>
+    </term>
     
 </labels>
