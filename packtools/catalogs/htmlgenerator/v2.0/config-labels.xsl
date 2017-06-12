@@ -118,10 +118,16 @@
         <xsl:if test="label and caption"> &#160; </xsl:if>
         <xsl:apply-templates select="caption"/>
     </xsl:template>
-
-    <xsl:template match="*" mode="label-caption-thumb">
-        <strong><xsl:apply-templates select="label"/></strong><br/>
-        <xsl:apply-templates select="caption"/>
+    
+    <xsl:template match="*[label or caption]" mode="label-caption-thumb">
+        <strong><xsl:apply-templates select="label" mode="label-caption-thumb"/></strong><br/>
+        <xsl:apply-templates select="caption" mode="label-caption-thumb"/>
+    </xsl:template>
+    
+    <xsl:template match="label|caption| *" mode="label-caption-thumb">
+        <xsl:apply-templates select="*|text()" mode="label-caption-thumb"></xsl:apply-templates>
+    </xsl:template>
+    <xsl:template match="xref" mode="label-caption-thumb">
     </xsl:template>
     
     <xsl:template match="fn" mode="label">

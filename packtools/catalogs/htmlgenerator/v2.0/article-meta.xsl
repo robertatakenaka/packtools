@@ -19,16 +19,22 @@
     <xsl:template match="article" mode="article-meta-title">
         <xsl:choose>
             <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']/*/title-group/article-title"></xsl:apply-templates>
+                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//*/title-group/article-title"></xsl:apply-templates>
             </xsl:when>
             <xsl:when test="front/article-meta//trans-title-group[@xml:lang=$TEXT_LANG]/trans-title">
                 <xsl:apply-templates select="front/article-meta//trans-title-group[@xml:lang=$TEXT_LANG]/trans-title"></xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:apply-templates select="front/article-meta//article-title"></xsl:apply-templates>
+                <xsl:apply-templates select="front/article-meta//trans-title-group//trans-title" mode="translation"></xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
+    <xsl:template match="trans-title" mode="translation">
+        <h2 class="article-title" style="text-align: center"><xsl:apply-templates select="*|text()"></xsl:apply-templates></h2>
+    </xsl:template>
+    
     <xsl:template match="*" mode="article-meta-doi">
         <xsl:apply-templates select="front/article-meta//article-id[@pub-id-type='doi']" mode="display"></xsl:apply-templates>        
     </xsl:template>
