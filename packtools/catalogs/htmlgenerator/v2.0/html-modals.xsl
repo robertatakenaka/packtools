@@ -200,7 +200,7 @@
     
     <xsl:template match="table-wrap" mode="modal-all-item-info">
         <div class="col-md-8">
-            <xsl:apply-templates select="label | caption"></xsl:apply-templates>
+            <xsl:apply-templates select="." mode="label-caption-thumb"></xsl:apply-templates>
         </div>
     </xsl:template>
     

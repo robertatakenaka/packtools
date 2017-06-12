@@ -27,7 +27,7 @@
     </xsl:template>
     
     <xsl:template match="article-meta | front | front-stub" mode="modal-contrib">
-        <xsl:if test=".//contrib[*]">
+        <xsl:if test=".//contrib or .//author-notes">
             <xsl:variable name="id"><xsl:apply-templates select="." mode="modal-id"></xsl:apply-templates></xsl:variable>
             <div class="modal fade ModalDefault" id="ModalTutors{$id}" tabindex="-1" role="dialog" aria-hidden="true">            
                 
@@ -44,6 +44,9 @@
                     <div class="modal-body">
                         <div class="info">
                             <xsl:apply-templates select=".//contrib" mode="modal-contrib"></xsl:apply-templates>
+                            <xsl:if test="not(.//contrib) and ../@article-type='translation'">
+                                <xsl:apply-templates select="$article//article-meta//contrib" mode="modal-contrib"></xsl:apply-templates>
+                            </xsl:if>
                         </div>
                         <xsl:apply-templates select=".//author-notes" mode="modal-contrib"></xsl:apply-templates>
                     </div>
