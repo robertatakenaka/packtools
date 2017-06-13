@@ -12,22 +12,15 @@
             </xsl:when>
         </xsl:choose>            
     </xsl:template>
+    
     <xsl:template match="body" mode="text-fn">
         <div class="articleSection">
-            <!--xsl:attribute name="data-anchor"><xsl:apply-templates select="." mode="title"/></xsl:attribute-->
-            <!--a name="articleSection{$q_front + $q_back + 1}"></a-->
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <h1><!--xsl:apply-templates select="." mode="title"/--></h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-sm-12 ref-list">
-                    <ul class="refList footnote"> 
-                        <xsl:comment> body note </xsl:comment>
-                        <xsl:apply-templates select=".//*[(fn or fn-group) and name()!='table-wrap-foot']/*[contains(name(),'fn')]" mode="display-body-footnotes"></xsl:apply-templates>
-                    </ul>
-                </div>
+            <h2></h2>
+            <div class="ref-list">
+                <ul class="refList footnote"> 
+                    <xsl:comment> body note </xsl:comment>
+                    <xsl:apply-templates select=".//*[(fn or fn-group) and name()!='table-wrap-foot']/*[contains(name(),'fn')]" mode="display-body-footnotes"></xsl:apply-templates>
+                </ul>
             </div>
         </div>        
     </xsl:template>
@@ -59,8 +52,9 @@
     </xsl:template>
     
     <xsl:template match="back/fn" mode="back-section-content">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 ref-list">                
+        <div class="articleSection">
+            <div class="ref-list">                
+                <h2><xsl:apply-templates select="title"></xsl:apply-templates></h2>
                 <ul class="refList footnote">
                     <xsl:apply-templates select="." mode="list-item"></xsl:apply-templates>
                 </ul>
@@ -69,8 +63,9 @@
     </xsl:template>
     
     <xsl:template match="back/fn-group" mode="back-section-content">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 ref-list">
+        <div class="articleSection">
+            <div class="ref-list">
+                <h2><xsl:apply-templates select="title"></xsl:apply-templates></h2>
                 <ul class="refList footnote">
                     <xsl:apply-templates select="*[name()!='title']|text()"></xsl:apply-templates>
                 </ul>
@@ -82,6 +77,14 @@
         <li>
             <xsl:apply-templates select="*|text()"></xsl:apply-templates>
         </li>
+    </xsl:template>
+    
+    <xsl:template match="fn/title | fn-group/title">
+        <xsl:apply-templates select="*|text()"></xsl:apply-templates>
+    </xsl:template>
+    
+    <xsl:template match="fn-group/fn/title">
+        <h2><xsl:apply-templates select="*|text()"></xsl:apply-templates></h2>        
     </xsl:template>
     
 </xsl:stylesheet>

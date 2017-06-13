@@ -42,15 +42,16 @@
     </xsl:template>
     
     <xsl:template match="*" mode="back-section">
-        <div>
+        <div class="articleSection">
             <xsl:if test="title">
-                <xsl:attribute name="class">articleSection</xsl:attribute>
                 <xsl:attribute name="data-anchor"><xsl:apply-templates select="." mode="title"></xsl:apply-templates></xsl:attribute>    
-              <h1>
-                <xsl:attribute name="class">articleSectionTitle</xsl:attribute>
+            </xsl:if>
+            <h1>
+                <xsl:if test="title">
+                    <xsl:attribute name="class">articleSectionTitle</xsl:attribute>
+                </xsl:if>
                 <xsl:apply-templates select="." mode="title"></xsl:apply-templates>    
             </h1>
-            </xsl:if>
             <xsl:apply-templates select="." mode="back-section-content"></xsl:apply-templates>
         </div>
     </xsl:template>

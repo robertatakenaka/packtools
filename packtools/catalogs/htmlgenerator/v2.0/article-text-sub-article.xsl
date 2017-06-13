@@ -16,14 +16,14 @@
      </xsl:template>
     
     <xsl:template match="sub-article[@article-type!='translation']//article-title | response//article-title">
-        <h2>
+        <h1 class="article-title">
             <xsl:apply-templates select="*|text()"></xsl:apply-templates>
-        </h2>
+        </h1>
     </xsl:template>
     <xsl:template match="sub-article[@article-type!='translation']//trans-title | response//trans-title">
-        <h2>
+        <h1 class="article-title">
             <xsl:apply-templates select="*|text()"></xsl:apply-templates>
-        </h2>
+        </h1>
     </xsl:template>
     <xsl:template match="sub-article[@article-type!='translation']//aff | response//aff">
     </xsl:template>
