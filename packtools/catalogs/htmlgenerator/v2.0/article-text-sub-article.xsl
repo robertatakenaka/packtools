@@ -34,10 +34,14 @@
         <div class="articleSection">
             <xsl:attribute name="data-anchor"><xsl:apply-templates select="." mode="text-labels">
                 <xsl:with-param name="text" select="concat(@article-type,@response-type)"/>
-            </xsl:apply-templates></xsl:attribute>
-            <xsl:apply-templates select="*|text()"></xsl:apply-templates>      
+            </xsl:apply-templates></xsl:attribute> 
         </div>
-        <xsl:apply-templates select="." mode="generic-history"></xsl:apply-templates>
+        <xsl:apply-templates select="*|text()"></xsl:apply-templates>
+        <xsl:apply-templates select="." mode="generic-history"></xsl:apply-templates>    
+    </xsl:template>
+    
+    <xsl:template match="sub-article[@article-type!='translation']/back | response/back">
+        <xsl:apply-templates select="*" mode="back-section"></xsl:apply-templates>
     </xsl:template>
 
 </xsl:stylesheet>

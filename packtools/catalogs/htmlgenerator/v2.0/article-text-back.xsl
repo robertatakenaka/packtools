@@ -6,9 +6,9 @@
 
     <xsl:template match="article" mode="text-back">
         <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG]">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG]/back/*" mode="back"/>
-                <xsl:if test="count(.//sub-article[@xml:lang=$TEXT_LANG]/back/*) &lt; $REFLIST_POSITION">
+            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
+                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']/back/*" mode="back"/>
+                <xsl:if test="count(.//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']/back/*) &lt; $REFLIST_POSITION">
                     <xsl:comment> ref-list inserted </xsl:comment>
                     <xsl:apply-templates select="$article/back/ref-list" mode="back-section"/>
                 </xsl:if>

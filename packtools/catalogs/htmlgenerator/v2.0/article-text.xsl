@@ -15,8 +15,8 @@
             </xsl:choose></xsl:attribute>
             <!-- FIXME: body ou sub-article/body -->
             <xsl:choose>
-                <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG]">
-                    <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG]//body/*"/>
+                <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
+                    <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body/*"/>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:apply-templates select="./body/*"/>                    

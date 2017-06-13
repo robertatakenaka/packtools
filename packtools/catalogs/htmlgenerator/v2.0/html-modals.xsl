@@ -11,8 +11,8 @@
     
     <xsl:template match="*" mode="modal-tables">
         <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG]">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG]//body//table-wrap" mode="modal"/>
+            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
+                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body//table-wrap" mode="modal"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:apply-templates select="./body//table-wrap" mode="modal"/>                    
@@ -22,8 +22,8 @@
     
     <xsl:template match="*" mode="modal-disp-formulas">
         <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG]">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG]//body//disp-formula" mode="modal"/>
+            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
+                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body//disp-formula" mode="modal"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:apply-templates select="./body//disp-formula" mode="modal"/>                    
@@ -33,8 +33,8 @@
     
     <xsl:template match="*" mode="modal-figs">
         <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG]">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG]//body" mode="modal-figs"/>
+            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
+                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body" mode="modal-figs"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:apply-templates select="./body" mode="modal-figs"/>                    
@@ -48,8 +48,8 @@
     
     <xsl:template match="*" mode="modal-all-items">
         <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG]">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG]//body" mode="modal-all-items"/>
+            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
+                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body" mode="modal-all-items"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:apply-templates select="./body" mode="modal-all-items"/>                    

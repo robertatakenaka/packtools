@@ -4,8 +4,8 @@
     
     <xsl:template match="article" mode="text-fn">  
         <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG]//body//*[(fn or fn-group) and name()!='table-wrap-foot']">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG]//body" mode="text-fn"/>
+            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body//*[(fn or fn-group) and name()!='table-wrap-foot']">
+                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body" mode="text-fn"/>
             </xsl:when>
             <xsl:when test="body//*[(fn or fn-group) and name()!='table-wrap-foot']">
                 <xsl:apply-templates select="./body" mode="text-fn"/>
@@ -51,26 +51,12 @@
         </li>
     </xsl:template>
     
-    <xsl:template match="back/fn" mode="back-section-content">
-        <div class="articleSection">
-            <div class="ref-list">                
-                <h2><xsl:apply-templates select="title"></xsl:apply-templates></h2>
-                <ul class="refList footnote">
-                    <xsl:apply-templates select="." mode="list-item"></xsl:apply-templates>
-                </ul>
-            </div>
-        </div>
-    </xsl:template>
-    
-    <xsl:template match="back/fn-group" mode="back-section-content">
-        <div class="articleSection">
+    <xsl:template match="back/fn | back/fn-group" mode="back-section-content">
             <div class="ref-list">
-                <h2><xsl:apply-templates select="title"></xsl:apply-templates></h2>
                 <ul class="refList footnote">
                     <xsl:apply-templates select="*[name()!='title']|text()"></xsl:apply-templates>
                 </ul>
             </div>
-        </div>
     </xsl:template>
     
     <xsl:template match="back/fn-group/fn">
@@ -79,12 +65,12 @@
         </li>
     </xsl:template>
     
-    <xsl:template match="fn/title | fn-group/title">
-        <xsl:apply-templates select="*|text()"></xsl:apply-templates>
-    </xsl:template>
-    
     <xsl:template match="fn-group/fn/title">
         <h2><xsl:apply-templates select="*|text()"></xsl:apply-templates></h2>        
+    </xsl:template>
+    
+    <xsl:template match="fn/label">
+        <strong><xsl:apply-templates select="*|text()"/></strong>
     </xsl:template>
     
 </xsl:stylesheet>

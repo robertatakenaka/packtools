@@ -3,10 +3,10 @@
     version="1.0">
     
     <xsl:template match="xref">
-        <a href="#{@rid}" class="goto"><xsl:apply-templates></xsl:apply-templates></a>
+        <strong><xsl:apply-templates select="*|text()"></xsl:apply-templates></strong>
     </xsl:template>
 
-    <xsl:template match="xref">
+    <xsl:template match="xref[@ref-type='fn']">
         <xsl:variable name="id"><xsl:value-of select="@rid"/></xsl:variable>
         <span class="ref footnote">
             <sup class="xref"><xsl:apply-templates select="sup|text()"></xsl:apply-templates></sup>

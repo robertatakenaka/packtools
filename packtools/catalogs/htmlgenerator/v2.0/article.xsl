@@ -185,6 +185,7 @@
                             <xsl:apply-templates select="front/article-meta" mode="generic-history"/>
                             <xsl:apply-templates select="." mode="article-text-sub-articles"></xsl:apply-templates>
                         </article>
+                            
                     </div>
 
                 </div>
