@@ -4,24 +4,31 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" >
                 
     <xsl:template match="*" mode="text-body">
-        <div class="articleSection">
-            <xsl:attribute name="data-anchor"><xsl:choose>
+        
+        <xsl:variable name="alttile">
+            <xsl:choose>
                 <xsl:when test=".//sub-article[@article-type!='translation'] or .//response">
                     <xsl:apply-templates select="." mode="text-labels">
                         <xsl:with-param name="text"><xsl:value-of select="@article-type"/><xsl:value-of select="@response-type"/></xsl:with-param>
                     </xsl:apply-templates>
                 </xsl:when>
-                <xsl:otherwise><xsl:apply-templates select="body" mode="generated-label"/></xsl:otherwise>
-            </xsl:choose></xsl:attribute>
-            <!-- FIXME: body ou sub-article/body -->
-            <xsl:choose>
-                <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG]">
-                    <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG]//body/*"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:apply-templates select="./body/*"/>                    
-                </xsl:otherwise>
-            </xsl:choose>            
+                <xsl:otherwise>Text</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
+                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="./body"/>                    
+            </xsl:otherwise>
+        </xsl:choose>            
+    </xsl:template>
+    
+    <xsl:template match="body">
+        <xsl:param name="alt_title"></xsl:param>
+        <div class="articleSection" data-anchor="{$alt_title}">
+            <xsl:apply-templates select="*"/>
         </div>
     </xsl:template>
     

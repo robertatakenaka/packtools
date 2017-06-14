@@ -71,7 +71,7 @@
     
     <xsl:template match="article" mode="count_body_fn">
         <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG]//body//*[(fn or fn-group) and name()!='table-wrap']">1</xsl:when>
+            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body//*[(fn or fn-group) and name()!='table-wrap']">1</xsl:when>
             <xsl:when test="./body//*[(fn or fn-group) and name()!='table-wrap']">1</xsl:when>
             <xsl:otherwise>0</xsl:otherwise>
         </xsl:choose>
