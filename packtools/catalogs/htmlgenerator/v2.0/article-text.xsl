@@ -17,10 +17,13 @@
         </xsl:variable>
         <xsl:choose>
             <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body"/>
+                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body">
+                    <xsl:with-param name="alt_title" select="$alttile"></xsl:with-param>
+                </xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select="./body"/>                    
+                <xsl:apply-templates select="./body">
+                    <xsl:with-param name="alt_title" select="$alttile"></xsl:with-param></xsl:apply-templates>                    
             </xsl:otherwise>
         </xsl:choose>            
     </xsl:template>
