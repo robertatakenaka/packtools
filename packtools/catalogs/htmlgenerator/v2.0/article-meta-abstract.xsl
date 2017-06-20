@@ -58,9 +58,7 @@
     
     <xsl:template match="abstract | trans-abstract" mode="layout">
         <xsl:variable name="lang" select="@xml:lang"/>
-        
         <xsl:variable name="index"><xsl:apply-templates select="..//*[contains(name(),'abstract') and title]" mode="index"><xsl:with-param name="lang" select="$lang"></xsl:with-param></xsl:apply-templates></xsl:variable>
-        
         <div>
             <xsl:if test="title">
                 <xsl:attribute name="class">articleSection</xsl:attribute>
@@ -69,6 +67,7 @@
             <xsl:if test="@xml:lang='ar'">
                 <xsl:attribute name="dir">rtl</xsl:attribute>
             </xsl:if>
+                
             <xsl:if test="title">
                 <h1>
                     <xsl:attribute name="class">articleSectionTitle</xsl:attribute>

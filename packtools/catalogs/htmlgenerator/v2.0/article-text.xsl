@@ -30,7 +30,12 @@
     
     <xsl:template match="body">
         <xsl:param name="alt_title"></xsl:param>
-        <div class="articleSection" data-anchor="{$alt_title}">
+        <div>
+            <xsl:if test="$alt_title!=''">
+                <xsl:attribute name="class">articleSection</xsl:attribute>
+                <xsl:attribute name="data-anchor"><xsl:value-of select="$alt_title"></xsl:value-of></xsl:attribute>
+                
+            </xsl:if>
             <xsl:apply-templates select="*"/>
         </div>
     </xsl:template>
