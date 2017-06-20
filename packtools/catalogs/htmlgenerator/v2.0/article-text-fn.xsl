@@ -68,9 +68,5 @@
     <xsl:template match="fn-group/fn/title">
         <h2><xsl:apply-templates select="*|text()"></xsl:apply-templates></h2>        
     </xsl:template>
-    
-    <xsl:template match="fn/label">
-        <strong><xsl:apply-templates select="*|text()"/></strong>
-    </xsl:template>
-    
+        
 </xsl:stylesheet>

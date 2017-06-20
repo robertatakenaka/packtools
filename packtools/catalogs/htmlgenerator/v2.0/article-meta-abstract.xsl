@@ -64,6 +64,7 @@
         <div>
             <xsl:if test="title">
                 <xsl:attribute name="class">articleSection</xsl:attribute>
+                <xsl:attribute name="data-anchor"><xsl:apply-templates select="." mode="title"/></xsl:attribute>
             </xsl:if>
             <xsl:if test="@xml:lang='ar'">
                 <xsl:attribute name="dir">rtl</xsl:attribute>
@@ -71,8 +72,7 @@
             <xsl:if test="title">
                 <h1>
                     <xsl:attribute name="class">articleSectionTitle</xsl:attribute>
-                <xsl:attribute name="data-anchor"><xsl:apply-templates select="." mode="title"/></xsl:attribute>
-                <xsl:apply-templates select="." mode="title"></xsl:apply-templates>
+                    <xsl:apply-templates select="." mode="title"></xsl:apply-templates>
                 </h1>
             </xsl:if>
             <xsl:apply-templates select="*[name()!='title']"/>
