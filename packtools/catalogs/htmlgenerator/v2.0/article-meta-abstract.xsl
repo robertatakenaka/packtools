@@ -61,17 +61,20 @@
         
         <xsl:variable name="index"><xsl:apply-templates select="..//*[contains(name(),'abstract') and title]" mode="index"><xsl:with-param name="lang" select="$lang"></xsl:with-param></xsl:apply-templates></xsl:variable>
         
-        <div class="articleSection">
+        <div>
+            <xsl:if test="title">
+                <xsl:attribute name="class">articleSection</xsl:attribute>
+            </xsl:if>
             <xsl:if test="@xml:lang='ar'">
                 <xsl:attribute name="dir">rtl</xsl:attribute>
             </xsl:if>
-            <h1>
             <xsl:if test="title">
-                <xsl:attribute name="class">articleSectionTitle</xsl:attribute>
+                <h1>
+                    <xsl:attribute name="class">articleSectionTitle</xsl:attribute>
                 <xsl:attribute name="data-anchor"><xsl:apply-templates select="." mode="title"/></xsl:attribute>
                 <xsl:apply-templates select="." mode="title"></xsl:apply-templates>
+                </h1>
             </xsl:if>
-            </h1>
             <xsl:apply-templates select="*[name()!='title']"/>
             <xsl:apply-templates select="../kwd-group[@xml:lang=$lang]" mode="keywords"></xsl:apply-templates>
             <xsl:if test="not(../kwd-group[@xml:lang=$lang])">
