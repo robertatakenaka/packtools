@@ -31,9 +31,7 @@
     
     <xsl:template match="fn/p">
         <div>
-            <p>
             <xsl:apply-templates select="*|text()"></xsl:apply-templates>
-            </p>
         </div>
     </xsl:template>
     

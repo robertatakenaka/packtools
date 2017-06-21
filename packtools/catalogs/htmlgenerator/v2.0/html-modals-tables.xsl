@@ -38,29 +38,6 @@
                     </div>
                     <div class="modal-footer">
                         <xsl:apply-templates select="table-wrap-foot"></xsl:apply-templates>
-                        <xsl:comment>
-                        <xsl:value-of select="count(.//xref[@ref-type!='fn'])"/>|
-                        <xsl:value-of select="count(.//xref[@ref-type='fn'])"/>|
-                        <xsl:value-of select="count(.//fn)"/>
-                        </xsl:comment>
-                        <xsl:if test="count(.//xref[@ref-type!='fn'])&gt;count(.//fn)">
-                            <div class="ref-list">
-                                <ul class="refList footnote">
-                                    <xsl:apply-templates select="$ref" mode="select">
-                                        <xsl:with-param name="xref_nodes" select=".//xref[@ref-type!='fn']"></xsl:with-param>
-                                    </xsl:apply-templates>
-                                </ul>
-                            </div>
-                        </xsl:if>
-                        <xsl:if test="count(.//xref[@ref-type='fn'])&gt;count(.//fn)">
-                            <div class="ref-list">
-                                <ul class="refList footnote">
-                                    <xsl:apply-templates select="$fn" mode="select">
-                                        <xsl:with-param name="xref_nodes" select=".//xref[@ref-type='fn']"></xsl:with-param>
-                                    </xsl:apply-templates>
-                                </ul>
-                            </div>
-                        </xsl:if>
                     </div>
                 </div>
             </div>
