@@ -30,7 +30,12 @@
     
     <xsl:template match="body">
         <xsl:param name="alt_title"></xsl:param>
-        <div class="articleSection" data-anchor="{$alt_title}">
+        <div>
+            <xsl:if test="$alt_title!=''">
+                <xsl:attribute name="class">articleSection</xsl:attribute>
+                <xsl:attribute name="data-anchor"><xsl:value-of select="$alt_title"></xsl:value-of></xsl:attribute>
+                
+            </xsl:if>
             <xsl:apply-templates select="*"/>
         </div>
     </xsl:template>
@@ -51,24 +56,10 @@
         </xsl:choose>
     </xsl:template>
     
-    <xsl:template match="body/sec">
-        <xsl:choose>
-            <xsl:when test="@sec-type">
-                <xsl:variable name="index"><xsl:apply-templates select="../../body" mode="index">
-                    <xsl:with-param name="sectype"><xsl:value-of select="@sec-type"/></xsl:with-param>
-                </xsl:apply-templates></xsl:variable>
-                <xsl:apply-templates select="*|text()"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates select="*|text()"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    
-    <xsl:template match="sec/title">
-        <h2>
+    <xsl:template match="body/sec/title">
+        <h1 class="articleSectionTitle">
             <xsl:apply-templates select="*|text()"/>
-        </h2>
+        </h1>
     </xsl:template>
     
     <xsl:template match="sec/sec/title">
@@ -82,13 +73,7 @@
             <xsl:apply-templates select="*|text()"/>
         </h3>
     </xsl:template>
-    
-    <xsl:template match="body/sec[@sec-type]/title">
-        <h1 class="articleSectionTitle">
-            <xsl:apply-templates select="*|text()"/>
-        </h1>
-    </xsl:template>
-            
+             
     <xsl:template match="sig-block">
         <p class="articleSignature">
             <xsl:apply-templates select="*"></xsl:apply-templates>

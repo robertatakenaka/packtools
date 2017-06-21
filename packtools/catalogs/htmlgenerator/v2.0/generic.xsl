@@ -78,24 +78,6 @@
         <cite><xsl:apply-templates select="*|text()"></xsl:apply-templates></cite>
     </xsl:template>
     
-    <xsl:template match="def-list">
-        <dl>
-            <xsl:apply-templates select="*"></xsl:apply-templates>
-        </dl>
-    </xsl:template>
-    
-    <xsl:template match="term">
-        <dt>
-            <xsl:apply-templates select="*|text()"></xsl:apply-templates>
-        </dt>
-    </xsl:template>
-    
-    <xsl:template match="def">
-        <dd> 
-            <xsl:apply-templates select="*|text()"></xsl:apply-templates>
-        </dd>
-    </xsl:template>
-    
     <xsl:template match="attrib">
         <small>
             <xsl:apply-templates select="*|text()"></xsl:apply-templates>

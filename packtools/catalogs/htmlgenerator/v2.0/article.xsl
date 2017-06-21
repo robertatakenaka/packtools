@@ -29,6 +29,7 @@
     <xsl:include href="article-text-xref.xsl"/>
 
     <xsl:include href="article-text.xsl"/>
+    <xsl:include href="article-text-def-list.xsl"/>
     <xsl:include href="article-text-alternatives.xsl"/>
 
     <xsl:include href="article-text-boxed-text.xsl"/>
