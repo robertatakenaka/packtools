@@ -42,7 +42,9 @@
     <xsl:template match="article-id[@pub-id-type='doi']" mode="display">
         <xsl:variable name="link">https://doi.org/<xsl:value-of select="."/></xsl:variable>
         <span>
-            <span class="doi"><xsl:value-of select="$link"/></span></span>
+            <span class="doi"><xsl:value-of select="$link"/></span>
+        </span>
+        &#160;
             <a class="copyLink" data-clipboard-text="{$link}">
                 <span class="sci-ico-link hidden-sm hidden-md"></span> 
                 <xsl:apply-templates select="." mode="interface">
