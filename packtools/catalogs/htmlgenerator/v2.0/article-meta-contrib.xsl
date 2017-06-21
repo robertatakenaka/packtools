@@ -66,7 +66,13 @@
             </xsl:apply-templates>
         </span>
     </xsl:template>
-
+    
+    <xsl:template match="contrib/role | contrib/bio">
+        <div>
+            <xsl:apply-templates select="*|text()"></xsl:apply-templates>
+        </div>
+    </xsl:template>
+    
     <xsl:template match="contrib" mode="contrib-dropdown-menu">
         <xsl:param name="id"/>
         <xsl:if test="role or xref or contrib-id or bio">

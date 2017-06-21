@@ -76,7 +76,7 @@
                          <div class="modal-body">
                              <ul class="nav nav-tabs md-tabs" role="tablist">
                                 <xsl:if test=".//fig">
-                                     <li role="presentation" class="col-md-4 active">
+                                    <li role="presentation" class="col-md-4 col-sm-4 active">
                                          <a href="#figures" aria-controls="figures" role="tab" data-toggle="tab">
                                              <xsl:apply-templates select="." mode="interface">
                                                  <xsl:with-param name="text">Figures</xsl:with-param>
@@ -87,7 +87,7 @@
                                  </xsl:if>
                                  <xsl:if test=".//table-wrap">
                                      <li role="presentation">
-                                         <xsl:attribute name="class">col-md-4<xsl:if test="not(.//fig)"> active</xsl:if></xsl:attribute>
+                                         <xsl:attribute name="class">col-md-4 col-sm-4 <xsl:if test="not(.//fig)"> active</xsl:if></xsl:attribute>
                                          <a href="#tables" aria-controls="tables" role="tab" data-toggle="tab">
                                              <xsl:apply-templates select="." mode="interface">
                                                  <xsl:with-param name="text">Tables</xsl:with-param>
@@ -98,7 +98,7 @@
                                  </xsl:if>
                                  <xsl:if test=".//disp-formula[@id]">
                                      <li role="presentation">
-                                         <xsl:attribute name="class">col-md-4<xsl:if test="not(.//fig) and not(.//table-wrap)"> active</xsl:if></xsl:attribute>
+                                         <xsl:attribute name="class">col-md-4 col-sm-4<xsl:if test="not(.//fig) and not(.//table-wrap)"> active</xsl:if></xsl:attribute>
                                          
                                          <a href="#schemes" aria-controls="schemes" role="tab" data-toggle="tab">
                                              <xsl:apply-templates select="." mode="interface">

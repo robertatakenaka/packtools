@@ -29,7 +29,7 @@
     <xsl:template match="article-meta | front | front-stub" mode="modal-contrib">
         <xsl:if test=".//contrib or .//author-notes">
             <xsl:variable name="id"><xsl:apply-templates select="." mode="modal-id"></xsl:apply-templates></xsl:variable>
-            <div class="modal fade ModalDefault" id="ModalTutors{$id}" tabindex="-1" role="dialog" aria-hidden="true">            
+            <div class="modal fade ModalDefault ModalTutors" id="ModalTutors{$id}" tabindex="-1" role="dialog" aria-hidden="true">            
                 
             <div class="modal-dialog">
                 <div class="modal-content">
