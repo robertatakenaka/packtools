@@ -7,6 +7,7 @@
         <xsl:apply-templates select="." mode="modal-figs"/>
         <xsl:apply-templates select="." mode="modal-tables"/>
         <xsl:apply-templates select="." mode="modal-disp-formulas"/>
+        <xsl:apply-templates select="." mode="modal-how2cite"/>
     </xsl:template>
     
     <xsl:template match="*" mode="modal-tables">

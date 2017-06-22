@@ -105,6 +105,17 @@
         <name lang="es">copiar URL</name>        
     </term>
     <term>
+        <name>copy</name>
+        <name lang="pt">copiar</name>
+        <name lang="es">copiar</name>        
+    </term>
+    <term>
+        <name>ris format</name>
+        <name lang="pt">formato ris</name>
+        <name lang="es">formato ris</name>        
+    </term>
+    
+    <term>
         <name>Open new window</name>
         <name lang="pt">Abrir em nova janela</name>
         <name lang="es">Abrir en nueva ventana</name>        
@@ -279,5 +290,22 @@
         <name lang="pt">Esta errata corrige</name>
         <name lang="es">Esta errata corrige</name>
     </term>
-    
+    <term>
+        <name>How to cite</name>
+        <name lang="en">How to cite</name>
+        <name lang="pt">Como citar</name>
+        <name lang="es">Como citar</name>
+    </term>
+    <term>
+        <name>and</name>
+        <name lang="en">and</name>
+        <name lang="pt">e</name>
+        <name lang="es">y</name>
+    </term>
+    <term>
+        <name>Available from</name>
+        <name lang="en">Available from</name>
+        <name lang="pt">Disponível em</name>
+        <name lang="es">Disponible en</name>
+    </term>
 </labels>
