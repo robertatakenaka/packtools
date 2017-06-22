@@ -53,6 +53,7 @@
     <xsl:include href="html-modals-tables.xsl"/>
     <xsl:include href="html-modals-figs.xsl"/>
     <xsl:include href="html-modals-scheme.xsl"/>
+    <xsl:include href="html-modals-how2cite.xsl"/>
     <xsl:include href="html-head.xsl"/>
 
     <xsl:variable name="ref" select="//ref"></xsl:variable>
@@ -84,6 +85,8 @@
                 </div>
                 <xsl:if test="$graphic_elements_title!=''">
                 <ul class="floatingMenu fm-slidein" data-fm-toogle="hover">
+                    
+                    
                     <li class="fm-wrap">
                         <a href="javascript:;" class="fm-button-main">
                             <span class="sci-ico-floatingMenuDefault glyphFloatMenu"></span>
@@ -95,7 +98,14 @@
                                     <span class="sci-ico-figures glyphFloatMenu"></span>
                                 </a>
                             </li>
-                            	
+                            <li>
+                                <a class="fm-button-child" data-toggle="modal" data-target="#ModalArticles">
+                                    <xsl:attribute name="data-fm-label"><xsl:apply-templates select="." mode="text-labels">
+                                        <xsl:with-param name="text">How to cite</xsl:with-param>
+                                    </xsl:apply-templates></xsl:attribute>
+                                    <span class="sci-ico-citation glyphFloatMenu"></span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul></xsl:if>

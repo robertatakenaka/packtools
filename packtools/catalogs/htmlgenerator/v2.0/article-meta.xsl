@@ -48,7 +48,7 @@
             <a class="copyLink" data-clipboard-text="{$link}">
                 <span class="sci-ico-link hidden-sm hidden-md"></span> 
                 <xsl:apply-templates select="." mode="interface">
-                    <xsl:with-param name="text">copy URL</xsl:with-param>
+                    <xsl:with-param name="text">copy</xsl:with-param>
                 </xsl:apply-templates>
         </a>
     </xsl:template>
