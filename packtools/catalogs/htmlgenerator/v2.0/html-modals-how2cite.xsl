@@ -12,7 +12,7 @@
             <xsl:value-of select="$URL_ARTICLE_PAGE"/>
         </xsl:when>
     </xsl:choose></xsl:variable>
-    
+
     <xsl:template match="*" mode="modal-how2cite">
         <div class="modal fade ModalDefault" id="ModalArticles" tabindex="-1" role="dialog"
             aria-hidden="true">
@@ -40,8 +40,8 @@
                             <span class="glyphBtn copyIcon"/> <xsl:apply-templates select="." mode="interface">
                                 <xsl:with-param name="text">copy</xsl:with-param>
                             </xsl:apply-templates> </a>
-                        
-                        <xsl:if test="$URL_DOWNLOAD_RIS">
+
+                        <xsl:if test="$URL_DOWNLOAD_RIS!=''">
                             <div class="row" id="how2cite-export">
                                 <div class="col-md-2 col-sm-2">
                                     <a
@@ -59,16 +59,16 @@
         <xsl:if test="$howtocite_location!=''">
             <script type="text/javascript">
             var today = new Date();
-            today.setTime(today.getTime());       
+            today.setTime(today.getTime());
             document.getElementById("spanDate").innerHTML = today.getDate()+ "-" + today.getMonth() + "-" + today.getFullYear();
             </script>
         </xsl:if>
     </xsl:template>
-    
+
     <xsl:template match="article" mode="citation">
         <xsl:apply-templates select="front" mode="citation"></xsl:apply-templates>
     </xsl:template>
-    
+
     <xsl:template match="front" mode="citation">
         <xsl:apply-templates select="." mode="how2cite-contrib"></xsl:apply-templates>
         <xsl:apply-templates select="." mode="how2cite-article-title"></xsl:apply-templates>
@@ -82,11 +82,11 @@
         <xsl:apply-templates select="." mode="how2cite-issn"></xsl:apply-templates>
         <xsl:apply-templates select="." mode="how2cite-doi"></xsl:apply-templates>
     </xsl:template>
-    
+
     <xsl:template match="*" mode="how2cite-contrib">
         <xsl:apply-templates select=".//contrib-group" mode="how2cite-contrib"/>
     </xsl:template>
-    
+
     <xsl:template match="contrib-group" mode="how2cite-contrib">
         <xsl:choose>
             <xsl:when test="count(contrib)=1">
@@ -103,13 +103,13 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:apply-templates select="contrib[1]" mode="how2cite-contrib">
-                    
+
                 </xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
         <xsl:if test="count(contrib)&gt;3">et al</xsl:if>.
     </xsl:template>
-    
+
     <xsl:template match="contrib" mode="how2cite-contrib">
         <xsl:param name="sep"></xsl:param>
         <xsl:apply-templates select="name | collab" mode="how2cite-contrib"/>
@@ -118,11 +118,11 @@
             <xsl:otherwise>&#160;<xsl:value-of select="$sep"/>&#160;</xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+
     <xsl:template match="name" mode="how2cite-contrib">
         <xsl:apply-templates select="surname"/>, <xsl:apply-templates select="given-names"/>
     </xsl:template>
-    
+
     <xsl:template match="*" mode="how2cite-article-title">
         <xsl:choose>
             <xsl:when test=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]//article-title">
@@ -136,45 +136,45 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+
     <xsl:template match="*" mode="how2cite-journal-title">
         <xsl:apply-templates select=".//journal-title"></xsl:apply-templates>
     </xsl:template>
-    
+
     <xsl:template match="*" mode="how2cite-issue-info">
         <xsl:choose>
             <xsl:when test=".//pub-date[@pub-type='epub-ppub']">
-                <xsl:apply-templates select=".//pub-date[@pub-type='epub-ppub']/year"/><xsl:if test=".//volume or .//issue">, </xsl:if>             
+                <xsl:apply-templates select=".//pub-date[@pub-type='epub-ppub']/year"/><xsl:if test=".//volume or .//issue">, </xsl:if>
             </xsl:when>
             <xsl:when test=".//pub-date[@pub-type='collection']">
-                <xsl:apply-templates select=".//pub-date[@pub-type='collection']/year"/><xsl:if test=".//volume or .//issue">, </xsl:if>           
+                <xsl:apply-templates select=".//pub-date[@pub-type='collection']/year"/><xsl:if test=".//volume or .//issue">, </xsl:if>
             </xsl:when>
             <xsl:when test=".//pub-date[@pub-type='ppub']">
-                <xsl:apply-templates select=".//pub-date[@pub-type='ppub']/year"/><xsl:if test=".//volume or .//issue">, </xsl:if>             
+                <xsl:apply-templates select=".//pub-date[@pub-type='ppub']/year"/><xsl:if test=".//volume or .//issue">, </xsl:if>
             </xsl:when>
             <xsl:when test=".//pub-date[@pub-type='epub']">
-                <xsl:apply-templates select=".//pub-date[@pub-type='epub']/year"/><xsl:if test=".//volume or .//issue">, </xsl:if>             
+                <xsl:apply-templates select=".//pub-date[@pub-type='epub']/year"/><xsl:if test=".//volume or .//issue">, </xsl:if>
             </xsl:when>
         </xsl:choose>
         <xsl:if test=".//volume">v. <xsl:value-of select=".//volume"/></xsl:if>
         <xsl:if test=".//issue"><xsl:if  test=".//volume">, </xsl:if> n.<xsl:value-of select=".//issue"/></xsl:if>
     </xsl:template>
-    
+
     <xsl:template match="*" mode="how2cite-current-date">
         <xsl:if test="$howtocite_location!=''">
         [<xsl:apply-templates select="." mode="interface">
             <xsl:with-param name="text">cited</xsl:with-param>
-        </xsl:apply-templates>&#160;<span id="spanDate"></span>] 
+        </xsl:apply-templates>&#160;<span id="spanDate"></span>]
         </xsl:if>,&#160;
     </xsl:template>
-    
+
     <xsl:template match="*" mode="how2cite-pages">
         <xsl:choose>
             <xsl:when test=".//elocation-id"><xsl:value-of select=".//elocation-id"/>. </xsl:when>
             <xsl:when test=".//fpage or .//lpage">pp. <xsl:value-of select=".//fpage"/><xsl:if test=".//lpage and .//fpage!=.//lpage">-<xsl:value-of select=".//lpage"/></xsl:if>. </xsl:when>
         </xsl:choose>
     </xsl:template>
-    
+
     <xsl:template match="*" mode="how2cite-available-from">
         <xsl:if test="normalize-space($howtocite_location)!=''">
             <xsl:apply-templates select="." mode="interface">
@@ -183,25 +183,25 @@
             &lt;<xsl:value-of select="normalize-space($howtocite_location)"/>&gt;.
         </xsl:if>
     </xsl:template>
-    
+
     <xsl:template match="*" mode="how2cite-epub-date">
         <xsl:if test=".//pub-date[@pub-type='epub']">
             Epub <xsl:apply-templates select=".//pub-date[@pub-type='epub']"/>.
         </xsl:if>
     </xsl:template>
-    
+
     <xsl:template match="*" mode="how2cite-issn">
         ISSN <xsl:value-of select=".//issn[@pub-type='epub']"/><xsl:if test="not(.//issn[@pub-type='epub'])"><xsl:value-of select=".//issn[1]"/></xsl:if>.
     </xsl:template>
-    
+
     <xsl:template match="*" mode="how2cite-doi">
         <xsl:if test=".//article-id[@pub-id-type='doi']">
             <xsl:apply-templates select=".//article-id[@pub-id-type='doi']" mode="how2cite-doi"></xsl:apply-templates>.
         </xsl:if>
     </xsl:template>
-    
+
     <xsl:template match="article-id[@pub-id-type='doi']" mode="how2cite-doi">
         https://doi.org/<xsl:value-of select="."/>
     </xsl:template>
-    
+
 </xsl:stylesheet>
