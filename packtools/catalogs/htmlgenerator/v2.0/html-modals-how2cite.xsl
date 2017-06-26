@@ -34,9 +34,13 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <p><xsl:apply-templates select="." mode="citation"/></p>
+                        <xsl:variable name="citation"><xsl:apply-templates select="." mode="citation"/></xsl:variable>
+                        <p><xsl:value-of select="normalize-space($citation)"/></p>
+                        <input id="citationCut" type="text">
+                            <xsl:attribute name="value"><xsl:value-of select="normalize-space($citation)"/></xsl:attribute>
+                        </input>
                         <a class="copyLink outlineFadeLink">
-                            <xsl:attribute name="data-clipboard-text"><xsl:apply-templates select="." mode="citation"/></xsl:attribute>
+                            <xsl:attribute name="data-clipboard-target">#citationCut</xsl:attribute>
                             <span class="glyphBtn copyIcon"/> <xsl:apply-templates select="." mode="interface">
                                 <xsl:with-param name="text">copy</xsl:with-param>
                             </xsl:apply-templates> </a>
@@ -58,6 +62,7 @@
         </div>
         <xsl:if test="$howtocite_location!=''">
             <script type="text/javascript">
+                document.getElementById("spanDate").innerHTML = '...'
             var today = new Date();
             today.setTime(today.getTime());
             document.getElementById("spanDate").innerHTML = today.getDate()+ "-" + today.getMonth() + "-" + today.getFullYear();
@@ -73,9 +78,9 @@
         <xsl:apply-templates select="." mode="how2cite-contrib"></xsl:apply-templates>
         <xsl:apply-templates select="." mode="how2cite-article-title"></xsl:apply-templates>
         <xsl:apply-templates select="." mode="how2cite-journal-title"></xsl:apply-templates>
-        <xsl:if test="$howtocite_location!=''"> [online]</xsl:if>.&#160;
+        <xsl:if test="$howtocite_location!=''"> [online]</xsl:if>.
         <xsl:apply-templates select="." mode="how2cite-issue-info"></xsl:apply-templates>
-        <xsl:apply-templates select="." mode="how2cite-current-date"></xsl:apply-templates>
+        <xsl:apply-templates select="." mode="how2cite-current-date"></xsl:apply-templates>,
         <xsl:apply-templates select="." mode="how2cite-pages"></xsl:apply-templates>
         <xsl:apply-templates select="." mode="how2cite-available-from"></xsl:apply-templates>
         <xsl:apply-templates select="." mode="how2cite-epub-date"></xsl:apply-templates>
@@ -126,13 +131,13 @@
     <xsl:template match="*" mode="how2cite-article-title">
         <xsl:choose>
             <xsl:when test=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]//article-title">
-                <xsl:apply-templates select=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]//article-title"></xsl:apply-templates>.&#160;
+                <xsl:apply-templates select=".//sub-article[@article-type='translation' and @xml:lang=$TEXT_LANG]//article-title"></xsl:apply-templates>.
             </xsl:when>
             <xsl:when test=".//trans-title-group[@xml:lang=$TEXT_LANG]//trans-title">
-                <xsl:apply-templates select=".//trans-title-group[@xml:lang=$TEXT_LANG]//trans-title"></xsl:apply-templates>.&#160;
+                <xsl:apply-templates select=".//trans-title-group[@xml:lang=$TEXT_LANG]//trans-title"></xsl:apply-templates>.
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select=".//article-title"></xsl:apply-templates>.&#160;
+                <xsl:apply-templates select=".//article-title"></xsl:apply-templates>.
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -165,7 +170,7 @@
         [<xsl:apply-templates select="." mode="interface">
             <xsl:with-param name="text">cited</xsl:with-param>
         </xsl:apply-templates>&#160;<span id="spanDate"></span>]
-        </xsl:if>,&#160;
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="*" mode="how2cite-pages">
