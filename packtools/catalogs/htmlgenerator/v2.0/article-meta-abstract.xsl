@@ -80,6 +80,7 @@
                 <xsl:apply-templates select="../kwd-group[1]" mode="keywords"/>
             </xsl:if>
         </div>
+        <hr/>
     </xsl:template>
     
     <xsl:template match="abstract/title | trans-abstract/title">
