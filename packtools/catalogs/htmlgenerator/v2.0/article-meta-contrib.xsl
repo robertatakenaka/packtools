@@ -113,7 +113,7 @@
             <xsl:value-of select="$url"/>
             <xsl:value-of select="."/>
         </xsl:variable>
-        <a href="" class="btnContribLinks {@contrib-id-type}">
+        <a href="{$location}" class="btnContribLinks {@contrib-id-type}">
             <xsl:value-of select="$location"/>
         </a>
     </xsl:template>
