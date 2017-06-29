@@ -5,6 +5,9 @@
   xmlns:mml="http://www.w3.org/1998/Math/MathML"
   exclude-result-prefixes="xlink mml">
 
+    <xsl:template match="*" mode="name">
+        <xsl:value-of select="name()"/>
+    </xsl:template>
     <xsl:template match="*">
         <xsl:comment> * <xsl:value-of select="name()"/> </xsl:comment>
         <xsl:apply-templates select="*|text()"/>

@@ -36,16 +36,87 @@
             <xsl:otherwise>strong</xsl:otherwise>
         </xsl:choose></xsl:variable>
         <xsl:comment> <xsl:value-of select="$text"/> </xsl:comment>
+        
         <span class="ref">
             <xsl:element name="{$elem}">
                 <xsl:attribute name="class">xref xrefblue</xsl:attribute>
                 <xsl:apply-templates select="sup|text()"></xsl:apply-templates>
             </xsl:element>
             <span class="refCtt closed">
-                <xsl:apply-templates select="$article//ref[@id=$id]" mode="xref"></xsl:apply-templates>
+                <xsl:choose>
+                    <xsl:when test="$elem='sup'">
+                        
+                        <xsl:variable name="following"><xsl:apply-templates select="." mode="exist-following-bibr-xref"></xsl:apply-templates></xsl:variable>
+                        <xsl:variable name="preceding"><xsl:apply-templates select="." mode="exist-preceding-bibr-xref"></xsl:apply-templates></xsl:variable>
+                        
+                        <xsl:choose>
+                            <xsl:when test="substring-before($following,'XREF')='-'">
+                                <xsl:apply-templates select="$article//ref" mode="repete">
+                                    <xsl:with-param name="from"><xsl:value-of select="@rid"/></xsl:with-param>
+                                    <xsl:with-param name="to"><xsl:value-of select="following-sibling::node()[name()='xref' and @ref-type='bibr'][1]/@rid"/></xsl:with-param>
+                                </xsl:apply-templates>
+                            </xsl:when>
+                            <xsl:when test="substring($preceding, string-length($preceding) - string-length('[/xref]-')+1)='[/xref]-'">
+                                <xsl:apply-templates select="$article//ref[@id=$id]" mode="xref"></xsl:apply-templates>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:apply-templates select="$article//ref[@id=$id]" mode="xref"></xsl:apply-templates>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:apply-templates select="$article//ref[@id=$id]" mode="xref"></xsl:apply-templates>
+                    </xsl:otherwise>
+                </xsl:choose>
             </span>
-        </span>
+        </span>        
     </xsl:template>
+    
+    <xsl:template match="*" mode="exist-following-bibr-xref">
+        <xsl:if test="following-sibling::node()[name()='xref' and @ref-type='bibr']">
+            <xsl:apply-templates select="following-sibling::node()" mode="following-items"></xsl:apply-templates>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="*" mode="exist-preceding-bibr-xref">
+        <xsl:if test="preceding-sibling::node()[name()='xref' and @ref-type='bibr']">
+            <xsl:apply-templates select="preceding-sibling::node()" mode="preceding-items">
+                
+            </xsl:apply-templates>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="ref" mode="repete">
+        <xsl:param name="from"></xsl:param>
+        <xsl:param name="to"></xsl:param>
+        
+        <xsl:if test="@id=$from">
+            <xsl:apply-templates select="." mode="xref"></xsl:apply-templates>                        
+            <xsl:apply-templates select="following-sibling::node()[name()='ref'][1]" mode="repete2">
+                <xsl:with-param name="to"><xsl:value-of select="$to"/></xsl:with-param>
+            </xsl:apply-templates>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="ref" mode="repete2">
+        <xsl:param name="to"></xsl:param>
+
+        <xsl:if test="not(@id=$to)">
+            <br/><br/>
+            <xsl:apply-templates select="." mode="xref"></xsl:apply-templates>
+            <xsl:apply-templates select="following-sibling::node()[name()='ref'][1]" mode="repete2">
+                <xsl:with-param name="to"><xsl:value-of select="$to"/></xsl:with-param>
+            </xsl:apply-templates>
+        </xsl:if>
+    </xsl:template> 
+    
+    <xsl:template match="*" mode="following-items"><xsl:apply-templates select="*|text()" mode="following-items"></xsl:apply-templates></xsl:template>
+    <xsl:template match="xref[@ref-type='bibr']" mode="following-items">XREF</xsl:template>
+    <xsl:template match="text()" mode="following-items"><xsl:value-of select="normalize-space(.)"/></xsl:template>
+    
+    <xsl:template match="*" mode="preceding-items"><xsl:apply-templates select="*|text()" mode="preceding-items"></xsl:apply-templates></xsl:template>
+    <xsl:template match="xref[@ref-type='bibr']" mode="preceding-items">[xref]<xsl:value-of select="@rid"/>[/xref]</xsl:template>
+    <xsl:template match="text()" mode="preceding-items"><xsl:value-of select="normalize-space(.)"/></xsl:template>
     
     <xsl:template match="xref[@ref-type='fn']">
         <xsl:variable name="id"><xsl:value-of select="@rid"/></xsl:variable>
@@ -82,6 +153,7 @@
         </xsl:if>
         <span><xsl:apply-templates select="mixed-citation" mode="xref"></xsl:apply-templates></span>
         <xsl:if test="$url!=''">
+            <br/>
             <a href="{normalize-space($url)}" target="_blank">
                 <xsl:value-of select="substring($url,1,40)"/>...
             </a>
