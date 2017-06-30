@@ -33,7 +33,7 @@
         <div>
             <xsl:attribute name="class">contribGroup</xsl:attribute>
             <xsl:apply-templates select="contrib" mode="article-meta-contrib"/>
-            <xsl:if test="contrib[*]">
+            <xsl:if test="contrib/*[name()!='name' and name()!='collab']">
                 <a href="" class="outlineFadeLink" data-toggle="modal"
                     data-target="#ModalTutors{$id}">
                     <xsl:apply-templates select="." mode="interface">
@@ -45,26 +45,34 @@
     </xsl:template>
    
     <xsl:template match="contrib" mode="article-meta-contrib">
-        <xsl:variable name="id">
-            <xsl:value-of select="position()"/>
-        </xsl:variable>
-        
-        <span class="dropdown">
-            <a id="contribGroupTutor{$id}">
-                <xsl:if test="role or xref or contrib-id">
-                    <xsl:attribute name="class">dropdown-toggle</xsl:attribute>
-                    <xsl:attribute name="data-toggle">dropdown</xsl:attribute>
-                </xsl:if>
-                <span>
-                    <xsl:apply-templates select="name|collab|on-behalf-of"/>
+        <xsl:choose>
+            <xsl:when test="*[name()!='name' and name()!='collab']">
+                <xsl:variable name="id">
+                    <xsl:value-of select="position()"/>
+                </xsl:variable>
+                
+                <span class="dropdown">
+                    <a id="contribGroupTutor{$id}">
+                        <xsl:attribute name="class">dropdown-toggle</xsl:attribute>
+                        <xsl:attribute name="data-toggle">dropdown</xsl:attribute>
+                        <span>
+                            <xsl:apply-templates select="name|collab|on-behalf-of"/>
+                        </span>
+                    </a>
+                    <xsl:apply-templates select="." mode="contrib-dropdown-menu">
+                        <xsl:with-param name="id">
+                            <xsl:value-of select="$id"/>
+                        </xsl:with-param>
+                    </xsl:apply-templates>
                 </span>
-            </a>
-            <xsl:apply-templates select="." mode="contrib-dropdown-menu">
-                <xsl:with-param name="id">
-                    <xsl:value-of select="$id"/>
-                </xsl:with-param>
-            </xsl:apply-templates>
-        </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="dropdown"><span>
+                    <xsl:apply-templates select="name|collab|on-behalf-of"/>
+                </span></span>
+            </xsl:otherwise>
+        </xsl:choose>
+        
     </xsl:template>
     
     <xsl:template match="contrib/role | contrib/bio">
