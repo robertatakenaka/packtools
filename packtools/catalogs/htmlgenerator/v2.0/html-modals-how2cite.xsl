@@ -36,7 +36,7 @@
                     <div class="modal-body">
                         <p id="citation">
                         </p>
-                        <input id="citationCut" type="text" value="xxx"></input>
+                        <input id="citationCut" type="text" value=""></input>
                         <a class="copyLink outlineFadeLink">
                             <xsl:attribute name="data-clipboard-target">#citationCut</xsl:attribute>
                             <span class="glyphBtn copyIcon"/> <xsl:apply-templates select="." mode="interface">
