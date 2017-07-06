@@ -249,6 +249,12 @@
         <name lang="es">Dic</name>
     </term>
     <term>
+        <name>'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'</name>
+        <name lang="en">'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'</name>
+        <name lang="pt">'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'</name>
+        <name lang="es">'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Deciembre'</name>
+    </term>
+    <term>
         <name>reply</name>
         <name lang="en">Reply</name>
         <name lang="pt">Resposta</name>
@@ -307,5 +313,11 @@
         <name lang="en">Available from</name>
         <name lang="pt">Disponível em</name>
         <name lang="es">Disponible en</name>
+    </term>
+    <term>
+        <name>cited</name>
+        <name lang="en">Accessed</name>
+        <name lang="pt">Acessado</name>
+        <name lang="es">Accedido</name>
     </term>
 </labels>

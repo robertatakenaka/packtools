@@ -34,11 +34,9 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <xsl:variable name="citation"><xsl:apply-templates select="." mode="citation"/></xsl:variable>
-                        <p><xsl:value-of select="normalize-space($citation)"/></p>
-                        <input id="citationCut" type="text">
-                            <xsl:attribute name="value"><xsl:value-of select="normalize-space($citation)"/></xsl:attribute>
-                        </input>
+                        <p id="citation">
+                        </p>
+                        <input id="citationCut" type="text" value=""></input>
                         <a class="copyLink outlineFadeLink">
                             <xsl:attribute name="data-clipboard-target">#citationCut</xsl:attribute>
                             <span class="glyphBtn copyIcon"/> <xsl:apply-templates select="." mode="interface">
@@ -60,14 +58,20 @@
                 </div>
             </div>
         </div>
-        <xsl:if test="$howtocite_location!=''">
-            <script type="text/javascript">
-                document.getElementById("spanDate").innerHTML = '...'
+        <xsl:variable name="citation"><xsl:apply-templates select="." mode="citation"/></xsl:variable>
+        <script type="text/javascript">
+            function currentDate() {
             var today = new Date();
+            var months = [<xsl:apply-templates select="." mode="interface">
+                <xsl:with-param name="text">'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'</xsl:with-param>
+            </xsl:apply-templates>]
             today.setTime(today.getTime());
-            document.getElementById("spanDate").innerHTML = today.getDate()+ "-" + today.getMonth() + "-" + today.getFullYear();
-            </script>
-        </xsl:if>
+            return today.getDate() + " " + months[today.getMonth()] + " " + today.getFullYear();
+            }
+            var citation = '<xsl:value-of select="normalize-space($citation)"/>'.replace('CURRENTDATE', currentDate());
+            document.getElementById('citation').innerHTML = citation;
+            document.getElementById('citationCut').value = citation.replace('&amp;lt;', '<xsl:text>&lt;</xsl:text>').replace('&amp;gt;', "<xsl:text>&gt;</xsl:text>");
+        </script>
     </xsl:template>
 
     <xsl:template match="article" mode="citation">
@@ -117,11 +121,13 @@
 
     <xsl:template match="contrib" mode="how2cite-contrib">
         <xsl:param name="sep"></xsl:param>
+        <xsl:if test="position()!=1">
+            <xsl:choose>
+                <xsl:when test="position()!=last()">, </xsl:when>
+                <xsl:otherwise>&#160;<xsl:value-of select="$sep"/>&#160;</xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
         <xsl:apply-templates select="name | collab" mode="how2cite-contrib"/>
-        <xsl:choose>
-            <xsl:when test="position()!=last()">,</xsl:when>
-            <xsl:otherwise>&#160;<xsl:value-of select="$sep"/>&#160;</xsl:otherwise>
-        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="name" mode="how2cite-contrib">
@@ -162,14 +168,28 @@
             </xsl:when>
         </xsl:choose>
         <xsl:if test=".//volume">v. <xsl:value-of select=".//volume"/></xsl:if>
-        <xsl:if test=".//issue"><xsl:if  test=".//volume">, </xsl:if> n.<xsl:value-of select=".//issue"/></xsl:if>
+        <xsl:if test=".//issue"><xsl:if  test=".//volume">, </xsl:if>
+            <xsl:choose>
+                <xsl:when test="contains(.//issue,' ')">
+                    <xsl:choose>
+                        <xsl:when test="substring(.//issue,1,1)!='s'">
+                            n. <xsl:value-of select=".//issue"/>
+                        </xsl:when>
+                        <xsl:otherwise><xsl:value-of select=".//issue"/></xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
+                <xsl:otherwise>
+                    n. <xsl:value-of select=".//issue"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="*" mode="how2cite-current-date">
         <xsl:if test="$howtocite_location!=''">
         [<xsl:apply-templates select="." mode="interface">
             <xsl:with-param name="text">cited</xsl:with-param>
-        </xsl:apply-templates>&#160;<span id="spanDate"></span>]
+        </xsl:apply-templates>&#160;CURRENTDATE]
         </xsl:if>
     </xsl:template>
 
@@ -185,7 +205,7 @@
             <xsl:apply-templates select="." mode="interface">
                 <xsl:with-param name="text">Available from</xsl:with-param>
             </xsl:apply-templates>:
-            &lt;<xsl:value-of select="normalize-space($howtocite_location)"/>&gt;.
+            &amp;lt;<xsl:value-of select="normalize-space($howtocite_location)"/>&amp;gt;.
         </xsl:if>
     </xsl:template>
 

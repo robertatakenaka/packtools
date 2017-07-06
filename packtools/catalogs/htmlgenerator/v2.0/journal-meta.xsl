@@ -3,7 +3,14 @@
     version="1.0">
     
     <xsl:template match="article" mode="journal-meta-bibstrip-title">
-        <xsl:apply-templates select="front/journal-meta//abbrev-journal-title"></xsl:apply-templates>
+        <xsl:choose>
+            <xsl:when test="$ARTICLE_BIBSTRIP!=''">
+                <xsl:value-of select="$ARTICLE_BIBSTRIP"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="front/journal-meta//abbrev-journal-title"></xsl:apply-templates>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="article" mode="journal-meta-bibstrip-issue">
