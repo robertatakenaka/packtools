@@ -11,6 +11,7 @@
     <xsl:param name="permlink" />
     <xsl:param name="url_article_page" />
     <xsl:param name="url_download_ris" />
+    <xsl:param name="legendary"></xsl:param>
 
     <xsl:variable name="URL_PERMLINK"><xsl:value-of select="$permlink"/></xsl:variable>
     <xsl:variable name="URL_ARTICLE_PAGE"><xsl:value-of select="$url_article_page"/></xsl:variable>
@@ -18,12 +19,8 @@
     <xsl:variable name="INTERFACE_LANG"><xsl:value-of select="$article_lang"/></xsl:variable>
     <xsl:variable name="TEXT_LANG"><xsl:value-of select="$article_lang"/></xsl:variable>
     <xsl:variable name="ARTICLE_LANG"><xsl:value-of select="$article_lang"/></xsl:variable>
+    <xsl:variable name="ARTICLE_BIBSTRIP"><xsl:value-of select="$legendary"/></xsl:variable>
 
-    <!--
-    <xsl:variable name="PRINT_CSS_PATH"><xsl:value-of select="$print_styles_css_path"/></xsl:variable>
-    <xsl:variable name="CSS_PATH"><xsl:value-of select="$styles_css_path"/><xsl:if test="$styles_css_path=''">../../../static</xsl:if></xsl:variable>
-    <xsl:variable name="JS_PATH"><xsl:value-of select="$js_path"/></xsl:variable>
-    -->
     <xsl:variable name="PRINT_CSS_PATH"><xsl:value-of select="$print_styles_css_path"/></xsl:variable>
     <xsl:variable name="CSS_PATH"><xsl:value-of select="$styles_css_path"/></xsl:variable>
     <xsl:variable name="JS_PATH"><xsl:value-of select="$js_path"/></xsl:variable>
