@@ -32,7 +32,8 @@
         <xsl:variable name="id"><xsl:apply-templates select="." mode="modal-id"></xsl:apply-templates></xsl:variable>
         <div>
             <xsl:attribute name="class">contribGroup</xsl:attribute>
-            <xsl:apply-templates select="contrib" mode="article-meta-contrib"/>
+            <xsl:apply-templates select="contrib[position()&lt;=number($MAX_CONTRIB)]" mode="article-meta-contrib"/>
+            <xsl:if test="count(contrib)&gt;number($MAX_CONTRIB)"> +<xsl:value-of select="count(contrib)-number($MAX_CONTRIB)"/> </xsl:if>
             <xsl:if test="contrib/*[name()!='name' and name()!='collab']">
                 <a href="" class="outlineFadeLink" data-toggle="modal"
                     data-target="#ModalTutors{$id}">
@@ -56,7 +57,12 @@
                         <xsl:attribute name="class">dropdown-toggle</xsl:attribute>
                         <xsl:attribute name="data-toggle">dropdown</xsl:attribute>
                         <span>
-                            <xsl:apply-templates select="name|collab|on-behalf-of"/>
+                            <xsl:choose>
+                                <xsl:when test="$ABBR_CONTRIB='true'">
+                                    <xsl:apply-templates select="name|collab|on-behalf-of" mode="abbrev"/>
+                                </xsl:when>
+                                <xsl:otherwise><xsl:apply-templates select="name|collab|on-behalf-of"/></xsl:otherwise>
+                            </xsl:choose>
                         </span>
                     </a>
                     <xsl:apply-templates select="." mode="contrib-dropdown-menu">
@@ -68,7 +74,12 @@
             </xsl:when>
             <xsl:otherwise>
                 <span class="dropdown"><span>
-                    <xsl:apply-templates select="name|collab|on-behalf-of"/>
+                    <xsl:choose>
+                        <xsl:when test="$ABBR_CONTRIB='true'">
+                            <xsl:apply-templates select="name|collab|on-behalf-of" mode="abbrev"/>
+                        </xsl:when>
+                        <xsl:otherwise><xsl:apply-templates select="name|collab|on-behalf-of"/></xsl:otherwise>
+                    </xsl:choose>
                 </span></span>
             </xsl:otherwise>
         </xsl:choose>
@@ -112,7 +123,15 @@
         <xsl:text> </xsl:text>
         <xsl:apply-templates select="suffix"/>
     </xsl:template>
-
+    
+    <xsl:template match="contrib/name" mode="abbrev">
+        <xsl:value-of select="substring(given-names,1,1)"/>
+        <xsl:text> </xsl:text>
+        <xsl:apply-templates select="surname"/>
+        <xsl:text> </xsl:text>
+        <xsl:apply-templates select="suffix"/>
+    </xsl:template>
+    
     <xsl:template match="contrib-id">
         <xsl:variable name="url">
             <xsl:apply-templates select="." mode="url"/>

@@ -12,7 +12,18 @@
     <xsl:param name="url_article_page" />
     <xsl:param name="url_download_ris" />
     <xsl:param name="legendary"></xsl:param>
+    <xsl:param name="max_contrib"></xsl:param>
+    <xsl:param name="abbr_contrib"></xsl:param>
+    
 
+    <xsl:variable name="ABBR_CONTRIB"><xsl:choose>
+        <xsl:when test="$abbr_contrib!=''"><xsl:value-of select="$abbr_contrib"/></xsl:when>
+        <xsl:otherwise>true</xsl:otherwise>
+    </xsl:choose></xsl:variable>
+    <xsl:variable name="MAX_CONTRIB"><xsl:choose>
+        <xsl:when test="$max_contrib!=''"><xsl:value-of select="$max_contrib"/></xsl:when>
+        <xsl:otherwise>10</xsl:otherwise>
+    </xsl:choose></xsl:variable>
     <xsl:variable name="URL_PERMLINK"><xsl:value-of select="$permlink"/></xsl:variable>
     <xsl:variable name="URL_ARTICLE_PAGE"><xsl:value-of select="$url_article_page"/></xsl:variable>
     <xsl:variable name="URL_DOWNLOAD_RIS"><xsl:value-of select="$url_download_ris"/></xsl:variable>
