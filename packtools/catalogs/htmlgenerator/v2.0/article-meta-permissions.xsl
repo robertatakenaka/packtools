@@ -2,6 +2,9 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xlink="http://www.w3.org/1999/xlink" 
     version="1.0">
+    <xsl:template match="article" mode="article-meta-permissions-data-original-title">
+        <xsl:apply-templates select="." mode="license-acron-version"></xsl:apply-templates>
+    </xsl:template>
     <xsl:template match="article" mode="article-meta-permissions">
         <xsl:choose>
             <xsl:when test="front/article-meta//license[@xml:lang=$TEXT_LANG]">
@@ -19,13 +22,23 @@
         </xsl:choose>        
     </xsl:template>
     
-    <xsl:template match="license">
-        <xsl:variable name="url">https://licensebuttons.net/l/</xsl:variable>
+    <xsl:template match="article" mode="license-acron-version">
+        <xsl:if test=".//license[1]">
+                <xsl:apply-templates select=".//license[1]" mode="license-acron-version"></xsl:apply-templates>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="license" mode="license-acron-version">
         <xsl:variable name="icon_path"><xsl:value-of select="substring-after(@xlink:href,'creativecommons.org/licenses/')"/></xsl:variable>
         <xsl:variable name="icon"><xsl:choose>
             <xsl:when test="contains($icon_path,'/deen')"><xsl:value-of select="substring-before($icon_path,'/deen')"/></xsl:when>
             <xsl:otherwise><xsl:value-of select="$icon_path"/></xsl:otherwise>
-        </xsl:choose></xsl:variable>
+        </xsl:choose></xsl:variable><xsl:value-of select="$icon"/>
+    </xsl:template>
+    
+    <xsl:template match="license">
+        <xsl:variable name="url">https://licensebuttons.net/l/</xsl:variable>
+        <xsl:variable name="icon"><xsl:apply-templates select="." mode="license-acron-version"></xsl:apply-templates></xsl:variable>
         • <a href="{@xlink:href}" target="_blank"><img src="{$url}{$icon}/80x15.png" alt="Creative Common - {$icon}"/> </a>
     </xsl:template>
     

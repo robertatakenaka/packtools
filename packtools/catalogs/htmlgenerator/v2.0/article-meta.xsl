@@ -41,12 +41,17 @@
    
     <xsl:template match="article-id[@pub-id-type='doi']" mode="display">
         <xsl:variable name="link">https://doi.org/<xsl:value-of select="."/></xsl:variable>
-        <span>
-            <span class="doi"><xsl:value-of select="$link"/></span>
-        </span>
+        <!-- 
+            <span class="_doi">http://doi.org/10.1590/1516-1439.321614</span>
+
+                            <a class="copyLink"
+                                data-clipboard-text="http://doi.org/10.1590/1414-431X20122409">
+                                <span class="sci-ico-link"/> copiar link </a>
+            -->
+            <span class="_doi"><xsl:value-of select="$link"/></span>
         &#160;
             <a class="copyLink" data-clipboard-text="{$link}">
-                <span class="sci-ico-link hidden-sm hidden-md"></span> 
+                <span class="sci-ico-link"/> 
                 <xsl:apply-templates select="." mode="interface">
                     <xsl:with-param name="text">copy</xsl:with-param>
                 </xsl:apply-templates>
