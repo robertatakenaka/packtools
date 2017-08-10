@@ -168,23 +168,6 @@
         <section class="articleCtt">
             <div class="container">
                 <div class="articleTxt">
-                    <!-- 
-                    <div class="articleBadge">
-                        <span><xsl:apply-templates select="." mode="article-meta-subject"/></span>
-                    </div>
-                    <div class="editionMeta">
-                         <span>
-                             <xsl:apply-templates select="." mode="journal-meta-bibstrip-title"/>
-                             <xsl:text> </xsl:text>
-                             <xsl:apply-templates select="." mode="journal-meta-bibstrip-issue"/>
-                             <xsl:apply-templates select="." mode="issue-meta-pub-dates"/>
-                         </span>
-                         <xsl:text> </xsl:text>
-                         <xsl:apply-templates select="." mode="journal-meta-issn"/>
-                    </div>
-                    -->
-                    <!-- 
-                    -->
                     <div class="articleBadge-editionMeta-doi-copyLink">
                         <span class="_articleBadge"><xsl:apply-templates select="." mode="article-meta-subject"/></span>
                         <span class="_separator"> • </span>
@@ -209,15 +192,6 @@
                         <xsl:apply-templates select="." mode="article-meta-title"/>
                     </h1>
                     <div class="articleMeta">
-                        <!--div>
-                            <span>
-                                <xsl:apply-templates select="." mode="article-meta-pub-dates"/>
-                            </span>
-                            <xsl:apply-templates select="." mode="article-meta-permissions"/>
-                        </div>
-                        <div>
-                            <xsl:apply-templates select="." mode="article-meta-doi"/>
-                        </div-->
                     </div>
                     <xsl:apply-templates select="." mode="article-meta-contrib"/>
                     <div class="row">
