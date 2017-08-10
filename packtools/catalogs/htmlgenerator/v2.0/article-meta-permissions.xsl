@@ -22,11 +22,13 @@
     <xsl:template match="license">
         <xsl:variable name="url">https://licensebuttons.net/l/</xsl:variable>
         <xsl:variable name="icon"><xsl:apply-templates select="." mode="license-acron-version"></xsl:apply-templates></xsl:variable>
-        • <a href="{@xlink:href}" target="_blank"><img src="{$url}{$icon}/80x15.png" alt="Creative Common - {$icon}"/> </a>
+        <a href="{@xlink:href}" target="_blank"><img src="{$url}{$icon}/88x31.png" alt="Creative Common - {$icon}"/> 
+            <xsl:apply-templates select="license-p"/>            
+        </a>
     </xsl:template>
     
     <xsl:template match="permissions">
-        • <xsl:apply-templates select="copyright-statement"></xsl:apply-templates>
+        <xsl:apply-templates select="copyright-statement"></xsl:apply-templates>
         <xsl:if test="not(copyright-statement)">
             <xsl:apply-templates select="*|text()"></xsl:apply-templates>
         </xsl:if>
@@ -45,6 +47,7 @@
     <xsl:template match="license" mode="license-acron-version">
         <xsl:variable name="icon_path"><xsl:value-of select="substring-after(@xlink:href,'creativecommons.org/licenses/')"/></xsl:variable>
         <xsl:variable name="icon"><xsl:choose>
+            <xsl:when test="contains($icon_path,'/legalcode')"><xsl:value-of select="substring-before($icon_path,'/legalcode')"/></xsl:when>
             <xsl:when test="contains($icon_path,'/deen')"><xsl:value-of select="substring-before($icon_path,'/deen')"/></xsl:when>
             <xsl:otherwise><xsl:value-of select="$icon_path"/></xsl:otherwise>
         </xsl:choose></xsl:variable><xsl:value-of select="$icon"/>

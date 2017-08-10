@@ -207,12 +207,20 @@
                             <xsl:apply-templates select="." mode="text-fn"/>
                             <xsl:apply-templates select="front/article-meta" mode="generic-history"/>
                             <xsl:apply-templates select="." mode="article-text-sub-articles"/>
+                            
+                            <section class="documentLicense">
+                                <div class="container">
+                                    <xsl:apply-templates select="." mode="article-meta-permissions"></xsl:apply-templates>
+                                </div>
+                            </section>
                         </article>
 
                     </div>
 
                 </div>
             </div>
+            
+            
         </section>
 
 
