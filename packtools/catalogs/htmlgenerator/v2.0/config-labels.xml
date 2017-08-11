@@ -90,6 +90,11 @@
         <name lang="es">Acerca de los autores</name>        
     </term>   
     <term>
+        <name>About the author</name>
+        <name lang="pt">Sobre o autor</name>
+        <name lang="es">Acerca del autor</name>        
+    </term>   
+    <term>
         <name>Click to </name>
         <name lang="pt">Clique para </name>
         <name lang="es">Haz un clic para </name>       

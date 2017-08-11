@@ -18,7 +18,7 @@
 
     <xsl:variable name="ABBR_CONTRIB"><xsl:choose>
         <xsl:when test="$abbr_contrib!=''"><xsl:value-of select="$abbr_contrib"/></xsl:when>
-        <xsl:otherwise>true</xsl:otherwise>
+        <xsl:otherwise>false</xsl:otherwise>
     </xsl:choose></xsl:variable>
     <xsl:variable name="MAX_CONTRIB"><xsl:choose>
         <xsl:when test="$max_contrib!=''"><xsl:value-of select="$max_contrib"/></xsl:when>

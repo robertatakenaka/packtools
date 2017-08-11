@@ -33,12 +33,12 @@
         <div>
             <xsl:attribute name="class">contribGroup</xsl:attribute>
             <xsl:apply-templates select="contrib[position()&lt;=number($MAX_CONTRIB)]" mode="article-meta-contrib"/>
-            <xsl:if test="count(contrib)&gt;number($MAX_CONTRIB)"> +<xsl:value-of select="count(contrib)-number($MAX_CONTRIB)"/> </xsl:if>
+            <xsl:if test="count(contrib)&gt;number($MAX_CONTRIB)"> ... </xsl:if>
             <xsl:if test="contrib/*[name()!='name' and name()!='collab']">
                 <a href="" class="outlineFadeLink" data-toggle="modal"
                     data-target="#ModalTutors{$id}">
                     <xsl:apply-templates select="." mode="interface">
-                        <xsl:with-param name="text">About the authors</xsl:with-param>
+                        <xsl:with-param name="text">About the author<xsl:if test="count(contrib)&gt;1">s</xsl:if></xsl:with-param>
                     </xsl:apply-templates>
                 </a>
             </xsl:if>
