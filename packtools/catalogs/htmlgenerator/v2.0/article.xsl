@@ -29,6 +29,7 @@
     <xsl:include href="article-text-xref.xsl"/>
 
     <xsl:include href="article-text.xsl"/>
+    <xsl:include href="article-text-mathml.xsl"/>
     <xsl:include href="article-text-def-list.xsl"/>
     <xsl:include href="article-text-alternatives.xsl"/>
 
@@ -161,6 +162,11 @@
                 <script src="{$JS_PATH}/js/min/main-min.js"/>
             </xsl:otherwise>
         </xsl:choose>
+        <xsl:if test=".//math or .//mml:math">
+            <script type="text/javascript"
+                    src="{$MATHJAX}">
+            </script>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="article" mode="article">
