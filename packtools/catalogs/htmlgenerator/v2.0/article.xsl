@@ -194,10 +194,10 @@
                         <span class="sci-ico-openAccess showTooltip" data-toggle="tooltip">
                             <xsl:attribute name="data-original-title"><xsl:apply-templates select="." mode="article-meta-permissions-data-original-title"/></xsl:attribute>
                         </span>
+                        <xsl:apply-templates select="." mode="article-meta-title"/>
                         <a id="shorten" href="#" class="short-link"><span class="sci-ico-link"/></a>    
                     </h1>
-                    <xsl:apply-templates select="." mode="article-meta-title"/>
-                    
+                    <xsl:apply-templates select="." mode="article-meta-trans-title"/>
                     <div class="articleMeta">
                     </div>
                     <xsl:apply-templates select="." mode="article-meta-contrib"/>
