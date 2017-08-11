@@ -15,7 +15,7 @@
     <xsl:param name="max_contrib"></xsl:param>
     <xsl:param name="abbr_contrib"></xsl:param>
     
-
+    <xsl:variable name="MATHJAX">https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML</xsl:variable>
     <xsl:variable name="ABBR_CONTRIB"><xsl:choose>
         <xsl:when test="$abbr_contrib!=''"><xsl:value-of select="$abbr_contrib"/></xsl:when>
         <xsl:otherwise>false</xsl:otherwise>
