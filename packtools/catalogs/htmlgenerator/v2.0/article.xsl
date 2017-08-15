@@ -216,18 +216,16 @@
                             <xsl:apply-templates select="." mode="article-text-sub-articles"/>
                             
                             <section class="documentLicense">
-                                <div class="container">
-                                    <xsl:apply-templates select="." mode="article-meta-permissions"></xsl:apply-templates>
-                                </div>
+                                <div class="container-license">
+                                    <div class="row">
+                                        <xsl:apply-templates select="." mode="article-meta-permissions"></xsl:apply-templates>
+                                    </div>
+                                </div>                                
                             </section>
                         </article>
-
                     </div>
-
                 </div>
-            </div>
-            
-            
+            </div>            
         </section>
 
 

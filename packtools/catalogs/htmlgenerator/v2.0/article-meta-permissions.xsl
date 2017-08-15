@@ -21,10 +21,19 @@
     
     <xsl:template match="license">
         <xsl:variable name="url">https://licensebuttons.net/l/</xsl:variable>
-        <xsl:variable name="icon"><xsl:apply-templates select="." mode="license-acron-version"></xsl:apply-templates></xsl:variable>
-        <a href="{@xlink:href}" target="_blank"><img src="{$url}{$icon}/88x31.png" alt="Creative Common - {$icon}"/> 
-            <xsl:apply-templates select="license-p"/>            
-        </a>
+        <xsl:variable name="path"><xsl:apply-templates select="." mode="license-acron-version"></xsl:apply-templates></xsl:variable>
+        <xsl:variable name="icon"><xsl:value-of select="translate($path,'/',' ')"/></xsl:variable>
+        
+        <div class="col-sm-3 col-md-2">
+            <a href="{@xlink:href}" target="_blank" title="">
+                <img src="{$url}{$path}/88x31.png" alt="Creative Common - {$icon}"/>
+            </a>
+        </div>
+        <div class="col-sm-9 col-md-10">
+            <a href="{@xlink:href}" target="_blank" title="">
+                <xsl:apply-templates select="license-p"/> 
+            </a>
+        </div>
     </xsl:template>
     
     <xsl:template match="permissions">
@@ -35,7 +44,9 @@
     </xsl:template>
     
     <xsl:template match="article" mode="article-meta-permissions-data-original-title">
-        <xsl:apply-templates select="." mode="license-acron-version"></xsl:apply-templates>
+        <xsl:variable name="path"><xsl:apply-templates select="." mode="license-acron-version"></xsl:apply-templates></xsl:variable>
+        <xsl:variable name="icon"><xsl:value-of select="translate($path,'/',' ')"/></xsl:variable>
+        <xsl:value-of select="$icon"/>
     </xsl:template>
     
     <xsl:template match="article" mode="license-acron-version">
