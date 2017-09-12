@@ -201,12 +201,10 @@
     </xsl:template>
 
     <xsl:template match="*" mode="how2cite-available-from">
-        <xsl:if test="normalize-space($howtocite_location)!=''">
-            <xsl:apply-templates select="." mode="interface">
-                <xsl:with-param name="text">Available from</xsl:with-param>
-            </xsl:apply-templates>:
-            &amp;lt;<xsl:value-of select="normalize-space($howtocite_location)"/>&amp;gt;.
-        </xsl:if>
+        <xsl:apply-templates select="." mode="interface">
+            <xsl:with-param name="text">Available from</xsl:with-param>
+        </xsl:apply-templates>:
+        &amp;lt;<span id="how2cite_shorturl"><xsl:value-of select="normalize-space($howtocite_location)"/></span>&amp;gt;.
     </xsl:template>
 
     <xsl:template match="*" mode="how2cite-epub-date">
