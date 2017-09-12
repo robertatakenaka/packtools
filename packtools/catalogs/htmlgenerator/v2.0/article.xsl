@@ -190,13 +190,14 @@
                         </span>
                     </div>
                     <xsl:apply-templates select="." mode="article-meta-related-article"></xsl:apply-templates>
-                    
                     <h1 class="article-title">
                         <span class="sci-ico-openAccess showTooltip" data-toggle="tooltip">
                             <xsl:attribute name="data-original-title"><xsl:apply-templates select="." mode="article-meta-permissions-data-original-title"/></xsl:attribute>
                         </span>
                         <xsl:apply-templates select="." mode="article-meta-title"/>
+                        <a id="shorten" href="#" class="short-link"><span class="sci-ico-link"/></a>    
                     </h1>
+                    <xsl:apply-templates select="." mode="article-meta-trans-title"/>
                     <div class="articleMeta">
                     </div>
                     <xsl:apply-templates select="." mode="article-meta-contrib"/>
@@ -215,18 +216,16 @@
                             <xsl:apply-templates select="." mode="article-text-sub-articles"/>
                             
                             <section class="documentLicense">
-                                <div class="container">
-                                    <xsl:apply-templates select="." mode="article-meta-permissions"></xsl:apply-templates>
-                                </div>
+                                <div class="container-license">
+                                    <div class="row">
+                                        <xsl:apply-templates select="." mode="article-meta-permissions"></xsl:apply-templates>
+                                    </div>
+                                </div>                                
                             </section>
                         </article>
-
                     </div>
-
                 </div>
-            </div>
-            
-            
+            </div>            
         </section>
 
 

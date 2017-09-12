@@ -27,13 +27,16 @@
                             <xsl:attribute name="href"><xsl:apply-templates select="." mode="file-location"/></xsl:attribute>
                             <span class="sci-ico-newWindow"></span>
                         </a>
+                        <h4 class="modal-title"><span class="sci-ico-fileFigure"></span> <xsl:apply-templates select="." mode="label-caption"></xsl:apply-templates></h4>                 
                     </div>
                     <div class="modal-body">
                         <xsl:apply-templates select="graphic"></xsl:apply-templates>
                         <xsl:apply-templates select="attrib"></xsl:apply-templates>
                     </div>
                     <div class="modal-footer">
-                        <h4 class="modal-title"><span class="sci-ico-fileFigure"></span> <xsl:apply-templates select="." mode="label-caption"></xsl:apply-templates></h4>                        
+                        <!-- 
+                        <h4 class="modal-title"><span class="sci-ico-fileFigure"></span> <xsl:apply-templates select="." mode="label-caption"></xsl:apply-templates></h4>
+                        -->                        
                     </div>
                 </div>
             </div>
