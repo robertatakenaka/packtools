@@ -5,7 +5,7 @@
         <div class="row table" id="{@id}">
         <a name="{@id}"/>
             
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-4">
                 <a data-toggle="modal" data-target="#ModalTable{@id}">
                     <div class="thumbOff">
                         Thumbnail
@@ -13,7 +13,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 col-sm-8">
                 <xsl:apply-templates select="." mode="label-caption-thumb"></xsl:apply-templates>
             </div>
         </div>
