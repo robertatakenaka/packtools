@@ -5,7 +5,6 @@
         <xsl:apply-templates select="fig[@xml:lang=$TEXT_LANG]" mode="label-caption"></xsl:apply-templates>
     </xsl:template>
     
-    
     <xsl:template match="fig[@id] | fig-group[@id]" mode="modal">
         <div class="modal fade ModalFigs" id="ModalFig{@id}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
