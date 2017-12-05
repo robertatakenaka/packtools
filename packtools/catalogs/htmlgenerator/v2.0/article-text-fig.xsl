@@ -38,6 +38,18 @@
         <xsl:apply-templates select="fig[graphic]" mode="file-location"></xsl:apply-templates>
     </xsl:template>
     
+    <xsl:template match="fig[disp-formula and not(graphic)]">
+        <div class="row fig" id="{@id}">
+            <a name="{@id}"></a>
+            <div class="col-md-4 col-sm-4">
+                <xsl:apply-templates select="disp-formula"></xsl:apply-templates>
+            </div>
+            <div class="col-md-8 col-sm-8">
+                <xsl:apply-templates select="." mode="label-caption-thumb"></xsl:apply-templates>
+            </div>
+        </div>
+    </xsl:template>
+    
     <xsl:template match="*[graphic]" mode="file-location"><xsl:apply-templates select="graphic/@xlink:href"/></xsl:template>
     
     <xsl:template match="fig-group" mode="label-caption">

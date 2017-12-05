@@ -156,15 +156,28 @@
     </xsl:template>
     
     <xsl:template match="fig[@id] | fig-group[@id]" mode="modal-all-item-display">
-        <xsl:variable name="location"><xsl:apply-templates select="." mode="file-location"/></xsl:variable>
-        <div class="col-md-4">
-            <a data-toggle="modal" data-target="#ModalFig{@id}">
-                <div class="thumb" style="background-image: url({$location});">
-                    Thumbnail
-                    <div class="zoom"><span class="sci-ico-zoom"></span></div>
-                </div>
-            </a>
-        </div>
+        <xsl:choose>
+            <xsl:when test="graphic">
+                <xsl:variable name="location"><xsl:apply-templates select="." mode="file-location"/></xsl:variable>
+                <div class="col-md-4">
+                    <a data-toggle="modal" data-target="#ModalFig{@id}">
+                        <div class="thumb" style="background-image: url({$location});">
+                            Thumbnail
+                            <div class="zoom"><span class="sci-ico-zoom"></span></div>
+                        </div>
+                    </a>
+                </div>                
+            </xsl:when>
+            <xsl:otherwise>
+                <div class="col-md-4">
+                    <a data-toggle="modal" data-target="#ModalFig{@id}">
+                        <div>
+                            <xsl:apply-templates select="disp-formula"></xsl:apply-templates>
+                        </div>
+                    </a>
+                </div>   
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="fig" mode="modal-all-item-info">
