@@ -19,6 +19,7 @@
                             </span>
                         </button>
                         <!-- FIXME -->
+                        <xsl:if test="graphic">
                         <a class="link-newWindow showTooltip" target="_blank" data-placement="left">
                             <xsl:attribute name="title"><xsl:apply-templates select="." mode="interface">
                                 <xsl:with-param name="text">Open new window</xsl:with-param>
@@ -26,10 +27,12 @@
                             <xsl:attribute name="href"><xsl:apply-templates select="." mode="file-location"/></xsl:attribute>
                             <span class="sci-ico-newWindow"></span>
                         </a>
+                        </xsl:if>
                         <h4 class="modal-title"><span class="sci-ico-fileFigure"></span> <xsl:apply-templates select="." mode="label-caption"></xsl:apply-templates></h4>                 
                     </div>
                     <div class="modal-body">
-                        <xsl:apply-templates select="graphic"></xsl:apply-templates>
+                        <xsl:apply-templates select="graphic"/>
+                        <xsl:apply-templates select="disp-formula"></xsl:apply-templates>
                         <xsl:apply-templates select="attrib"></xsl:apply-templates>
                     </div>
                     <div class="modal-footer">
