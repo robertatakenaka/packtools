@@ -41,7 +41,8 @@
     <xsl:include href="article-text-table.xsl"/>
     <xsl:include href="article-text-formula.xsl"/>
     <xsl:include href="article-text-fig.xsl"/>
-
+    <xsl:include href="article-text-media.xsl"/>
+    
     <xsl:include href="article-text-back.xsl"/>
     <xsl:include href="article-text-ref.xsl"/>
     <xsl:include href="article-text-fn.xsl"/>
