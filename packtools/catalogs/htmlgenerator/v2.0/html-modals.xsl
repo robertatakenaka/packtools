@@ -131,9 +131,12 @@
                              </ul>
                              <div class="clearfix"></div>
                              <div class="tab-content">
-                                <xsl:apply-templates select="." mode="mode-all-items-display-figs"/>
-                                <xsl:apply-templates select="." mode="mode-all-items-display-tables"/>
-                                <xsl:apply-templates select="." mode="mode-all-items-display-formulas"/>
+                                <xsl:apply-templates select="." mode="modal-all-items-display-objects">
+                                    <xsl:with-param name="body" select="$body"/>
+                                    <xsl:with-param name="total_figs" select="$total_figs"/>
+                                    <xsl:with-param name="total_tables" select="$total_tables"/>
+                                    <xsl:with-param name="total_formulas" select="$total_formulas"/>
+                                </xsl:apply-templates>
                              </div>
                          </div>
                      </div>
@@ -267,7 +270,6 @@
     </xsl:template>
     
     <xsl:template match="article" mode="modal-all-items-total-objects">
-        <xsl:param name="body"/>
         <xsl:parm name="total_figs" select="'0'"/>
         <xsl:parm name="total_tables" select="'0'"/>
         <xsl:parm name="total_formulas" select="'0'"/>
@@ -361,6 +363,69 @@
                 <xsl:value-of select="count(.//disp-formula[@id])"/>
             </xsl:when>
         </xsl:choose>
+    </xsl:template>
+
+    <xsl:template match="article" mode="modal-all-items-display-objects">
+        <xsl:param name="body"/>
+        <xsl:parm name="total_figs" select="'0'"/>
+        <xsl:parm name="total_tables" select="'0'"/>
+        <xsl:parm name="total_formulas" select="'0'"/>
+
+        <!-- 
+        Apresenta todos os elementos do documento de um dado body selecionado
+        divididos por abas: "Figures", "Tables", "Formulas".
+        No entanto, as abas somente aparecem se existem os respectivos objetos.
+        Apenas uma das abas aparece como "active", e a ordem de precedência é:
+        "Figures", "Tables", "Formulas" e ficará como "active" a primeira que
+        tiver objetos.
+        -->
+        <xsl:apply-templates select="." mode="modal-all-items-display-tabpannel">
+            <xsl:with-param name="anchor">figures</xsl:with-param>
+            <xsl:with-param name="body" select="$body"/>
+            <xsl:with-param name="total" select="$total_figs"/>
+            <xsl:with-param name="active">active</xsl:with-param>
+        </xsl:apply-templates>
+
+        <xsl:apply-templates select="." mode="modal-all-items-display-tabpannel">
+            <xsl:with-param name="anchor">tables</xsl:with-param>
+            <xsl:with-param name="body" select="$body"/>
+            <xsl:with-param name="total" select="$total_tables"/>
+            <xsl:with-param name="active">
+                <xsl:if test="$total_figs='0'">active</xsl:if>
+            </xsl:with-param>
+        </xsl:apply-templates>
+
+        <xsl:apply-templates select="." mode="modal-all-items-display-tabpannel">
+            <xsl:with-param name="anchor">schemes</xsl:with-param>
+            <xsl:with-param name="body" select="$body"/>
+            <xsl:with-param name="total" select="$total_formulas"/>
+            <xsl:with-param name="active">
+                <xsl:if test="$total_figs='0' and $total_tables='0'">active</xsl:if>
+            </xsl:with-param>
+        </xsl:apply-templates>
+    </xsl:template>
+
+    <xsl:template match="article" mode="modal-all-items-display-tabpannel">
+        <xsl:param name="anchor"/>
+        <xsl:param name="body"/>
+        <xsl:param name="total"/>
+        <xsl:param name="active"/>
+
+        <xsl:if test="number($total) &gt; 0">
+            <div role="tabpanel" class="tab-pane {$active}" id="{$anchor}">
+                <xsl:choose>
+                    <xsl:when test="$anchor='figures'">
+                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-display-figs"/>
+                    </xsl:when>
+                    <xsl:when test="$anchor='tables'">
+                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-display-tables"/>
+                    </xsl:when>
+                    <xsl:when test="$anchor='schemes'">
+                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-display-formulas"/>
+                    </xsl:when>
+                </xsl:choose>
+            </div>
+        </xsl:if>
     </xsl:template>
 
 </xsl:stylesheet>
