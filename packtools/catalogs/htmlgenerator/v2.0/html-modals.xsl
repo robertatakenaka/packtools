@@ -32,7 +32,20 @@
     </xsl:template>
     
     <xsl:template match="body" mode="modal-figs">
-        <xsl:apply-templates select=".//fig-group[@id] | .//fig[@id]" mode="modal"></xsl:apply-templates>
+        <xsl:apply-templates select=".//*[fig]" mode="modal-figs"/>
+    </xsl:template>
+    
+    <xsl:template match="*[fig]" mode="modal-figs">
+        <xsl:choose>
+            <xsl:when test="fig[@xml:lang=$TEXT_LANG]">
+                <!-- * == figgroup -->
+                <xsl:apply-templates select="fig[@xml:lang=$TEXT_LANG]" mode="modal"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <!-- * == not figgroup -->
+                <xsl:apply-templates select=".//fig" mode="modal"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="body" mode="mode-all-items-total-figs">
