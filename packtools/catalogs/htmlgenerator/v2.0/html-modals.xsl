@@ -35,6 +35,19 @@
         <xsl:apply-templates select=".//fig-group[@id] | .//fig[@id]" mode="modal"></xsl:apply-templates>
     </xsl:template>
     
+    <xsl:template match="body" mode="mode-all-items-total-figs">
+        <xsl:if test=".//fig">
+            <li role="presentation" class="col-md-4 col-sm-4 active">
+                <a href="#figures" aria-controls="figures" role="tab" data-toggle="tab">
+                 <xsl:apply-templates select="." mode="interface">
+                     <xsl:with-param name="text">Figures</xsl:with-param>
+                 </xsl:apply-templates>
+                 (<xsl:value-of select="count(.//fig-group[@id])+count(.//fig[@id])"/>)
+                </a>
+            </li>
+        </xsl:if>
+    </xsl:template>
+
     <xsl:template match="body" mode="modal-all-items">
          <xsl:if test=".//fig or .//table-wrap or .//disp-formula[@id]">
              <div class="modal fade ModalDefault" id="ModalTablesFigures" tabindex="-1" role="dialog" aria-hidden="true">
@@ -53,16 +66,7 @@
                          </div>
                          <div class="modal-body">
                              <ul class="nav nav-tabs md-tabs" role="tablist">
-                                <xsl:if test=".//fig">
-                                    <li role="presentation" class="col-md-4 col-sm-4 active">
-                                         <a href="#figures" aria-controls="figures" role="tab" data-toggle="tab">
-                                             <xsl:apply-templates select="." mode="interface">
-                                                 <xsl:with-param name="text">Figures</xsl:with-param>
-                                             </xsl:apply-templates>
-                                             (<xsl:value-of select="count(.//fig-group[@id])+count(.//fig[@id])"/>)
-                                         </a>
-                                     </li>
-                                 </xsl:if>
+                                <xsl:apply-templates select="." mode="mode-all-items-total-figs"/>
                                  <xsl:if test=".//table-wrap">
                                      <li role="presentation">
                                          <xsl:attribute name="class">col-md-4 col-sm-4 <xsl:if test="not(.//fig)"> active</xsl:if></xsl:attribute>
