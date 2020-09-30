@@ -77,6 +77,34 @@
         </xsl:if>
     </xsl:template>
 
+    <xsl:template match="body" mode="mode-all-items-display-figs">
+        <xsl:if test=".//fig">
+            <div role="tabpanel" class="tab-pane active" id="figures">
+                <xsl:apply-templates select=".//fig-group[@id] | .//fig[@id]" mode="modal-all-item"/>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template match="body" mode="mode-all-items-display-tables">
+        <xsl:if test=".//table-wrap">
+            <div role="tabpanel">
+                <xsl:attribute name="class">tab-pane <xsl:if test="not(.//fig)"> active</xsl:if></xsl:attribute>
+                <xsl:attribute name="id">tables</xsl:attribute>
+                <xsl:apply-templates select=".//table-wrap-group[table-wrap] | .//*[table-wrap and name()!='table-wrap-group']/table-wrap" mode="modal-all-item"/>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template match="body" mode="mode-all-items-display-formulas">
+        <xsl:if test=".//disp-formula[@id]">
+            <div role="tabpanel">
+                <xsl:attribute name="class">tab-pane <xsl:if test="not(.//fig) and not(.//table-wrap)"> active</xsl:if></xsl:attribute>
+                <xsl:attribute name="id">schemes</xsl:attribute>
+                <xsl:apply-templates select=".//disp-formula[@id]" mode="modal-all-item"/>
+            </div>
+        </xsl:if>
+    </xsl:template>
+    
     <xsl:template match="body" mode="modal-all-items">
          <xsl:if test=".//fig or .//table-wrap or .//disp-formula[@id]">
              <div class="modal fade ModalDefault" id="ModalTablesFigures" tabindex="-1" role="dialog" aria-hidden="true">
@@ -101,28 +129,9 @@
                              </ul>
                              <div class="clearfix"></div>
                              <div class="tab-content">
-                                 <xsl:if test=".//fig">
-                                     <div role="tabpanel" class="tab-pane active" id="figures">
-                                         <xsl:apply-templates select=".//fig-group[@id] | .//fig[@id]" mode="modal-all-item"></xsl:apply-templates>
-                                     </div>
-                                 </xsl:if>
-                                 <xsl:if test=".//table-wrap">
-                                     <div role="tabpanel">
-                                         <xsl:attribute name="class">tab-pane <xsl:if test="not(.//fig)"> active</xsl:if></xsl:attribute>
-                                         <xsl:attribute name="id">tables</xsl:attribute>
-                                         
-                                         <xsl:apply-templates select=".//table-wrap-group[table-wrap] | .//*[table-wrap and name()!='table-wrap-group']/table-wrap" mode="modal-all-item"></xsl:apply-templates>
-                                     </div>
-                                 </xsl:if>
-                                 <xsl:if test=".//disp-formula[@id]">
-                                     <div role="tabpanel">
-                                         <xsl:attribute name="class">tab-pane <xsl:if test="not(.//fig) and not(.//table-wrap)"> active</xsl:if></xsl:attribute>
-                                         <xsl:attribute name="id">schemes</xsl:attribute>
-                                         
-                                         <xsl:apply-templates select=".//disp-formula[@id]" mode="modal-all-item"></xsl:apply-templates>
-                                         
-                                     </div>
-                                 </xsl:if>
+                                <xsl:apply-templates select="." mode="mode-all-items-display-figs"/>
+                                <xsl:apply-templates select="." mode="mode-all-items-display-tables"/>
+                                <xsl:apply-templates select="." mode="mode-all-items-display-formulas"/>
                              </div>
                          </div>
                      </div>
