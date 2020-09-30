@@ -301,13 +301,27 @@
         </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="fig" mode="modal-all-item">       
+    <xsl:template match="fig | disp-formula[@id]" mode="modal-all-item">
         <div class="row fig">
             <xsl:apply-templates select="." mode="modal-all-item-display"></xsl:apply-templates>
             <xsl:apply-templates select="." mode="modal-all-item-info"></xsl:apply-templates>
         </div>        
     </xsl:template>
+ 
+    <xsl:template match="table-wrap-group[table-wrap]" mode="modal-all-item">
+        <div class="row table">
+            <xsl:apply-templates select="." mode="modal-all-item-display"></xsl:apply-templates>
+            <xsl:apply-templates select="table-wrap[@xml:lang=$TEXT_LANG]" mode="modal-all-item-info"></xsl:apply-templates>
+        </div>        
+    </xsl:template>
     
+    <xsl:template match="table-wrap[not(@xml:lang)]" mode="modal-all-item">
+        <div class="row table">
+            <xsl:apply-templates select="." mode="modal-all-item-display"></xsl:apply-templates>
+            <xsl:apply-templates select="." mode="modal-all-item-info"></xsl:apply-templates>
+        </div>        
+    </xsl:template>
+
     <xsl:template match="fig" mode="modal-all-item-display">
         <xsl:variable name="figid">
             <xsl:choose>
@@ -345,21 +359,7 @@
             <xsl:apply-templates select="." mode="label-caption-thumb"></xsl:apply-templates>
         </div>
     </xsl:template>
-    
-    <xsl:template match="table-wrap-group[table-wrap]" mode="modal-all-item">       
-        <div class="row table">
-            <xsl:apply-templates select="." mode="modal-all-item-display"></xsl:apply-templates>
-            <xsl:apply-templates select="table-wrap[@xml:lang=$TEXT_LANG]" mode="modal-all-item-info"></xsl:apply-templates>
-        </div>        
-    </xsl:template>
-    
-    <xsl:template match="table-wrap[not(@xml:lang)]" mode="modal-all-item">       
-        <div class="row table">
-            <xsl:apply-templates select="." mode="modal-all-item-display"></xsl:apply-templates>
-            <xsl:apply-templates select="." mode="modal-all-item-info"></xsl:apply-templates>
-        </div>        
-    </xsl:template>
-    
+        
     <xsl:template match="table-wrap | table-wrap-group" mode="modal-all-item-display">
         <xsl:variable name="location"><xsl:apply-templates select="." mode="file-location"/></xsl:variable>
         <div class="col-md-4">
@@ -377,14 +377,7 @@
             <xsl:apply-templates select="." mode="label-caption-thumb"></xsl:apply-templates>
         </div>
     </xsl:template>
-    
-    <xsl:template match="disp-formula[@id]" mode="modal-all-item">       
-        <div class="row fig">
-            <xsl:apply-templates select="." mode="modal-all-item-display"></xsl:apply-templates>
-            <xsl:apply-templates select="." mode="modal-all-item-info"></xsl:apply-templates>
-        </div>        
-    </xsl:template>
-     
+         
     <xsl:template match="disp-formula[@id]" mode="modal-all-item-display">
         <xsl:variable name="location"><xsl:apply-templates select="." mode="file-location"/></xsl:variable>
         <div class="col-md-4">
