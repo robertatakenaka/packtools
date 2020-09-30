@@ -39,10 +39,39 @@
         <xsl:if test=".//fig">
             <li role="presentation" class="col-md-4 col-sm-4 active">
                 <a href="#figures" aria-controls="figures" role="tab" data-toggle="tab">
-                 <xsl:apply-templates select="." mode="interface">
-                     <xsl:with-param name="text">Figures</xsl:with-param>
-                 </xsl:apply-templates>
-                 (<xsl:value-of select="count(.//fig-group[@id])+count(.//fig[@id])"/>)
+                    <xsl:apply-templates select="." mode="interface">
+                        <xsl:with-param name="text">Figures</xsl:with-param>
+                    </xsl:apply-templates>
+                    (<xsl:value-of select="count(.//fig-group[@id])+count(.//fig[@id])"/>)
+                </a>
+            </li>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="body" mode="mode-all-items-total-tables">
+        <xsl:if test=".//table-wrap">
+            <li role="presentation">
+                <xsl:attribute name="class">col-md-4 col-sm-4 <xsl:if test="not(.//fig)"> active</xsl:if></xsl:attribute>
+                <a href="#tables" aria-controls="tables" role="tab" data-toggle="tab">
+                    <xsl:apply-templates select="." mode="interface">
+                        <xsl:with-param name="text">Tables</xsl:with-param>
+                    </xsl:apply-templates>
+                    (<xsl:value-of select="count(.//table-wrap-group)+count(.//*[table-wrap and name()!='table-wrap-group']//table-wrap)"/>)
+                </a>
+            </li>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template match="body" mode="mode-all-items-total-formulas">
+        <xsl:if test=".//disp-formula[@id]">
+            <li role="presentation">
+                <xsl:attribute name="class">col-md-4 col-sm-4<xsl:if test="not(.//fig) and not(.//table-wrap)"> active</xsl:if></xsl:attribute>
+
+                <a href="#schemes" aria-controls="schemes" role="tab" data-toggle="tab">
+                    <xsl:apply-templates select="." mode="interface">
+                        <xsl:with-param name="text">Formulas</xsl:with-param>
+                    </xsl:apply-templates>
+                (<xsl:value-of select="count(.//disp-formula[@id])"/>)
                 </a>
             </li>
         </xsl:if>
@@ -67,29 +96,8 @@
                          <div class="modal-body">
                              <ul class="nav nav-tabs md-tabs" role="tablist">
                                 <xsl:apply-templates select="." mode="mode-all-items-total-figs"/>
-                                 <xsl:if test=".//table-wrap">
-                                     <li role="presentation">
-                                         <xsl:attribute name="class">col-md-4 col-sm-4 <xsl:if test="not(.//fig)"> active</xsl:if></xsl:attribute>
-                                         <a href="#tables" aria-controls="tables" role="tab" data-toggle="tab">
-                                             <xsl:apply-templates select="." mode="interface">
-                                                 <xsl:with-param name="text">Tables</xsl:with-param>
-                                             </xsl:apply-templates>
-                                             (<xsl:value-of select="count(.//table-wrap-group)+count(.//*[table-wrap and name()!='table-wrap-group']//table-wrap)"/>)
-                                         </a>
-                                     </li>
-                                 </xsl:if>
-                                 <xsl:if test=".//disp-formula[@id]">
-                                     <li role="presentation">
-                                         <xsl:attribute name="class">col-md-4 col-sm-4<xsl:if test="not(.//fig) and not(.//table-wrap)"> active</xsl:if></xsl:attribute>
-                                         
-                                         <a href="#schemes" aria-controls="schemes" role="tab" data-toggle="tab">
-                                             <xsl:apply-templates select="." mode="interface">
-                                                 <xsl:with-param name="text">Formulas</xsl:with-param>
-                                             </xsl:apply-templates>
-                                             (<xsl:value-of select="count(.//disp-formula[@id])"/>)
-                                         </a>
-                                     </li>
-                                 </xsl:if>
+                                <xsl:apply-templates select="." mode="mode-all-items-total-tables"/>
+                                <xsl:apply-templates select="." mode="mode-all-items-total-formulas"/>
                              </ul>
                              <div class="clearfix"></div>
                              <div class="tab-content">
