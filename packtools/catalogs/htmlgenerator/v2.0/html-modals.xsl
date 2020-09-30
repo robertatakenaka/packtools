@@ -93,11 +93,11 @@
     <xsl:template match="body" mode="mode-all-items-display-figs">
         <xsl:if test=".//fig">
             <div role="tabpanel" class="tab-pane active" id="figures">
-                <xsl:apply-templates select=".//fig-group[@id] | .//fig[@id]" mode="modal-all-item"/>
+                <xsl:apply-templates select="*[fig]" mode="mode-all-items-display-figs"/>
             </div>
         </xsl:if>
     </xsl:template>
-
+    
     <xsl:template match="body" mode="mode-all-items-display-tables">
         <xsl:if test=".//table-wrap">
             <div role="tabpanel">
@@ -153,13 +153,20 @@
          </xsl:if>
     </xsl:template>
     
-    <xsl:template match="fig-group[@id]" mode="modal-all-item">       
-        <div class="row fig">
-            <xsl:apply-templates select="." mode="modal-all-item-display"></xsl:apply-templates>
-            <xsl:apply-templates select="fig[@xml:lang=$TEXT_LANG]" mode="modal-all-item-info"></xsl:apply-templates>
-        </div>        
+    <xsl:template match="*[fig]" mode="mode-all-items-display-figs">
+        <xsl:choose>
+            <xsl:when test="fig[@xml:lang=$TEXT_LANG]">
+                <!-- * == figgroup -->
+                <xsl:apply-templates select="fig[@xml:lang=$TEXT_LANG]" mode="modal-all-item"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <!-- * == not figgroup -->
+                <xsl:apply-templates select=".//fig" mode="modal-all-item"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
-    <xsl:template match="fig[@id]" mode="modal-all-item">       
+
+    <xsl:template match="fig" mode="modal-all-item">       
         <div class="row fig">
             <xsl:apply-templates select="." mode="modal-all-item-display"></xsl:apply-templates>
             <xsl:apply-templates select="." mode="modal-all-item-info"></xsl:apply-templates>
