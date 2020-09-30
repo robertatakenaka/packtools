@@ -57,13 +57,19 @@
     
     <xsl:template match="article" mode="mode-all-items-total-figs">
         <xsl:param name="body"/>
-        <xsl:if test=".//fig">
+        <xsl:variable name="total">
+            <xsl:apply-templates select="." mode="get-total">
+                <xsl:with-param name="body" select="$body"/>
+                <xsl:with-param name="object">fig</xsl:with-param>
+            </xsl:apply-templates>
+        </xsl:variable>
+        <xsl:if test="number(%total) &gt; 0">
             <li role="presentation" class="col-md-4 col-sm-4 active">
                 <a href="#figures" aria-controls="figures" role="tab" data-toggle="tab">
                     <xsl:apply-templates select="." mode="interface">
                         <xsl:with-param name="text">Figures</xsl:with-param>
                     </xsl:apply-templates>
-                    (<xsl:value-of select="count(.//fig-group[@id])+count(.//fig[@id])"/>)
+                    (<xsl:value-of select="$total"/>)
                 </a>
             </li>
         </xsl:if>
@@ -294,5 +300,43 @@
         </div>
     </xsl:template>
     
-    
+    <xsl:template match="article" mode="get-total">
+        <xsl:param name="body"/>
+        <xsl:param name="object"/>
+        <xsl:choose>
+            <xsl:when test="count(.//body) = 1">
+                <xsl:apply-templates select="." mode="sum-objects">
+                    <xsl:with-param name="object" select="$object"/>
+                </xsl:apply-templates>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="f"><xsl:apply-templates select="front" mode="sum-objects">
+                    <xsl:with-param name="object" select="$object"/>
+                </xsl:apply-templates></xsl:variable>
+                <xsl:variable name="b"><xsl:apply-templates select="$body" mode="sum-objects">
+                    <xsl:with-param name="object" select="$object"/>
+                </xsl:apply-templates></xsl:variable>
+                <xsl:variable name="bk"><xsl:apply-templates select="back" mode="sum-objects">
+                    <xsl:with-param name="object" select="$object"/>
+                </xsl:apply-templates></xsl:variable>
+                <xsl:value-of select="number($f)+number($b)+number($bk)"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <xsl:template match="article | front | body | back" mode="sum-objects">
+        <xsl:param name="object"/>
+        <xsl:choose>
+            <xsl:when test="$object='fig'">
+                <xsl:value-of select="count(.//fig-group[@id]/fig[@xml:lang][1]) + count(.//fig[not(@xml:lang)])"/>
+            </xsl:when>
+            <xsl:when test="$object='table'">
+                <xsl:value-of select="count(.//table-wrap-group)+count(.//*[table-wrap and name()!='table-wrap-group']//table-wrap)"/>
+            </xsl:when>
+            <xsl:when test="$object='formula'">
+                <xsl:value-of select="count(.//disp-formula[@id])"/>
+            </xsl:when>
+        </xsl:choose>
+    </xsl:template>
+
 </xsl:stylesheet>
