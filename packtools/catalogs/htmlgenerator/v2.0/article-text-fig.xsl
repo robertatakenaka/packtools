@@ -9,10 +9,10 @@
     <xsl:template match="fig-group">
         <xsl:choose>
             <xsl:when test="fig[@xml:lang=$TEXT_LANG]">
-                <xsl:apply-templates select="fig[@xml:lang=$TEXT_LANG]"></xsl:apply-templates>
+                <xsl:apply-templates select="fig[@xml:lang=$TEXT_LANG]"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select="fig[1]"></xsl:apply-templates>
+                <xsl:apply-templates select="fig[1]"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -21,10 +21,17 @@
         <xsl:variable name="location">
             <xsl:apply-templates select="alternatives | graphic" mode="file-location-thumb"></xsl:apply-templates>
         </xsl:variable>
-        <div class="row fig" id="{@id}">
-            <a name="{@id}"></a>
+        <xsl:variable name="figid">
+            <xsl:choose>
+                <xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when>
+                <xsl:when test="../../fig-group/@id"><xsl:value-of select="../../fig-group/@id"/></xsl:when>
+                <xsl:otherwise>IDMISSING</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <div class="row fig" id="{$figid}">
+            <a name="{$figid}"></a>
             <div class="col-md-4 col-sm-4">
-                <a href="" data-toggle="modal" data-target="#ModalFig{@id}">
+                <a href="" data-toggle="modal" data-target="#ModalFig{$figid}">
                     <div class="thumb" style="background-image: url({$location});">
                         Thumbnail
                         <div class="zoom"><span class="sci-ico-zoom"></span></div>
