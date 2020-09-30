@@ -3,11 +3,15 @@
     version="1.0">
     <xsl:template match="*" mode="article-modals">
         <xsl:apply-templates select="." mode="modal-contribs"/>
-        <xsl:apply-templates select="." mode="modal-all-items"></xsl:apply-templates>
+        <xsl:apply-templates select="." mode="body-modals"/>
+        <xsl:apply-templates select="." mode="modal-how2cite"/>
+    </xsl:template>
+    
+    <xsl:template match="*" mode="body-modals">
+        <xsl:apply-templates select="." mode="modal-all-items"/>
         <xsl:apply-templates select="." mode="modal-figs"/>
         <xsl:apply-templates select="." mode="modal-tables"/>
         <xsl:apply-templates select="." mode="modal-disp-formulas"/>
-        <xsl:apply-templates select="." mode="modal-how2cite"/>
     </xsl:template>
     
     <xsl:template match="*" mode="modal-tables">
