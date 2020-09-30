@@ -3,63 +3,36 @@
     version="1.0">
     <xsl:template match="*" mode="article-modals">
         <xsl:apply-templates select="." mode="modal-contribs"/>
-        <xsl:apply-templates select="." mode="body-modals"/>
+
+        <xsl:choose>
+            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
+                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body" mode="body-modals"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="./body" mode="body-modals"/>                    
+            </xsl:otherwise>
+        </xsl:choose>
+
         <xsl:apply-templates select="." mode="modal-how2cite"/>
     </xsl:template>
     
-    <xsl:template match="*" mode="body-modals">
+    <xsl:template match="body" mode="body-modals">
         <xsl:apply-templates select="." mode="modal-all-items"/>
         <xsl:apply-templates select="." mode="modal-figs"/>
         <xsl:apply-templates select="." mode="modal-tables"/>
         <xsl:apply-templates select="." mode="modal-disp-formulas"/>
     </xsl:template>
     
-    <xsl:template match="*" mode="modal-tables">
-        <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body//table-wrap" mode="modal"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates select="./body//table-wrap" mode="modal"/>                    
-            </xsl:otherwise>
-        </xsl:choose>
+    <xsl:template match="body" mode="modal-tables">
+        <xsl:apply-templates select=".//table-wrap" mode="modal"/>
     </xsl:template>
     
-    <xsl:template match="*" mode="modal-disp-formulas">
-        <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body//disp-formula" mode="modal"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates select="./body//disp-formula" mode="modal"/>                    
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    
-    <xsl:template match="*" mode="modal-figs">
-        <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body" mode="modal-figs"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates select="./body" mode="modal-figs"/>                    
-            </xsl:otherwise>
-        </xsl:choose>
+    <xsl:template match="body" mode="modal-disp-formulas">
+        <xsl:apply-templates select=".//disp-formula" mode="modal"/>
     </xsl:template>
     
     <xsl:template match="body" mode="modal-figs">
         <xsl:apply-templates select=".//fig-group[@id] | .//fig[@id]" mode="modal"></xsl:apply-templates>
-    </xsl:template>
-    
-    <xsl:template match="*" mode="modal-all-items">
-        <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body" mode="modal-all-items"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates select="./body" mode="modal-all-items"/>                    
-            </xsl:otherwise>
-        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="body" mode="modal-all-items">
