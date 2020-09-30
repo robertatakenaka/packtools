@@ -55,7 +55,8 @@
         </xsl:choose>
     </xsl:template>
     
-    <xsl:template match="body" mode="mode-all-items-total-figs">
+    <xsl:template match="article" mode="mode-all-items-total-figs">
+        <xsl:param name="body"/>
         <xsl:if test=".//fig">
             <li role="presentation" class="col-md-4 col-sm-4 active">
                 <a href="#figures" aria-controls="figures" role="tab" data-toggle="tab">
@@ -68,7 +69,8 @@
         </xsl:if>
     </xsl:template>
     
-    <xsl:template match="body" mode="mode-all-items-total-tables">
+    <xsl:template match="article" mode="mode-all-items-total-tables">
+        <xsl:param name="body"/>
         <xsl:if test=".//table-wrap">
             <li role="presentation">
                 <xsl:attribute name="class">col-md-4 col-sm-4 <xsl:if test="not(.//fig)"> active</xsl:if></xsl:attribute>
@@ -82,7 +84,8 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template match="body" mode="mode-all-items-total-formulas">
+    <xsl:template match="article" mode="mode-all-items-total-formulas">
+        <xsl:param name="body"/>
         <xsl:if test=".//disp-formula[@id]">
             <li role="presentation">
                 <xsl:attribute name="class">col-md-4 col-sm-4<xsl:if test="not(.//fig) and not(.//table-wrap)"> active</xsl:if></xsl:attribute>
@@ -125,7 +128,8 @@
         </xsl:if>
     </xsl:template>
     
-    <xsl:template match="body" mode="modal-all-items">
+    <xsl:template match="article" mode="modal-all-items">
+        <xsl:param name="body"/>
          <xsl:if test=".//fig or .//table-wrap or .//disp-formula[@id]">
              <div class="modal fade ModalDefault" id="ModalTablesFigures" tabindex="-1" role="dialog" aria-hidden="true">
                  <div class="modal-dialog">
@@ -143,9 +147,15 @@
                          </div>
                          <div class="modal-body">
                              <ul class="nav nav-tabs md-tabs" role="tablist">
-                                <xsl:apply-templates select="." mode="mode-all-items-total-figs"/>
-                                <xsl:apply-templates select="." mode="mode-all-items-total-tables"/>
-                                <xsl:apply-templates select="." mode="mode-all-items-total-formulas"/>
+                                <xsl:apply-templates select="." mode="mode-all-items-total-figs">
+                                    <xsl:with-param name="body" select="$body"/>
+                                </xsl:apply-templates>
+                                <xsl:apply-templates select="." mode="mode-all-items-total-tables">
+                                    <xsl:with-param name="body" select="$body"/>
+                                </xsl:apply-templates>
+                                <xsl:apply-templates select="." mode="mode-all-items-total-formulas">
+                                    <xsl:with-param name="body" select="$body"/>
+                                </xsl:apply-templates>
                              </ul>
                              <div class="clearfix"></div>
                              <div class="tab-content">
