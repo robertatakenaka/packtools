@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     version="1.0">
-    <xsl:template match="*" mode="article-modals">
+    <xsl:template match="article" mode="article-modals">
         <xsl:apply-templates select="." mode="modal-contribs"/>
 
         <xsl:choose>
             <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
-                <xsl:apply-templates select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body" mode="body-modals"/>
+                <xsl:apply-templates select="." mode="article-modals-for-selected-body">
+                    <xsl:with-param name="body" select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body"/>
+                </xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select="./body" mode="body-modals"/>                    
+                <xsl:apply-templates select="." mode="article-modals-for-selected-body">
+                    <xsl:with-param name="body" select="body"/>
+                </xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
 
         <xsl:apply-templates select="." mode="modal-how2cite"/>
     </xsl:template>
     
-    <xsl:template match="body" mode="body-modals">
-        <xsl:apply-templates select="." mode="modal-all-items"/>
-        <xsl:apply-templates select="." mode="modal-figs"/>
-        <xsl:apply-templates select="." mode="modal-tables"/>
-        <xsl:apply-templates select="." mode="modal-disp-formulas"/>
+    <xsl:template match="article" mode="article-modals-for-selected-body">
+        <xsl:param name="body"/>
+        <xsl:apply-templates select="." mode="modal-all-items">
+            <xsl:with-param name="body" select="$body"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select="front | $body | back" mode="modal-figs"/>
+        <xsl:apply-templates select="front | $body | back" mode="modal-tables"/>
+        <xsl:apply-templates select="front | $body | back" mode="modal-disp-formulas"/>
     </xsl:template>
     
-    <xsl:template match="body" mode="modal-tables">
+    <xsl:template match="front | body | back" mode="modal-tables">
         <xsl:apply-templates select=".//table-wrap" mode="modal"/>
     </xsl:template>
     
-    <xsl:template match="body" mode="modal-disp-formulas">
+    <xsl:template match="front | body | back" mode="modal-disp-formulas">
         <xsl:apply-templates select=".//disp-formula" mode="modal"/>
     </xsl:template>
     
-    <xsl:template match="body" mode="modal-figs">
+    <xsl:template match="front | body | back" mode="modal-figs">
         <xsl:apply-templates select=".//*[fig]" mode="modal-figs"/>
     </xsl:template>
     
