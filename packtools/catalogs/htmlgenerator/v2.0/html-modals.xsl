@@ -54,57 +54,6 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
-    <xsl:template match="article" mode="mode-all-items-total-figs">
-        <xsl:param name="body"/>
-        <xsl:variable name="total">
-            <xsl:apply-templates select="." mode="get-total">
-                <xsl:with-param name="body" select="$body"/>
-                <xsl:with-param name="object">fig</xsl:with-param>
-            </xsl:apply-templates>
-        </xsl:variable>
-        <xsl:if test="number(%total) &gt; 0">
-            <li role="presentation" class="col-md-4 col-sm-4 active">
-                <a href="#figures" aria-controls="figures" role="tab" data-toggle="tab">
-                    <xsl:apply-templates select="." mode="interface">
-                        <xsl:with-param name="text">Figures</xsl:with-param>
-                    </xsl:apply-templates>
-                    (<xsl:value-of select="$total"/>)
-                </a>
-            </li>
-        </xsl:if>
-    </xsl:template>
-    
-    <xsl:template match="article" mode="mode-all-items-total-tables">
-        <xsl:param name="body"/>
-        <xsl:if test=".//table-wrap">
-            <li role="presentation">
-                <xsl:attribute name="class">col-md-4 col-sm-4 <xsl:if test="not(.//fig)"> active</xsl:if></xsl:attribute>
-                <a href="#tables" aria-controls="tables" role="tab" data-toggle="tab">
-                    <xsl:apply-templates select="." mode="interface">
-                        <xsl:with-param name="text">Tables</xsl:with-param>
-                    </xsl:apply-templates>
-                    (<xsl:value-of select="count(.//table-wrap-group)+count(.//*[table-wrap and name()!='table-wrap-group']//table-wrap)"/>)
-                </a>
-            </li>
-        </xsl:if>
-    </xsl:template>
-
-    <xsl:template match="article" mode="mode-all-items-total-formulas">
-        <xsl:param name="body"/>
-        <xsl:if test=".//disp-formula[@id]">
-            <li role="presentation">
-                <xsl:attribute name="class">col-md-4 col-sm-4<xsl:if test="not(.//fig) and not(.//table-wrap)"> active</xsl:if></xsl:attribute>
-
-                <a href="#schemes" aria-controls="schemes" role="tab" data-toggle="tab">
-                    <xsl:apply-templates select="." mode="interface">
-                        <xsl:with-param name="text">Formulas</xsl:with-param>
-                    </xsl:apply-templates>
-                (<xsl:value-of select="count(.//disp-formula[@id])"/>)
-                </a>
-            </li>
-        </xsl:if>
-    </xsl:template>
 
     <xsl:template match="body" mode="mode-all-items-display-figs">
         <xsl:if test=".//fig">
@@ -136,7 +85,27 @@
     
     <xsl:template match="article" mode="modal-all-items">
         <xsl:param name="body"/>
-         <xsl:if test=".//fig or .//table-wrap or .//disp-formula[@id]">
+
+        <xsl:variable name="total_figs">
+            <xsl:apply-templates select="." mode="get-total">
+                <xsl:with-param name="body" select="$body"/>
+                <xsl:with-param name="object" select="'fig'"/>
+            </xsl:apply-templates>
+        </xsl:variable>
+        <xsl:variable name="total_tables">
+            <xsl:apply-templates select="." mode="get-total">
+                <xsl:with-param name="body" select="$body"/>
+                <xsl:with-param name="object" select="'table'"/>
+            </xsl:apply-templates>
+        </xsl:variable>
+        <xsl:variable name="total_formulas">
+            <xsl:apply-templates select="." mode="get-total">
+                <xsl:with-param name="body" select="$body"/>
+                <xsl:with-param name="object" select="'formula'"/>
+            </xsl:apply-templates>
+        </xsl:variable>
+
+         <xsl:if test="number($total_figs) + number($total_tables) + number($total_formulas) &gt; 0">
              <div class="modal fade ModalDefault" id="ModalTablesFigures" tabindex="-1" role="dialog" aria-hidden="true">
                  <div class="modal-dialog">
                      <div class="modal-content">
@@ -153,14 +122,11 @@
                          </div>
                          <div class="modal-body">
                              <ul class="nav nav-tabs md-tabs" role="tablist">
-                                <xsl:apply-templates select="." mode="mode-all-items-total-figs">
+                                <xsl:apply-templates select="." mode="modal-all-items-total-objects">
                                     <xsl:with-param name="body" select="$body"/>
-                                </xsl:apply-templates>
-                                <xsl:apply-templates select="." mode="mode-all-items-total-tables">
-                                    <xsl:with-param name="body" select="$body"/>
-                                </xsl:apply-templates>
-                                <xsl:apply-templates select="." mode="mode-all-items-total-formulas">
-                                    <xsl:with-param name="body" select="$body"/>
+                                    <xsl:with-param name="total_figs" select="$total_figs"/>
+                                    <xsl:with-param name="total_tables" select="$total_tables"/>
+                                    <xsl:with-param name="total_formulas" select="$total_formulas"/>
                                 </xsl:apply-templates>
                              </ul>
                              <div class="clearfix"></div>
@@ -300,6 +266,64 @@
         </div>
     </xsl:template>
     
+    <xsl:template match="article" mode="modal-all-items-total-objects">
+        <xsl:param name="body"/>
+        <xsl:parm name="total_figs" select="'0'"/>
+        <xsl:parm name="total_tables" select="'0'"/>
+        <xsl:parm name="total_formulas" select="'0'"/>
+
+        <!-- 
+        Apresenta todos os elementos do documento de um dado body selecionado
+        divididos por abas: "Figures", "Tables", "Formulas".
+        No entanto, as abas somente aparecem se existem os respectivos objetos.
+        Apenas uma das abas aparece como "active", e a ordem de precedência é:
+        "Figures", "Tables", "Formulas" e ficará como "active" a primeira que
+        tiver objetos.
+        -->
+        <xsl:apply-templates select="." mode="modal-all-items-total-object-type">
+            <xsl:with-param name="anchor">figures</xsl:with-param>
+            <xsl:with-param name="label">Figures</xsl:with-param>
+            <xsl:with-param name="total" select="$total_figs"/>
+            <xsl:with-param name="active">active</xsl:with-param>
+        </xsl:apply-templates>
+
+        <xsl:apply-templates select="." mode="modal-all-items-total-object-type">
+            <xsl:with-param name="anchor">tables</xsl:with-param>
+            <xsl:with-param name="label">Tables</xsl:with-param>
+            <xsl:with-param name="total" select="$total_tables"/>
+            <xsl:with-param name="active">
+                <xsl:if test="$total_figs='0'">active</xsl:if>
+            </xsl:with-param>
+        </xsl:apply-templates>
+
+        <xsl:apply-templates select="." mode="modal-all-items-total-object-type">
+            <xsl:with-param name="anchor">schemes</xsl:with-param>
+            <xsl:with-param name="label">Formulas</xsl:with-param>
+            <xsl:with-param name="total" select="$total_formulas"/>
+            <xsl:with-param name="active">
+                <xsl:if test="$total_figs='0' and $total_tables='0'">active</xsl:if>
+            </xsl:with-param>
+        </xsl:apply-templates>
+    </xsl:template>
+
+    <xsl:template match="article" mode="modal-all-items-total-object-type">
+        <xsl:param name="anchor"/>
+        <xsl:param name="label"/>
+        <xsl:param name="total"/>
+        <xsl:param name="active"/>
+
+        <xsl:if test="number($total) &gt; 0">
+            <li role="presentation" class="col-md-4 col-sm-4 {$active}">
+                <a href="#{$anchor}" aria-controls="{$anchor}" role="tab" data-toggle="tab">
+                    <xsl:apply-templates select="." mode="interface">
+                        <xsl:with-param name="text" select="$label"/>
+                    </xsl:apply-templates>
+                    (<xsl:value-of select="$total"/>)
+                </a>
+            </li>
+        </xsl:if>
+    </xsl:template>
+
     <xsl:template match="article" mode="get-total">
         <xsl:param name="body"/>
         <xsl:param name="object"/>
