@@ -54,34 +54,6 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-
-    <xsl:template match="body" mode="mode-all-items-display-figs">
-        <xsl:if test=".//fig">
-            <div role="tabpanel" class="tab-pane active" id="figures">
-                <xsl:apply-templates select="*[fig]" mode="mode-all-items-display-figs"/>
-            </div>
-        </xsl:if>
-    </xsl:template>
-    
-    <xsl:template match="body" mode="mode-all-items-display-tables">
-        <xsl:if test=".//table-wrap">
-            <div role="tabpanel">
-                <xsl:attribute name="class">tab-pane <xsl:if test="not(.//fig)"> active</xsl:if></xsl:attribute>
-                <xsl:attribute name="id">tables</xsl:attribute>
-                <xsl:apply-templates select=".//table-wrap-group[table-wrap] | .//*[table-wrap and name()!='table-wrap-group']/table-wrap" mode="modal-all-item"/>
-            </div>
-        </xsl:if>
-    </xsl:template>
-
-    <xsl:template match="body" mode="mode-all-items-display-formulas">
-        <xsl:if test=".//disp-formula[@id]">
-            <div role="tabpanel">
-                <xsl:attribute name="class">tab-pane <xsl:if test="not(.//fig) and not(.//table-wrap)"> active</xsl:if></xsl:attribute>
-                <xsl:attribute name="id">schemes</xsl:attribute>
-                <xsl:apply-templates select=".//disp-formula[@id]" mode="modal-all-item"/>
-            </div>
-        </xsl:if>
-    </xsl:template>
     
     <xsl:template match="article" mode="modal-all-items">
         <xsl:param name="body"/>
@@ -145,7 +117,7 @@
          </xsl:if>
     </xsl:template>
     
-    <xsl:template match="*[fig]" mode="mode-all-items-display-figs">
+    <xsl:template match="*[fig]" mode="modal-all-items-figs">
         <xsl:choose>
             <xsl:when test="fig[@xml:lang=$TEXT_LANG]">
                 <!-- * == figgroup -->
@@ -415,17 +387,29 @@
             <div role="tabpanel" class="tab-pane {$active}" id="{$anchor}">
                 <xsl:choose>
                     <xsl:when test="$anchor='figures'">
-                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-display-figs"/>
+                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-figs"/>
                     </xsl:when>
                     <xsl:when test="$anchor='tables'">
-                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-display-tables"/>
+                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-tables"/>
                     </xsl:when>
                     <xsl:when test="$anchor='schemes'">
-                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-display-formulas"/>
+                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-formulas"/>
                     </xsl:when>
                 </xsl:choose>
             </div>
         </xsl:if>
+    </xsl:template>
+
+    <xsl:template match="front | body | back" mode="modal-all-items-figs">
+        <xsl:apply-templates select=".//*[fig]" mode="modal-all-items-figs"/>
+    </xsl:template>
+    
+    <xsl:template match="front | body | back" mode="modal-all-items-tables">
+        <xsl:apply-templates select=".//table-wrap-group[table-wrap] | .//*[table-wrap and name()!='table-wrap-group']/table-wrap" mode="modal-all-item"/>
+    </xsl:template>
+
+    <xsl:template match="front | body | back" mode="modal-all-items-formulas">
+        <xsl:apply-templates select=".//disp-formula[@id]" mode="modal-all-item"/>
     </xsl:template>
 
 </xsl:stylesheet>
