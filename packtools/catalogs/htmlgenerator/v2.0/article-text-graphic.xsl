@@ -10,7 +10,6 @@
         <xsl:variable name="s"><xsl:value-of select="substring($location,string-length($location)-3)"/></xsl:variable>
         <xsl:variable name="ext"><xsl:if test="contains($s,'.')">.<xsl:value-of select="substring-after($s,'.')"/></xsl:if></xsl:variable>
 
-        <div>
         <xsl:choose>
             <xsl:when test="$ext='.svg'">
                 <object type="image/svg+xml">
@@ -25,7 +24,6 @@
                 </img>
             </xsl:otherwise>
         </xsl:choose>
-        </div>
         <!--
         <xsl:comment><xsl:value-of select="$s"/> </xsl:comment>
         -->

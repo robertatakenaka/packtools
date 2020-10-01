@@ -343,7 +343,7 @@
                 </div>
                 <div>
                     <xsl:choose>
-                        <xsl:when test="$location">
+                        <xsl:when test="$location != ''">
                             <xsl:attribute name="class">thumb</xsl:attribute>
                             <xsl:attribute name="style">background-image: url(<xsl:value-of select="$location"/>);</xsl:attribute>
                         </xsl:when>
@@ -377,7 +377,7 @@
             <a data-toggle="modal" data-target="#ModalScheme{@id}">
                 <div>
                     <xsl:choose>
-                        <xsl:when test="graphic">
+                        <xsl:when test="$location != ''">
                             <xsl:attribute name="class">thumb</xsl:attribute>
                             <xsl:attribute name="style">background-image: url(<xsl:value-of select="$location"/>);</xsl:attribute>
                         </xsl:when>
