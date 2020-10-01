@@ -16,7 +16,14 @@
             <a name="{@id}"></a>
             <div class="col-md-12">
                 <div class="formula-container">
-                    <xsl:apply-templates select="*|text()"></xsl:apply-templates>
+                    <xsl:choose>
+                        <xsl:when test="alternatives">
+                            <xsl:apply-templates select="alternatives | label"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:apply-templates select="mml:math | tex-math | graphic | text() | label"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </div>
             </div>
         </div>
@@ -52,6 +59,23 @@
         </div>
     </xsl:template>
 
+    <xsl:template match="disp-formula/alternatives">
+        <xsl:choose>
+            <xsl:when test="mml:math">
+                <xsl:apply-templates select="mml:math"></xsl:apply-templates>
+            </xsl:when>
+            <xsl:when test="tex-math">
+                <xsl:apply-templates select="tex-math"></xsl:apply-templates>
+            </xsl:when>
+            <xsl:when test="graphic[@specific-use='scielo-web' and not(starts-with(@content-type, 'scielo-')) and @xlink:href!='']">
+                <xsl:apply-templates select="graphic[@specific-use='scielo-web' and not(starts-with(@content-type, 'scielo-')) and @xlink:href!='']" />
+            </xsl:when>
+            <xsl:when test=".//graphic[not(@specific-use) and not(@content-type) and @xlink:href!='']">
+                <xsl:apply-templates select=".//graphic[not(@specific-use) and not(@content-type) and @xlink:href!=''][1]" />
+            </xsl:when>
+        </xsl:choose>
+    </xsl:template>
+
 	<xsl:template match="disp-formula/label">
 		<xsl:value-of select="."/>
 	</xsl:template>
@@ -72,5 +96,5 @@
             </xsl:choose>
         </span>
     </xsl:template>
-    
+
 </xsl:stylesheet>

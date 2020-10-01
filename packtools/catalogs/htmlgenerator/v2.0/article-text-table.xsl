@@ -45,9 +45,6 @@
     <xsl:template match="table-wrap/label">
         <strong><xsl:apply-templates></xsl:apply-templates> </strong>
     </xsl:template>
-    <xsl:template match="table-wrap[alternatives]">
-        <xsl:apply-templates select="alternatives" />
-    </xsl:template>
     <xsl:template match="table-wrap-foot">
         <div class="ref-list">
             <ul class="refList footnote">
@@ -69,5 +66,17 @@
         </div>
     </xsl:template>
    
-    
+    <xsl:template match="table-wrap/alternatives">
+        <xsl:choose>
+            <xsl:when test="table">
+                <xsl:apply-templates select="table"/>
+            </xsl:when>
+            <xsl:when test="graphic[@specific-use='scielo-web' and not(starts-with(@content-type, 'scielo-')) and @xlink:href!='']">
+                <xsl:apply-templates select="graphic[@specific-use='scielo-web' and not(starts-with(@content-type, 'scielo-')) and @xlink:href!='']" />
+            </xsl:when>
+            <xsl:when test=".//graphic[not(@specific-use) and not(@content-type) and @xlink:href!='']">
+                <xsl:apply-templates select=".//graphic[not(@specific-use) and not(@content-type) and @xlink:href!=''][1]" />
+            </xsl:when>
+        </xsl:choose>
+    </xsl:template>
 </xsl:stylesheet>
