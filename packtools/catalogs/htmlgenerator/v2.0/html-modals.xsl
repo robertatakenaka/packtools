@@ -76,7 +76,7 @@
                 <xsl:with-param name="object" select="'formula'"/>
             </xsl:apply-templates>
         </xsl:variable>
-
+        
          <xsl:if test="number($total_figs) + number($total_tables) + number($total_formulas) &gt; 0">
              <div class="modal fade ModalDefault" id="ModalTablesFigures" tabindex="-1" role="dialog" aria-hidden="true">
                  <div class="modal-dialog">
@@ -95,7 +95,6 @@
                          <div class="modal-body">
                              <ul class="nav nav-tabs md-tabs" role="tablist">
                                 <xsl:apply-templates select="." mode="modal-all-items-total-objects">
-                                    <xsl:with-param name="body" select="$body"/>
                                     <xsl:with-param name="total_figs" select="$total_figs"/>
                                     <xsl:with-param name="total_tables" select="$total_tables"/>
                                     <xsl:with-param name="total_formulas" select="$total_formulas"/>
@@ -115,12 +114,13 @@
                  </div>
              </div>
          </xsl:if>
+     
     </xsl:template>
     
     <xsl:template match="article" mode="modal-all-items-total-objects">
-        <xsl:parm name="total_figs" select="'0'"/>
-        <xsl:parm name="total_tables" select="'0'"/>
-        <xsl:parm name="total_formulas" select="'0'"/>
+        <xsl:param name="total_figs"/>
+        <xsl:param name="total_tables"/>
+        <xsl:param name="total_formulas"/>
 
         <!-- 
         Apresenta todos os elementos do documento de um dado body selecionado
@@ -136,7 +136,7 @@
             <xsl:with-param name="total" select="$total_figs"/>
             <xsl:with-param name="active">active</xsl:with-param>
         </xsl:apply-templates>
-
+        
         <xsl:apply-templates select="." mode="modal-all-items-total-object-type">
             <xsl:with-param name="anchor">tables</xsl:with-param>
             <xsl:with-param name="label">Tables</xsl:with-param>
@@ -154,6 +154,7 @@
                 <xsl:if test="$total_figs='0' and $total_tables='0'">active</xsl:if>
             </xsl:with-param>
         </xsl:apply-templates>
+    
     </xsl:template>
 
     <xsl:template match="article" mode="modal-all-items-total-object-type">
@@ -210,14 +211,15 @@
             <xsl:when test="$object='formula'">
                 <xsl:value-of select="count(.//disp-formula[@id])"/>
             </xsl:when>
+            <xsl:otherwise>0</xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 
     <xsl:template match="article" mode="modal-all-items-display-objects">
         <xsl:param name="body"/>
-        <xsl:parm name="total_figs" select="'0'"/>
-        <xsl:parm name="total_tables" select="'0'"/>
-        <xsl:parm name="total_formulas" select="'0'"/>
+        <xsl:param name="total_figs" select="'0'"/>
+        <xsl:param name="total_tables" select="'0'"/>
+        <xsl:param name="total_formulas" select="'0'"/>
 
         <!-- 
         Apresenta todos os elementos do documento de um dado body selecionado
