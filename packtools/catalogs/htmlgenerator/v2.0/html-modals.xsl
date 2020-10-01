@@ -4,41 +4,35 @@
     <xsl:template match="article" mode="article-modals">
         <xsl:apply-templates select="." mode="modal-contribs"/>
 
+        <xsl:apply-templates select="." mode="modal-all-items"/>
+
+        <xsl:variable name="translation" select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']"/>
+
         <xsl:choose>
-            <xsl:when test=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']">
-                <xsl:apply-templates select="." mode="article-modals-for-selected-body">
-                    <xsl:with-param name="body" select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']//body"/>
-                </xsl:apply-templates>
+            <xsl:when test="$translation">
+                <xsl:apply-templates select="front | $translation | back" mode="modal-figs"/>
+                <xsl:apply-templates select="front | $translation | back" mode="modal-tables"/>
+                <xsl:apply-templates select="front | $translation | back" mode="modal-disp-formulas"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select="." mode="article-modals-for-selected-body">
-                    <xsl:with-param name="body" select="body"/>
-                </xsl:apply-templates>
+                <xsl:apply-templates select="front | body | back" mode="modal-figs"/>
+                <xsl:apply-templates select="front | body | back" mode="modal-tables"/>
+                <xsl:apply-templates select="front | body | back" mode="modal-disp-formulas"/>
             </xsl:otherwise>
         </xsl:choose>
 
         <xsl:apply-templates select="." mode="modal-how2cite"/>
     </xsl:template>
     
-    <xsl:template match="article" mode="article-modals-for-selected-body">
-        <xsl:param name="body"/>
-        <xsl:apply-templates select="." mode="modal-all-items">
-            <xsl:with-param name="body" select="$body"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="front | $body | back" mode="modal-figs"/>
-        <xsl:apply-templates select="front | $body | back" mode="modal-tables"/>
-        <xsl:apply-templates select="front | $body | back" mode="modal-disp-formulas"/>
-    </xsl:template>
-    
-    <xsl:template match="front | body | back" mode="modal-tables">
+    <xsl:template match="sub-article | front | body | back" mode="modal-tables">
         <xsl:apply-templates select=".//table-wrap" mode="modal"/>
     </xsl:template>
     
-    <xsl:template match="front | body | back" mode="modal-disp-formulas">
+    <xsl:template match="sub-article | front | body | back" mode="modal-disp-formulas">
         <xsl:apply-templates select=".//disp-formula" mode="modal"/>
     </xsl:template>
     
-    <xsl:template match="front | body | back" mode="modal-figs">
+    <xsl:template match="sub-article | front | body | back" mode="modal-figs">
         <xsl:apply-templates select=".//*[fig]" mode="modal-figs"/>
     </xsl:template>
     
@@ -56,23 +50,19 @@
     </xsl:template>
     
     <xsl:template match="article" mode="modal-all-items">
-        <xsl:param name="body"/>
 
         <xsl:variable name="total_figs">
             <xsl:apply-templates select="." mode="get-total">
-                <xsl:with-param name="body" select="$body"/>
                 <xsl:with-param name="object" select="'fig'"/>
             </xsl:apply-templates>
         </xsl:variable>
         <xsl:variable name="total_tables">
             <xsl:apply-templates select="." mode="get-total">
-                <xsl:with-param name="body" select="$body"/>
                 <xsl:with-param name="object" select="'table'"/>
             </xsl:apply-templates>
         </xsl:variable>
         <xsl:variable name="total_formulas">
             <xsl:apply-templates select="." mode="get-total">
-                <xsl:with-param name="body" select="$body"/>
                 <xsl:with-param name="object" select="'formula'"/>
             </xsl:apply-templates>
         </xsl:variable>
@@ -103,7 +93,6 @@
                              <div class="clearfix"></div>
                              <div class="tab-content">
                                 <xsl:apply-templates select="." mode="modal-all-items-display-objects">
-                                    <xsl:with-param name="body" select="$body"/>
                                     <xsl:with-param name="total_figs" select="$total_figs"/>
                                     <xsl:with-param name="total_tables" select="$total_tables"/>
                                     <xsl:with-param name="total_formulas" select="$total_formulas"/>
@@ -176,10 +165,10 @@
     </xsl:template>
 
     <xsl:template match="article" mode="get-total">
-        <xsl:param name="body"/>
         <xsl:param name="object"/>
+        <xsl:variable name="translation" select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']"/>
         <xsl:choose>
-            <xsl:when test="count(.//body) = 1">
+            <xsl:when test="not($translation)">
                 <xsl:apply-templates select="." mode="sum-objects">
                     <xsl:with-param name="object" select="$object"/>
                 </xsl:apply-templates>
@@ -188,9 +177,11 @@
                 <xsl:variable name="f"><xsl:apply-templates select="front" mode="sum-objects">
                     <xsl:with-param name="object" select="$object"/>
                 </xsl:apply-templates></xsl:variable>
-                <xsl:variable name="b"><xsl:apply-templates select="$body" mode="sum-objects">
-                    <xsl:with-param name="object" select="$object"/>
-                </xsl:apply-templates></xsl:variable>
+                <xsl:variable name="b">
+                    <xsl:apply-templates select="$translation" mode="sum-objects">
+                        <xsl:with-param name="object" select="$object"/>
+                    </xsl:apply-templates>
+                </xsl:variable>
                 <xsl:variable name="bk"><xsl:apply-templates select="back" mode="sum-objects">
                     <xsl:with-param name="object" select="$object"/>
                 </xsl:apply-templates></xsl:variable>
@@ -199,7 +190,7 @@
         </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="article | front | body | back" mode="sum-objects">
+    <xsl:template match="article | sub-article | front | body | back" mode="sum-objects">
         <xsl:param name="object"/>
         <xsl:choose>
             <xsl:when test="$object='fig'">
@@ -216,7 +207,6 @@
     </xsl:template>
 
     <xsl:template match="article" mode="modal-all-items-display-objects">
-        <xsl:param name="body"/>
         <xsl:param name="total_figs" select="'0'"/>
         <xsl:param name="total_tables" select="'0'"/>
         <xsl:param name="total_formulas" select="'0'"/>
@@ -231,14 +221,12 @@
         -->
         <xsl:apply-templates select="." mode="modal-all-items-display-tabpannel">
             <xsl:with-param name="anchor">figures</xsl:with-param>
-            <xsl:with-param name="body" select="$body"/>
             <xsl:with-param name="total" select="$total_figs"/>
             <xsl:with-param name="active">active</xsl:with-param>
         </xsl:apply-templates>
 
         <xsl:apply-templates select="." mode="modal-all-items-display-tabpannel">
             <xsl:with-param name="anchor">tables</xsl:with-param>
-            <xsl:with-param name="body" select="$body"/>
             <xsl:with-param name="total" select="$total_tables"/>
             <xsl:with-param name="active">
                 <xsl:if test="$total_figs='0'">active</xsl:if>
@@ -247,7 +235,6 @@
 
         <xsl:apply-templates select="." mode="modal-all-items-display-tabpannel">
             <xsl:with-param name="anchor">schemes</xsl:with-param>
-            <xsl:with-param name="body" select="$body"/>
             <xsl:with-param name="total" select="$total_formulas"/>
             <xsl:with-param name="active">
                 <xsl:if test="$total_figs='0' and $total_tables='0'">active</xsl:if>
@@ -257,36 +244,58 @@
 
     <xsl:template match="article" mode="modal-all-items-display-tabpannel">
         <xsl:param name="anchor"/>
-        <xsl:param name="body"/>
         <xsl:param name="total"/>
         <xsl:param name="active"/>
+
+        <xsl:variable name="translation" select=".//sub-article[@xml:lang=$TEXT_LANG and @article-type='translation']"/>
 
         <xsl:if test="number($total) &gt; 0">
             <div role="tabpanel" class="tab-pane {$active}" id="{$anchor}">
                 <xsl:choose>
                     <xsl:when test="$anchor='figures'">
-                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-figs"/>
+                        <xsl:choose>
+                            <xsl:when test="$translation">
+                                <xsl:apply-templates select="front | $translation | back" mode="modal-all-items-figs"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:apply-templates select="front | body | back" mode="modal-all-items-figs"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:when>
                     <xsl:when test="$anchor='tables'">
-                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-tables"/>
+                        <xsl:choose>
+                            <xsl:when test="$translation">
+                                <xsl:apply-templates select="front | $translation | back" mode="modal-all-items-tables"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:apply-templates select="front | body | back" mode="modal-all-items-tables"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:when>
                     <xsl:when test="$anchor='schemes'">
-                        <xsl:apply-templates select="front | $body | back" mode="modal-all-items-formulas"/>
+                        <xsl:choose>
+                            <xsl:when test="$translation">
+                                <xsl:apply-templates select="front | $translation | back" mode="modal-all-items-formulas"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:apply-templates select="front | body | back" mode="modal-all-items-formulas"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:when>
                 </xsl:choose>
             </div>
         </xsl:if>
     </xsl:template>
  
-    <xsl:template match="front | body | back" mode="modal-all-items-tables">
+    <xsl:template match="sub-article | front | body | back" mode="modal-all-items-tables">
         <xsl:apply-templates select=".//table-wrap-group[table-wrap] | .//*[table-wrap and name()!='table-wrap-group']/table-wrap" mode="modal-all-item"/>
     </xsl:template>
 
-    <xsl:template match="front | body | back" mode="modal-all-items-formulas">
+    <xsl:template match="sub-article | front | body | back" mode="modal-all-items-formulas">
         <xsl:apply-templates select=".//disp-formula[@id]" mode="modal-all-item"/>
     </xsl:template>
 
-    <xsl:template match="front | body | back" mode="modal-all-items-figs">
+    <xsl:template match="sub-article | front | body | back" mode="modal-all-items-figs">
         <xsl:apply-templates select=".//*[fig]" mode="modal-all-items-figs"/>
     </xsl:template>
 
