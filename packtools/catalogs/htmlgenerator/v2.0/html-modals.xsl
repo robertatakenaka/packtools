@@ -323,6 +323,9 @@
     </xsl:template>
 
     <xsl:template match="fig" mode="modal-all-item-thumbnail">
+        <xsl:variable name="location">
+            <xsl:apply-templates select="alternatives | graphic" mode="file-location-thumb"></xsl:apply-templates>
+        </xsl:variable>
         <xsl:variable name="figid">
             <xsl:choose>
                 <xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when>
@@ -330,32 +333,30 @@
                 <xsl:otherwise>IDMISSING</xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <xsl:choose>
-            <xsl:when test="graphic">
-                <xsl:variable name="location"><xsl:apply-templates select="." mode="file-location"/></xsl:variable>
-                <div class="col-md-4">
-                    <a data-toggle="modal" data-target="#ModalFig{$figid}">
-                        <div class="thumb" style="background-image: url({$location});">
-                            Thumbnail
-                            <div class="zoom"><span class="sci-ico-zoom"></span></div>
-                        </div>
-                    </a>
-                </div>                
-            </xsl:when>
-            <xsl:otherwise>
-                <div class="col-md-4">
-                    <a data-toggle="modal" data-target="#ModalFig{$figid}">
-                        <div>
-                            <xsl:apply-templates select="disp-formula"></xsl:apply-templates>
-                        </div>
-                    </a>
-                </div>   
-            </xsl:otherwise>
-        </xsl:choose>
+        <div class="col-md-4">
+            <a data-toggle="modal" data-target="#ModalFig{$figid}">
+                <div class="thumb" style="background-image: url({$location});">
+                    Thumbnail
+                    <div class="zoom"><span class="sci-ico-zoom"></span></div>
+                </div>
+                <div>
+                    <xsl:choose>
+                        <xsl:when test="$location">
+                            <xsl:attribute name="class">thumb</xsl:attribute>
+                            <xsl:attribute name="style">background-image: url(<xsl:value-of select="$location"/>);</xsl:attribute>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="class">thumbOff</xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    Thumbnail
+                    <div class="zoom"><span class="sci-ico-zoom"></span></div>
+                </div>
+            </a>
+        </div>
     </xsl:template>
             
     <xsl:template match="table-wrap | table-wrap-group" mode="modal-all-item-thumbnail">
-        <xsl:variable name="location"><xsl:apply-templates select="." mode="file-location"/></xsl:variable>
         <div class="col-md-4">
             <a data-toggle="modal" data-target="#ModalTable{@id}">
                 <div class="thumbOff">
@@ -367,7 +368,9 @@
     </xsl:template>
              
     <xsl:template match="disp-formula[@id]" mode="modal-all-item-thumbnail">
-        <xsl:variable name="location"><xsl:apply-templates select="." mode="file-location"/></xsl:variable>
+        <xsl:variable name="location">
+            <xsl:apply-templates select="alternatives | graphic" mode="file-location-thumb"></xsl:apply-templates>
+        </xsl:variable>
         <div class="col-md-4">
             <a data-toggle="modal" data-target="#ModalScheme{@id}">
                 <div>
