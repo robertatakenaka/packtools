@@ -103,4 +103,16 @@
         </div>
     </xsl:template>
 
+    <xsl:template match="fn[@fn-type='edited-by'] | fn[@fn-type='data-availability']" mode="open-science-notes">
+        <xsl:variable name="title"><xsl:apply-templates select="label"/><xsl:if test="not(label)"><xsl:apply-templates select="." mode="text-labels">
+                 <xsl:with-param name="text"><xsl:value-of select="@fn-type"/></xsl:with-param>
+             </xsl:apply-templates></xsl:if></xsl:variable>
+        <div>
+            <xsl:attribute name="class">articleSection</xsl:attribute>
+            <xsl:attribute name="data-anchor"><xsl:value-of select="translate($title, ':', '')"/></xsl:attribute>
+            <h3><xsl:value-of select="translate($title, ':', '')"/></h3>
+            <xsl:apply-templates select="*[name()!='label']|text()"/>
+        </div>
+    </xsl:template>
+
 </xsl:stylesheet>
