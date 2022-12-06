@@ -33,23 +33,27 @@
     </xsl:template>
 
     <xsl:template match="fn">
-        <xsl:variable name="title"><xsl:apply-templates select="label"/></xsl:variable>
         <li>
-            <xsl:choose>
-                <xsl:when test="string-length(normalize-space($title)) &gt; 3">
-                    <div>
-                        <xsl:attribute name="class">articleSection</xsl:attribute>
-                        <xsl:attribute name="data-anchor"><xsl:value-of select="translate($title, ':', '')"/></xsl:attribute>
-                        <h3><xsl:value-of select="translate($title, ':', '')"/></h3>
-                        <xsl:apply-templates select="*[name()!='label']|text()"/>
-                    </div>
-                </xsl:when>
-                <xsl:otherwise>
-                    <span class="xref big"><xsl:apply-templates select="label"/></span>
-                    <xsl:apply-templates select="*[name()!='label']|text()"/>
-                </xsl:otherwise>
-            </xsl:choose>
+            <xsl:apply-templates select="*|text()"/>
         </li>
+    </xsl:template>
+
+    <xsl:template match="fn[@fn-type='edited-by'] | fn[@fn-type='data-availability']">
+        <li>
+            <xsl:apply-templates select="." mode="open-science-notes"/>
+        </li>
+    </xsl:template>
+
+    <xsl:template match="fn/label">
+        <xsl:variable name="title"><xsl:apply-templates select="*|text()"/></xsl:variable>
+        <xsl:choose>
+            <xsl:when test="string-length(normalize-space($title)) &gt; 3">
+                <h3><xsl:apply-templates select="*|text()"/></h3>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="xref big"><xsl:apply-templates select="*|text()"/></span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="fn/p">

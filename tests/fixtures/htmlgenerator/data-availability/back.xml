@@ -1,0 +1,2336 @@
+
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.1 20151215//EN" "http://jats.nlm.nih.gov/publishing/1.1/JATS-journalpublishing1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" dtd-version="1.1" specific-use="sps-1.9" article-type="review-article" xml:lang="en">
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">int j urol</journal-id>
+      <journal-id journal-id-type="publisher-id">ibju</journal-id>
+      <journal-title-group>
+        <journal-title>International braz j urol</journal-title>
+        <abbrev-journal-title abbrev-type="acronym">IBJU</abbrev-journal-title>
+        <abbrev-journal-title abbrev-type="publisher">Int. braz j urol</abbrev-journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1677-5538</issn>
+      <issn pub-type="epub">1677-6119</issn>
+      <publisher>
+        <publisher-name>Sociedade Brasileira de Urologia</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id specific-use="scielo-v3" pub-id-type="publisher-id">6Sw9Jzj3mZHW69QQQPZm9Hp</article-id>
+      <article-id specific-use="scielo-v2" pub-id-type="publisher-id">S1677-55382022000600915</article-id>
+      <article-id pub-id-type="publisher-id">S1677-5538.IBJU.2021.0653</article-id>
+      <article-id pub-id-type="doi">10.1590/S1677-5538.IBJU.2021.0653</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Review Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Prevalence and risk factors of incidental prostate cancer in certain surgeries for benign prostatic hyperplasia: A systematic review and meta-analysis</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Guo</surname>
+            <given-names>Zhenlang</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>He</surname>
+            <given-names>Junwei</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Huang</surname>
+            <given-names>Lijuan</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <contrib-id contrib-id-type="orcid">0000-0003-4261-7853</contrib-id>
+          <name>
+            <surname>Wang</surname>
+            <given-names>Zhaohui</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hu</surname>
+            <given-names>Ping</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Shusheng</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bai</surname>
+            <given-names>Zunguang</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Pan</surname>
+            <given-names>Jun</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="corresp" rid="c1"/>
+        </contrib>
+        <aff id="aff1">
+          <label>1</label>
+          <institution content-type="orgname">The Second Affiliated Hospital of Guangzhou University of Chinese Medicine</institution>
+          <institution content-type="orgdiv1">Department of Urology</institution>
+          <addr-line>
+            <named-content content-type="city">Guangzhou</named-content>
+          </addr-line>
+          <country country="CN">China</country>
+          <institution content-type="original">Department of Urology, The Second Affiliated Hospital of Guangzhou University of Chinese Medicine, Guangzhou, China</institution>
+        </aff>
+        <aff id="aff2">
+          <label>2</label>
+          <institution content-type="orgname">The First Affiliated Hospital of Sun Yat-Sen University</institution>
+          <institution content-type="orgdiv1">Department of Organ Transplant</institution>
+          <addr-line>
+            <named-content content-type="city">Guangzhou</named-content>
+          </addr-line>
+          <country country="CN">China</country>
+          <institution content-type="original">Department of Organ Transplant, The First Affiliated Hospital of Sun Yat-Sen University, Guangzhou, China</institution>
+        </aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="c1"><bold>Correspondence address:</bold> Jun Pan, MD Department of Urology, The Second Affiliated Hospital of Guangzhou University of Chinese Medicine, Guangzhou <postal-code>510120</postal-code>, China. Tel.: <phone>+ 86 13512704335</phone> E-mail: <email>panjungzy@163.com</email></corresp>
+        <fn fn-type="conflict">
+          <p>
+            <bold>CONFLICT OF INTEREST</bold>
+          </p>
+          <p>None declared.</p>
+        </fn>
+      </author-notes>
+      <pub-date publication-format="electronic" date-type="pub">
+        <day>11</day>
+        <month>11</month>
+        <year>2022</year>
+      </pub-date>
+      <pub-date publication-format="electronic" date-type="collection">
+        <season>Nov-Dec</season>
+        <year>2022</year>
+      </pub-date>
+      <volume>48</volume>
+      <issue>6</issue>
+      <fpage>915</fpage>
+      <lpage>929</lpage>
+      <history>
+        <date date-type="received">
+          <day>10</day>
+          <month>09</month>
+          <year>2021</year>
+        </date>
+        <date date-type="accepted">
+          <day>01</day>
+          <month>12</month>
+          <year>2021</year>
+        </date>
+        <date date-type="pub">
+          <day>02</day>
+          <month>02</month>
+          <year>2022</year>
+        </date>
+      </history>
+      <permissions>
+        <license license-type="open-access" xml:lang="en" xlink:href="https://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <title>ABSTRACT</title>
+        <sec>
+          <title>Background:</title>
+          <p>This study aimed to explore the prevalence and clinical risk factors in patients diagnosed with incidental prostate cancer (IPC) during certain surgeries (transurethral resection of the prostate [TURP], open prostatectomy [OP], and holmium laser enucleation of the prostate [HoLEP]) after clinically suspected benign prostatic hyperplasia (BPH).</p>
+        </sec>
+        <sec>
+          <title>Materials and Methods:</title>
+          <p>Literature search of the MEDILINE, Web of Science, Embase, and Cochrane Library databases was performed to identify eligible studies published before June 2021. Multivariate adjusted odds ratios (ORs) and associated 95% confidence intervals (CIs) of the prevalence and clinical risk factors of IPC were calculated using random or fixed-effect models.</p>
+        </sec>
+        <sec>
+          <title>Results:</title>
+          <p>Twenty-three studies were included in the meta-analysis. Amongst the 94.783 patients, IPC was detected in 24.715 (26.1%). Results showed that the chance of IPC detection (10%, 95% CI: 0.07-4.00; P&lt;0.001; I2=97%) in patients treated with TURP is similar to that of patients treated with HoLEP (9%, 95% CI: 0.07-0.11; P&lt;0.001; I2=81.4%). However, the pooled prevalence estimate of patients treated with OP was 11% (95% CI: −0.03-0.25; P=0.113; I2=99.1%) with no statistical significance. We observed increased incidence of IPC diagnosis after BPH surgery amongst patients with higher prostate-specific antigen (PSA) level (OR: 1.13, 95% CI: 1.04-1.23; P=0.004; I2=89%), whereas no effect of age (OR: 1.02, 95% CI: 0.97-1.06; P=0.48; I2=78.8%) and prostate volume (OR: 0.99, 95% CI: 0.96-1.03; P=0.686; I2=80.5%) were observed.</p>
+        </sec>
+        <sec>
+          <title>Conclusions:</title>
+          <p>The prevalence of IPC was similar amongst patients undergoing TURP, HoLEP, and OP for presumed BPH. Interestingly, increased PSA level was the only independent predictor of increasing risk of IPC after BPH surgery rather than age and prostate volume. Hence, future research should focus on predictors which accurately foretell the progression of prostate cancer to determine the optimal treatment for managing patients with IPC after BPH surgery.</p>
+        </sec>
+      </abstract>
+      <kwd-group xml:lang="en">
+        <title>Keywords:</title>
+        <kwd>Prostatic Hyperplasia</kwd>
+        <kwd>Meta-Analysis as Topic</kwd>
+        <kwd>Prevalence</kwd>
+        <kwd>Risk Factors</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source>Science and Technology Research Project of Guangdong Provincial Hospital of Chinese Medicine</funding-source>
+          <award-id>YN2019ML05</award-id>
+        </award-group>
+        <funding-statement>This study was supported by grants from the Science and Technology Research Project of Guangdong Provincial Hospital of Chinese Medicine (No. YN2019ML05).</funding-statement>
+      </funding-group>
+      <counts>
+        <fig-count count="3"/>
+        <table-count count="2"/>
+        <equation-count count="0"/>
+        <ref-count count="44"/>
+        <page-count count="15"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>INTRODUCTION</title>
+      <p>Prostate cancer is the most common malignant tumor amongst ageing male patients, with an estimated 41.000 Americans dying from prostate cancer annually (<xref ref-type="bibr" rid="B1">1</xref>). Incidental prostate cancer (IPC) is defined as a tumor incidentally diagnosed after surgery for benign prostatic hyperplasia (BPH) (prostate cancer was not suspected before) or found after autopsy or incidentally detected after radical cystoprostatectomy for patients with bladder cancer (<xref ref-type="bibr" rid="B2">2</xref>–<xref ref-type="bibr" rid="B4">4</xref>). Moreover, patients with BPH are usually screened for prostate cancer before surgery to rule out the presence of IPC that may ultimately change the treatment strategy (<xref ref-type="bibr" rid="B5">5</xref>). Thus, previous studies have revealed that IPC detection after BPH surgery has declined in the prostate-specific antigen (PSA) era (<xref ref-type="bibr" rid="B4">4</xref>, <xref ref-type="bibr" rid="B6">6</xref>). Some studies have shown that the prevalence of IPC between patients diagnosed with BPH undergoing TURP is between 5% and 14% (<xref ref-type="bibr" rid="B7">7</xref>, <xref ref-type="bibr" rid="B8">8</xref>). A recent study has indicated that the clinical course of IPC has become aggressive, although most IPCs are not clinically obvious (<xref ref-type="bibr" rid="B9">9</xref>). The decision ‘treatment or not’ should be determine by predictive factors that can accurately foretell IPC after BPH surgery (<xref ref-type="bibr" rid="B10">10</xref>). However, the best clinical management of IPC has remained controversial for decades.</p>
+      <p>In the present study, we conducted a systematic review and meta-analysis of previous literature to explore the prevalence and clinical risk factors in patients diagnosed with IPC for surgery after clinically suspected BPH. We also performed subgroup and meta-regression analyses to determine how the potential variables affected the merged results and the level of heterogeneity of the meta-analysis.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>MATERIALS AND METHODS</title>
+      <p>The methods of this meta-analysis were conducted in accordance with the Cochrane Collaboration criterion (<xref ref-type="bibr" rid="B11">11</xref>). The Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) statement was utilized for reporting our study (Supplementary Material 1) (<xref ref-type="bibr" rid="B12">12</xref>). Thus, no ethical approval and patient consent were required.</p>
+      <sec>
+        <title>Search strategy</title>
+        <p>Literature search of the MEDILINE, Web of Science, Embase, and Cochrane Library databases were performed to identify eligible studies on the prevalence and clinical risk factors in patients diagnosed with IPC during surgery after clinically suspected BPH published before June 2021. Each database was searched without restrictions in language, publication type, or region by using the following combination of Medical Subject Headings (MeSH) and non-MeSH search terms: (‘prostate cancer’ OR ‘prostate neoplasm’) AND (‘incidental’) AND (‘benign prostatic hyperplasia’). Moreover, a freehand search was conducted for additional relevant articles of interest in journals not listed in these databases. Any discrepancy was settled by consulting amongst investigators.</p>
+      </sec>
+      <sec>
+        <title>Inclusion and exclusion criteria</title>
+        <p>All publications regarding the prevalence and risk factors in patients diagnosed with IPC after BPH surgery were included if they met the following eligibility criteria: (<xref ref-type="bibr" rid="B1">1</xref>) original studies regarding the relevant topic; (<xref ref-type="bibr" rid="B2">2</xref>) the primary endpoint was IPC prevalence and/or associated risk factors amongst IPC patients (as previously defined) after BPH surgery (transurethral resection of the prostate [TURP], open prostatectomy [OP], and holmium laser enucleation of the prostate [HoLEP]); and (<xref ref-type="bibr" rid="B3">3</xref>) studies reporting sufficient data of prevalence and risk estimates with corresponding 95% confidence intervals (CIs) or sufficient data to calculate them. The exclusion criteria were as follows: (<xref ref-type="bibr" rid="B1">1</xref>) non-English articles; (<xref ref-type="bibr" rid="B2">2</xref>) case reports, editorial comments, and review articles; and (<xref ref-type="bibr" rid="B3">3</xref>) patients have been diagnosed with prostate cancer preoperatively. Furthermore, repeat publications from the same authors or the same centre were excluded to avoid duplication of information, and we retained only the most recent or largest study (where appropriate). Disagreements were resolved through discussion amongst investigators.</p>
+      </sec>
+      <sec>
+        <title>Data extraction and methodological-quality assessment</title>
+        <p>Data extraction was conducted by two independent investigators using a pre-established data extraction form, and another investigator checked the correctness of all extractions. Any disagreement was resolved by the adjudicating senior authors. The following data were extracted using a standardized Excel (Microsoft Corporation) file: first author, publication year, country, database source and duration, study design, participants characteristics (i.e., mean age, mean prostate volume, mean PSA, sample size, and number of patients diagnosed with IPC), prevalence, and risk estimates with their corresponding 95% CIs or sufficient original data. Moreover, if potentially eligible records did not provide sufficient information, we contacted the primary authors to acquire missing data.</p>
+        <p>The quality of the included studies was assessed by two independent reviewers according to the Newcastle-Ottawa scale (NOS) (<xref ref-type="bibr" rid="B13">13</xref>), which comprises nine items. Each item was evaluated as either ‘yes’, ‘no’, or ‘unclear’, which corresponded to ‘1’, ‘0’, or ‘0’ in accordance with the information provided by the studies. The total score ranged from 0 to 9 and was categorized as follows: a score of 8 to 9 was considered high quality, a score of 6 to 7 was considered moderate quality, and a score of 5 or below was considered low quality. Disagreements were resolved by discussion amongst investigators.</p>
+      </sec>
+      <sec>
+        <title>Data synthesis and analysis</title>
+        <p>The overall prevalence of IPC and risk estimates of the predictors were calculated through the prevalence and odds ratios (ORs) with their corresponding 95% CIs by using STATA software (version 15.0; serial number: 10699393; StataCorp Wyb). The I-square (I2) test was applied to evaluate the study heterogeneity, with I2 values of 0%, 25%, 50%, and 75% representing no, low, moderate, and high heterogeneity, respectively. Heterogeneity amongst the studies was evaluated by random or fixed-effect models, and a considered severe heterogeneity of I2≥50% was evaluated by random-effect models. Otherwise, a fixed-effect model was used. Statistical significance was set at P &lt;0.05 through two-sample t-test. To explore the influence of various clinical characteristics on heterogeneity, we performed subgroup analyses stratified by different geographic distributions. Sensitivity analysis was conducted by omitting each study individually to assess the quality and consistency of the results. To investigate the possible sources of heterogeneity, a meta-regression analysis was conducted and the restricted maximum likelihood method was applied for analysis. Finally, the test of Egger et al. (<xref ref-type="bibr" rid="B14">14</xref>) and Begg &amp; Mazumdar (<xref ref-type="bibr" rid="B15">15</xref>) were performed to assess publication bias, and the funnel-plot symmetry was examined.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>RESULTS</title>
+      <p>Study identification and selection</p>
+      <p>A total of 410 records were identified initially based on the comprehensive search strategy described at the search stage. <xref ref-type="fig" rid="f1">Figure-1</xref> presents the process of study selection. After removing 120 duplicates, only 290 unique articles remained. Then, 35 articles were further assessed through their full texts after screening the titles and abstracts of 290 articles in detail. However, 12 articles were excluded for the following reasons: 6 studies did not report relevant outcomes, 2 studies were reviews, and 4 studies had insufficient data for extraction. Amongst them, 23 observational studies (<xref ref-type="bibr" rid="B8">8</xref>, <xref ref-type="bibr" rid="B16">16</xref>–<xref ref-type="bibr" rid="B37">37</xref>) comprising 94.783 patients with 24.715 (26.1%) IPC were included in the meta-analysis in accordance with the eligibility criteria.</p>
+      <fig id="f1">
+        <label>Figure 1</label>
+        <caption>
+          <title>Flow diagram of literature searches according to the preferred reporting items for systematic reviews and meta-analyses statement.</title>
+        </caption>
+        <alternatives>
+          <graphic xlink:href="https://minio.scielo.br/documentstore/1677-6119/6Sw9Jzj3mZHW69QQQPZm9Hp/a27ce613b24e4382cfab75e4133339178c078055.tif"/>
+          <graphic xlink:href="https://minio.scielo.br/documentstore/1677-6119/6Sw9Jzj3mZHW69QQQPZm9Hp/c3b5fbab8157d6b96b70414aee0dd6c60931e25f.png" specific-use="scielo-web"/>
+          <graphic xlink:href="https://minio.scielo.br/documentstore/1677-6119/6Sw9Jzj3mZHW69QQQPZm9Hp/87be21cb55387225ddd3d54f0f85438f520f7936.jpg" specific-use="scielo-web" content-type="scielo-267x140"/>
+        </alternatives>
+      </fig>
+      <sec>
+        <title>Study characteristics and methodological-quality assessment</title>
+        <p>Overall, the basic characteristics of the included studies are illustrated in <xref ref-type="table" rid="t1">Table-1</xref>. The included studies (<xref ref-type="bibr" rid="B21">21</xref>) were retrospective studies (<xref ref-type="bibr" rid="B8">8</xref>, <xref ref-type="bibr" rid="B16">16</xref>, <xref ref-type="bibr" rid="B18">18</xref>–<xref ref-type="bibr" rid="B30">30</xref>, <xref ref-type="bibr" rid="B32">32</xref>–<xref ref-type="bibr" rid="B37">37</xref>), 1 was a prospective study (<xref ref-type="bibr" rid="B31">31</xref>), and 1 was a cross-sectional study (<xref ref-type="bibr" rid="B17">17</xref>) that were published between 2005 and 2021, with sample sizes ranging from 120 patients to 76.788 patients. Furthermore, mean age ranged from 66 years to 75.8 years, mean prostate volume ranged from 44.2mL to 110mL, and mean PSA level ranged from 2.9ng/mL to 21.47ng/mL. Amongst the included studies, twelve were performed in Europe (<xref ref-type="bibr" rid="B17">17</xref>–<xref ref-type="bibr" rid="B19">19</xref>, <xref ref-type="bibr" rid="B21">21</xref>, <xref ref-type="bibr" rid="B23">23</xref>, <xref ref-type="bibr" rid="B25">25</xref>, <xref ref-type="bibr" rid="B26">26</xref>, <xref ref-type="bibr" rid="B32">32</xref>–<xref ref-type="bibr" rid="B34">34</xref>, <xref ref-type="bibr" rid="B36">36</xref>, <xref ref-type="bibr" rid="B37">37</xref>), six in Asia (<xref ref-type="bibr" rid="B8">8</xref>, <xref ref-type="bibr" rid="B16">16</xref>, <xref ref-type="bibr" rid="B24">24</xref>, <xref ref-type="bibr" rid="B28">28</xref>, <xref ref-type="bibr" rid="B29">29</xref>, <xref ref-type="bibr" rid="B35">35</xref>), two in Africa (<xref ref-type="bibr" rid="B20">20</xref>, <xref ref-type="bibr" rid="B22">22</xref>), two in North America (<xref ref-type="bibr" rid="B27">27</xref>, <xref ref-type="bibr" rid="B30">30</xref>), one in Oceania (<xref ref-type="bibr" rid="B31">31</xref>). Importantly, 18 studies reported clinical stage of IPC (T1a and T1b) (<xref ref-type="bibr" rid="B8">8</xref>, <xref ref-type="bibr" rid="B18">18</xref>–<xref ref-type="bibr" rid="B23">23</xref>, <xref ref-type="bibr" rid="B25">25</xref>–<xref ref-type="bibr" rid="B27">27</xref>, <xref ref-type="bibr" rid="B30">30</xref>–<xref ref-type="bibr" rid="B37">37</xref>). All studies were published in English. Finally, three surgical methods (TURP, OP, and HoLEP) for BPH were reported amongst all included studies.</p>
+        <table-wrap id="t1">
+          <label>Table 1</label>
+          <caption>
+            <title>Characteristics of the included studies.</title>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <colgroup width="9%">
+              <col/>
+              <col/>
+              <col/>
+              <col/>
+              <col/>
+              <col/>
+              <col/>
+              <col/>
+              <col/>
+              <col/>
+              <col/>
+            </colgroup>
+            <thead style="border-top: thin solid; border-bottom: thin solid; border-color: #000000">
+              <tr style="background-color:#ECECEC">
+                <th align="left" valign="top">First author year</th>
+                <th align="center" valign="top">Study design</th>
+                <th align="center" valign="top">Country</th>
+                <th align="center" valign="top">Database source (Duration)</th>
+                <th align="center" valign="top">Sample size (No. IPC)</th>
+                <th align="center" valign="top">Stage</th>
+                <th align="center" valign="top">Mean age, years</th>
+                <th align="center" valign="top">Mean PV, mL</th>
+                <th align="center" valign="top">Mean PSA, ng/mL</th>
+                <th align="center" valign="top">Risk factors</th>
+                <th align="center" valign="top">Prevalence, %</th>
+              </tr>
+            </thead>
+            <tbody style="border-bottom: thin solid; border-color: #000000">
+              <tr>
+                <td align="left" valign="top">Abedi AR. 2018 (<xref ref-type="bibr" rid="B16">16</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Iran</td>
+                <td align="center" valign="top">Shohada-e-Tajrish Hospital database (2006-2016)</td>
+                <td align="center" valign="top">TURP:315 OP:108 (TURP:40, OP:44)</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">68.74±9.87</td>
+                <td align="center" valign="top">80.56±25.12</td>
+                <td align="center" valign="top">21.47±13.44</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">TURP:12.6 OP:40.7</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Andrèn O. 2009 (<xref ref-type="bibr" rid="B17">17</xref>)</td>
+                <td align="center" valign="top">Cross-sectional study</td>
+                <td align="center" valign="top">Sweden</td>
+                <td align="center" valign="top">Swedish National Inpatient Register (1970-2003)</td>
+                <td align="center" valign="top">TURP:72322 OP:4456 (23.288)</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">OP:30.3</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Argyropoulos A. 2005 (<xref ref-type="bibr" rid="B18">18</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Greece</td>
+                <td align="center" valign="top">Athens General Hospital (1999-2003)</td>
+                <td align="center" valign="top">TURP:786 (34)</td>
+                <td align="center" valign="top">T1a:17 T1b:17</td>
+                <td align="center" valign="top">69.7</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">5.1</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">TURP:4.3</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Capogrosso P. 2018 (<xref ref-type="bibr" rid="B19">19</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Italy</td>
+                <td align="center" valign="top">European academic center (2007-2016)</td>
+                <td align="center" valign="top">OP:139 TURP:498 HoLEP:540 (74)</td>
+                <td align="center" valign="top">T1a:64 T1b:10</td>
+                <td align="center" valign="top">66</td>
+                <td align="center" valign="top">76</td>
+                <td align="center" valign="top">3.2</td>
+                <td align="center" valign="top">PV, age and PSA</td>
+                <td align="center" valign="top">OP:6.4</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Elkoushy MA. 2015 (<xref ref-type="bibr" rid="B20">20</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Egypt</td>
+                <td align="center" valign="top">HoLEP database (1998-2014)</td>
+                <td align="center" valign="top">HoLEP:1242 (70)</td>
+                <td align="center" valign="top">T1a:54 T1b:16</td>
+                <td align="center" valign="top">75.8±8.7</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">Age and PSA</td>
+                <td align="center" valign="top">HoLEP:5.64</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Froehner M. 2009 (<xref ref-type="bibr" rid="B21">21</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Germany</td>
+                <td align="center" valign="top">NA (1997-2006)</td>
+                <td align="center" valign="top">TURP:693 (70)</td>
+                <td align="center" valign="top">T1a:52 T1b:18</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">TURP: 10.1</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Gunda D. 2018 (<xref ref-type="bibr" rid="B22">22</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Tanzaia</td>
+                <td align="center" valign="top">Bugando University Hspital in Tanzania (2015)</td>
+                <td align="center" valign="top">TURP:152 (33)</td>
+                <td align="center" valign="top">T1a:11 T1b:22</td>
+                <td align="center" valign="top">69±9.4</td>
+                <td align="center" valign="top">92.7</td>
+                <td align="center" valign="top">8.5</td>
+                <td align="center" valign="top">PV, age and PSA</td>
+                <td align="center" valign="top">TURP:21.71</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Herlemann A. 2017 (<xref ref-type="bibr" rid="B23">23</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Germany</td>
+                <td align="center" valign="top">Department of Urology of the Ludwig-Maximilians-University of Munich (2013-2014)</td>
+                <td align="center" valign="top">TURP:229 HoLEP:289 (TURP:39, HoLEP:43)</td>
+                <td align="center" valign="top">T1a:14 T1b:68</td>
+                <td align="center" valign="top">71</td>
+                <td align="center" valign="top">80</td>
+                <td align="center" valign="top">5.5</td>
+                <td align="center" valign="top">Age and PSA</td>
+                <td align="center" valign="top">TURP:17 HoLEP:15</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Kim M. 2014 (<xref ref-type="bibr" rid="B24">24</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Korea</td>
+                <td align="center" valign="top">Seoul National University College of Medicine (2008-2011)</td>
+                <td align="center" valign="top">HoLEP:458 (27)</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">68.4±6.6</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">3.38±4.16</td>
+                <td align="center" valign="top">Age and PSA</td>
+                <td align="center" valign="top">HoLEP:5.9</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Matanhelia DM. 2019 (<xref ref-type="bibr" rid="B25">25</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Ireland</td>
+                <td align="center" valign="top">Mater Misericordiae University Hospital (2007-2016)</td>
+                <td align="center" valign="top">TURP:826 (72)</td>
+                <td align="center" valign="top">T1a:37 T1b:35</td>
+                <td align="center" valign="top">73.3</td>
+                <td align="center" valign="top">44.2</td>
+                <td align="center" valign="top">5.25</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">TURP:8.7</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Misraï V. 2019 (<xref ref-type="bibr" rid="B26">26</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">France</td>
+                <td align="center" valign="top">Rennes Hospital (2013-2018)</td>
+                <td align="center" valign="top">OP:393 HoLEP:345 (OP:33, HoLEP:34)</td>
+                <td align="center" valign="top">T1a:28 T1b:39</td>
+                <td align="center" valign="top">69</td>
+                <td align="center" valign="top">110</td>
+                <td align="center" valign="top">6.6</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">OP:8.5 HoLEP:9.9</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Nunez R. 2011 (<xref ref-type="bibr" rid="B27">27</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">America</td>
+                <td align="center" valign="top">Department of Urology of Mayo Clinic (2007-2010)</td>
+                <td align="center" valign="top">HoLEP:240 (28)</td>
+                <td align="center" valign="top">T1a:14 T1b:14</td>
+                <td align="center" valign="top">73</td>
+                <td align="center" valign="top">71.2</td>
+                <td align="center" valign="top">3.3</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">HoLEP:11.7</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Ohwaki K. 2017 (<xref ref-type="bibr" rid="B28">28</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Japan</td>
+                <td align="center" valign="top">St. Luke's International Hospital (2008-2014)</td>
+                <td align="center" valign="top">HoLEP:654 (41)</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">70</td>
+                <td align="center" valign="top">66</td>
+                <td align="center" valign="top">6.1</td>
+                <td align="center" valign="top">PV and PSA</td>
+                <td align="center" valign="top">HoLEP:6.3</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Otsubo S. 2015 (<xref ref-type="bibr" rid="B29">29</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Japan</td>
+                <td align="center" valign="top">Southwest Urological Clinic of Japan (2006-2011)</td>
+                <td align="center" valign="top">HoLEP:365 (25)</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">68</td>
+                <td align="center" valign="top">55.5</td>
+                <td align="center" valign="top">4.5</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">HoLEP:6.8</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Otto B. 2014 (<xref ref-type="bibr" rid="B30">30</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">America</td>
+                <td align="center" valign="top">New York-Presbyterian Hospital (2006-2011)</td>
+                <td align="center" valign="top">TURP:760 (11)</td>
+                <td align="center" valign="top">T1a:9 T1b:2</td>
+                <td align="center" valign="top">71</td>
+                <td align="center" valign="top">92.4</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">TURP:1.4</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Perera M. 2016 (<xref ref-type="bibr" rid="B31">31</xref>)</td>
+                <td align="center" valign="top">Prospective study</td>
+                <td align="center" valign="top">Australia</td>
+                <td align="center" valign="top">Ludwig Institute for Cancer Research, Austin Hospital (2010-2013)</td>
+                <td align="center" valign="top">TURP:923 (243)</td>
+                <td align="center" valign="top">T1a:109 T1b:134</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">65</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">TURP:26.3</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Pirša M. 2018 (<xref ref-type="bibr" rid="B32">32</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Croatia</td>
+                <td align="center" valign="top">Department of Urology in Sestre milosrdnice University Hospital Center (1997-2017)</td>
+                <td align="center" valign="top">TURP:4.372 (265)</td>
+                <td align="center" valign="top">T1a:119 T1b:146</td>
+                <td align="center" valign="top">74.5</td>
+                <td align="center" valign="top">56</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">TURP:6.1</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Porcaro AB. 2021 (<xref ref-type="bibr" rid="B33">33</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Italy</td>
+                <td align="center" valign="top">Department of Urology of University of Verona (2017-2019)</td>
+                <td align="center" valign="top">TURP:389 (18)</td>
+                <td align="center" valign="top">T1a:11 T1b:7</td>
+                <td align="center" valign="top">70</td>
+                <td align="center" valign="top">55</td>
+                <td align="center" valign="top">2.9</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">TURP:4.6</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Rosenhammer B. 2018 (<xref ref-type="bibr" rid="B34">34</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Germany</td>
+                <td align="center" valign="top">University of Regensburg (2016-2017)</td>
+                <td align="center" valign="top">TURP:60 HoLEP:60 (TURP:5, HoLEP:14)</td>
+                <td align="center" valign="top">T1a:12 T1b:7</td>
+                <td align="center" valign="top">71.5±7.9</td>
+                <td align="center" valign="top">74.2±13.9</td>
+                <td align="center" valign="top">4.99±3.12</td>
+                <td align="center" valign="top">PV, age and PSA</td>
+                <td align="center" valign="top">TURP:8.3 HoLEP:23.3</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Sakamoto H. 2014 (<xref ref-type="bibr" rid="B35">35</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Japan</td>
+                <td align="center" valign="top">Tokyo Saiseikai Central Hospital (2006-2011)</td>
+                <td align="center" valign="top">TURP:307 (31)</td>
+                <td align="center" valign="top">T1a:18 T1b:13</td>
+                <td align="center" valign="top">69.2</td>
+                <td align="center" valign="top">61</td>
+                <td align="center" valign="top">5.4</td>
+                <td align="center" valign="top">PV, age and PSA</td>
+                <td align="center" valign="top">TURP:10.1</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Skrzypczyk MA. 2014 (<xref ref-type="bibr" rid="B36">36</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Poland</td>
+                <td align="center" valign="top">Centre of Postgraduate Medical Education in Warsaw (2004-2010)</td>
+                <td align="center" valign="top">OP:145 TURP:823 (34)</td>
+                <td align="center" valign="top">T1a:19 T1b:15</td>
+                <td align="center" valign="top">71</td>
+                <td align="center" valign="top">70</td>
+                <td align="center" valign="top">3.36</td>
+                <td align="center" valign="top">PSA</td>
+                <td align="center" valign="top">OP:3.5</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Tonyali S. 2021 (<xref ref-type="bibr" rid="B37">37</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Turkey</td>
+                <td align="center" valign="top">Turkiye Yuksek Ihtisas Training and Research Hospital (2008-2018)</td>
+                <td align="center" valign="top">OP:36 TURP:281 (21)</td>
+                <td align="center" valign="top">T1a:10 T1b:11</td>
+                <td align="center" valign="top">69</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">3.24</td>
+                <td align="center" valign="top">NA</td>
+                <td align="center" valign="top">OP:6.6</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top">Yoo C. 2012 (<xref ref-type="bibr" rid="B8">8</xref>)</td>
+                <td align="center" valign="top">Retrospective study</td>
+                <td align="center" valign="top">Korea</td>
+                <td align="center" valign="top">Yonsei University College of Medicine (2004-2008)</td>
+                <td align="center" valign="top">TURP:1.613 (78)</td>
+                <td align="center" valign="top">T1a:32 T1b:46</td>
+                <td align="center" valign="top">71.1±7.6</td>
+                <td align="center" valign="top">59.5±30.5</td>
+                <td align="center" valign="top">4.7±4.2</td>
+                <td align="center" valign="top">PV, age and PSA</td>
+                <td align="center" valign="top">TURP:6.6</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+        <p>In general, the methodological quality of the included studies was evaluated on the basis of the NOS. One study (<xref ref-type="bibr" rid="B31">31</xref>) acquired eight points and were considered high quality, twenty one studies (<xref ref-type="bibr" rid="B8">8</xref>, <xref ref-type="bibr" rid="B16">16</xref>, <xref ref-type="bibr" rid="B18">18</xref>–<xref ref-type="bibr" rid="B30">30</xref>, <xref ref-type="bibr" rid="B32">32</xref>–<xref ref-type="bibr" rid="B37">37</xref>) acquired six or seven points and were considered moderate quality, and the remaining study (<xref ref-type="bibr" rid="B17">17</xref>) scored three and was considered low quality (Supplementary Material 2).</p>
+      </sec>
+      <sec>
+        <title>Prevalence of IPC after BPH surgery</title>
+        <p>All included studies reported sufficient data on IPC prevalence (<xref ref-type="bibr" rid="B8">8</xref>, <xref ref-type="bibr" rid="B16">16</xref>–<xref ref-type="bibr" rid="B37">37</xref>). Overall, patients diagnosed with IPC after BPH surgery was detected in 24,715 of 94.783 patients. Results showed that the chance of IPC detection (10%, 95% CI: 0.07-4.00; P &lt;0.001; I2=97%) in patients treated with TURP is similar to that of patients treated with HoLEP (9%, 95% CI: 0.07-0.11; P &lt;0.001; I2=81.4%). However, the pooled prevalence estimate of patients treated with OP was 11% (95% CI: −0.03-0.25; P=0.113; I2=99.1%) with no statistical significance. However, significant heterogeneity was observed, so a random-effect model was applied for pooled analysis (<xref ref-type="fig" rid="f2">Figures 2A</xref>–<xref ref-type="fig" rid="f2">2C</xref>).</p>
+        <fig id="f2">
+          <label>Figures 2A-2C</label>
+          <caption>
+            <title>Meta-analysis on the prevalence of IPC after BPH surgery. CI, confidence interval. 2A: TURP group; 2B: HoLEP group; 2C: OP group.</title>
+          </caption>
+          <alternatives>
+            <graphic xlink:href="https://minio.scielo.br/documentstore/1677-6119/6Sw9Jzj3mZHW69QQQPZm9Hp/ac01a83adcc78ee0bb111ee6b6f1dd8388a932cb.tif"/>
+            <graphic xlink:href="https://minio.scielo.br/documentstore/1677-6119/6Sw9Jzj3mZHW69QQQPZm9Hp/ed7fc98668632e884727dafc008ea28616e67e67.png" specific-use="scielo-web"/>
+            <graphic xlink:href="https://minio.scielo.br/documentstore/1677-6119/6Sw9Jzj3mZHW69QQQPZm9Hp/6a91f5d191ca4770f155db7625071981b7301691.jpg" specific-use="scielo-web" content-type="scielo-267x140"/>
+          </alternatives>
+        </fig>
+        <p>In the subgroup analysis stratified by different geographic distributions in patients with IPC after TURP, a higher prevalence was observed in Oceania (26%, 95% CI: 0.23-0.29; P &lt;0.001) and Africa (22%, 95% CI: 0.15-0.28; P &lt;0.001), followed by Asia (9%, 95% CI: 0.06-0.13; P &lt;0.001), Europe (8%, 95% CI: 0.06-0.10; P &lt;0.001), and North America (1%, 95% CI: 0.01-0.02; P=0.001). We also conducted a meta-regression analysis to further investigate the possible sources of heterogeneity, and results revealed that none of the covariate (geographic distribution, P=0.958) resulted in heterogeneity amongst the included studies. Moreover, sensitivity analysis demonstrated that the stability of the results exhibited no significant change by omitting each study individually (<xref ref-type="table" rid="t2">Table-2</xref>). Finally, potential publication bias was likely to exist according to inspection of formal statistical tests (Begg test, P=0.044; Egger test, P=0.022).</p>
+        <table-wrap id="t2">
+          <label>Table 2</label>
+          <caption>
+            <title>Results of sensitivity analyses.</title>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <colgroup width="25%">
+              <col/>
+              <col/>
+              <col/>
+              <col/>
+            </colgroup>
+            <thead style="border-top: thin solid; border-bottom: thin solid; border-color: #000000">
+              <tr style="background-color:#ECECEC">
+                <th align="left" valign="top">Study omitted</th>
+                <th align="center" valign="top">OR</th>
+                <th align="center" valign="middle" colspan="2">95% CI</th>
+              </tr>
+            </thead>
+            <tbody style="border-bottom: thin solid; border-color: #000000">
+              <tr>
+                <td align="left" valign="middle">Abedi AR (2018) (<xref ref-type="bibr" rid="B16">16</xref>)</td>
+                <td align="center" valign="middle">0.1</td>
+                <td align="center" valign="middle">0.07</td>
+                <td align="center" valign="middle">0.13</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Argyropoulos A (2005) (<xref ref-type="bibr" rid="B18">18</xref>)</td>
+                <td align="center" valign="middle">0.11</td>
+                <td align="center" valign="middle">0.1</td>
+                <td align="center" valign="middle">0.14</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Froehner M (2009) (<xref ref-type="bibr" rid="B21">21</xref>)</td>
+                <td align="center" valign="middle">0.1</td>
+                <td align="center" valign="middle">0.07</td>
+                <td align="center" valign="middle">0.13</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Gunda D (2018) (<xref ref-type="bibr" rid="B22">22</xref>)</td>
+                <td align="center" valign="middle">0.09</td>
+                <td align="center" valign="middle">0.07</td>
+                <td align="center" valign="middle">0.12</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Herlemann A (2017) (<xref ref-type="bibr" rid="B23">23</xref>)</td>
+                <td align="center" valign="middle">0.1</td>
+                <td align="center" valign="middle">0.07</td>
+                <td align="center" valign="middle">0.12</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Matanhelia DM (2019) (<xref ref-type="bibr" rid="B25">25</xref>)</td>
+                <td align="center" valign="middle">0.1</td>
+                <td align="center" valign="middle">0.07</td>
+                <td align="center" valign="middle">0.13</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Otto B (2014) (<xref ref-type="bibr" rid="B30">30</xref>)</td>
+                <td align="center" valign="middle">0.11</td>
+                <td align="center" valign="middle">0.08</td>
+                <td align="center" valign="middle">0.14</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Perera M (2016) (<xref ref-type="bibr" rid="B31">31</xref>)</td>
+                <td align="center" valign="middle">0.08</td>
+                <td align="center" valign="middle">0.06</td>
+                <td align="center" valign="middle">0.11</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Pirsa M (2018) (<xref ref-type="bibr" rid="B32">32</xref>)</td>
+                <td align="center" valign="middle">0.11</td>
+                <td align="center" valign="middle">0.07</td>
+                <td align="center" valign="middle">0.14</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Porcaro AB (2021) (<xref ref-type="bibr" rid="B33">33</xref>)</td>
+                <td align="center" valign="middle">0.11</td>
+                <td align="center" valign="middle">0.07</td>
+                <td align="center" valign="middle">0.14</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Rosenhammer B (2018) (<xref ref-type="bibr" rid="B34">34</xref>)</td>
+                <td align="center" valign="middle">0.1</td>
+                <td align="center" valign="middle">0.07</td>
+                <td align="center" valign="middle">0.13</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Sakamoto H (2014) (<xref ref-type="bibr" rid="B35">35</xref>)</td>
+                <td align="center" valign="middle">0.10</td>
+                <td align="center" valign="middle">0.07</td>
+                <td align="center" valign="middle">0.13</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Yoo C (2012) (<xref ref-type="bibr" rid="B8">8</xref>)</td>
+                <td align="center" valign="middle">0.11</td>
+                <td align="center" valign="middle">0.07</td>
+                <td align="center" valign="middle">0.13</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle">Combined</td>
+                <td align="center" valign="middle">0.1</td>
+                <td align="center" valign="middle">0.07</td>
+                <td align="center" valign="middle">0.13</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn id="TFN1">
+              <p>OR = odds ratios; CI = confidence interval</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>Risk factors of IPC after BPH surgery</title>
+        <p>Nine retrospective cohorts comprising 6.241 patients reported data on risk factors of IPC (<xref ref-type="bibr" rid="B8">8</xref>, <xref ref-type="bibr" rid="B19">19</xref>, <xref ref-type="bibr" rid="B20">20</xref>, <xref ref-type="bibr" rid="B22">22</xref>–<xref ref-type="bibr" rid="B24">24</xref>, <xref ref-type="bibr" rid="B28">28</xref>, <xref ref-type="bibr" rid="B34">34</xref>, <xref ref-type="bibr" rid="B35">35</xref>). We observed increased incidence of IPC diagnosis after BPH surgery amongst patients with increased PSA level (OR: 1.13, 95% CI: 1.04-1.23; P=0.004; I2=89%) in multivariate analysis. However, no effect of age (OR: 1.02, 95% CI: 0.97-1.06; P=0.48; I2=78.8%) and prostate volume (OR: 0.99, 95% CI: 0.96-1.03; P=0.686; I2=80.5%) were observed possibly due to the limited number of included studies. Moreover, a random-effect model was utilized due to the significant heterogeneity (<xref ref-type="fig" rid="f3">Figures 3A</xref>–<xref ref-type="fig" rid="f3">3C</xref>).</p>
+        <fig id="f3">
+          <label>Figures 3A-3C</label>
+          <caption>
+            <title>Meta-analysis on the risk factors of IPC after BPH surgery. OR, odds ratios; CI, confidence interval. 3A: PSA; 3B: Age; 3C: Prostate volume.</title>
+          </caption>
+          <alternatives>
+            <graphic xlink:href="https://minio.scielo.br/documentstore/1677-6119/6Sw9Jzj3mZHW69QQQPZm9Hp/105f0272e647cfdadd8e72649419e1211aa63467.tif"/>
+            <graphic xlink:href="https://minio.scielo.br/documentstore/1677-6119/6Sw9Jzj3mZHW69QQQPZm9Hp/2f624f01de06cc5046d5df95917027f4aa8b9920.png" specific-use="scielo-web"/>
+            <graphic xlink:href="https://minio.scielo.br/documentstore/1677-6119/6Sw9Jzj3mZHW69QQQPZm9Hp/4914c40107302c5e2ac12adbc878e5943dd48872.jpg" specific-use="scielo-web" content-type="scielo-267x140"/>
+          </alternatives>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>DISCUSSION</title>
+      <sec>
+        <title>Main findings</title>
+        <p>Uncertainty currently exists about the prevalence and risk factors of IPC with conflicting opinions based on single institutional research. Accordingly, we performed this systematic review and meta-analysis to address these issues. Our results revealed that the prevalence of IPC was similar amongst patients undergoing TURP, HoLEP, and OP for presumed BPH. Higher prevalence was also observed in Oceania and Africa, followed by Asia, Europe, and North America. Notably, sensitivity analysis indicated that the stability of the results had no significant change by omitting each study individually, although the subgroup and meta-regression analyses could not identify the potential factors that may affect the level of heterogeneity between studies. However, potential publication bias was likely to exist according to inspection of formal statistical tests. Interestingly, increased PSA level was significantly associated with increased risk of IPC after BPH surgery rather than age and prostate volume.</p>
+        <p>Although our results showed that PSA was a highly sensitive predictor for IPC detection, it may have a higher rate of false positives because its specificity was not high. Indeed, almost all included studies reported a significant association between PSA and IPC detection, whereas two studies yielded conflicting results (<xref ref-type="bibr" rid="B24">24</xref>, <xref ref-type="bibr" rid="B28">28</xref>). Kim et al. (<xref ref-type="bibr" rid="B24">24</xref>) retrospectively analyzed 458 consecutive patients who underwent HoLEP. They found that PSA does not affect the detection rate of IPC after HoLEP (OR: 0.999, 95% CI: 0.908-1.098; P=0.976) in multivariate analysis. Additionally, Ohwaki et al. (<xref ref-type="bibr" rid="B28">28</xref>) performed a retrospective study comprising a consecutive group of 688 patients who were diagnosed with BPH and underwent HoLEP. They observed no effect of PSA. Interestingly, diabetes may be an important factor for predicting IPC (OR: 3.15, 95% CI: 1.06-9.43; P=0.04) in men diagnosed with BPH who have undergone HoLEP. When we discarded these two studies from the meta-analysis, the results showed no significant changes, thereby validating the rationality and reliability of our analysis.</p>
+      </sec>
+      <sec>
+        <title>Implications for clinical practice</title>
+        <p>A significant increase has been observed in the number of minimally invasive surgical treatments for BPH, which is considered to be a factor affecting the incidence of IPC detection after BPH surgery (<xref ref-type="bibr" rid="B38">38</xref>). In fact, these surgical methods may not provide a sufficient amount of prostate tissue for pathological examinations. We found that the proportion of patients receiving HoLEP treatment significantly increased compared with those receiving TURP and OP. Unexpectedly, patients treated with TURP were more likely to be diagnosed with IPC rather than HoLEP and OP according to our meta-analysis. Therefore, these results should be interpreted rigorously. Generally, the surgical concepts of prostate tissue removal for the three types of BPH surgeries are similar. The previous literature demonstrated that HOLEP have a higher total detection rate of incidental PCa when compared with TURP due to more efficient tissue removal (<xref ref-type="bibr" rid="B34">34</xref>), which was inconsistent with our results. However, other previous studies indicated that the probability of IPC detection and the quality of the tissue retrieved after surgery were not significantly different among TURP, HoLEP, or OP (<xref ref-type="bibr" rid="B23">23</xref>, <xref ref-type="bibr" rid="B39">39</xref>). One of the reasons may be that some prostatic tissue retrieved by HoLEP is lost due to coagulative and vaporizing effects. Therefore, it is more difficult to find biological reasons to explain the different detection rate of IPC between them. Future research should pay attention to the quality of prostate tissue retrieved through different BPH surgical methods to further determine the reasons for the different prevalence of IPC except for the sample size (<xref ref-type="bibr" rid="B39">39</xref>). Moreover, the best treatment for IPC remains controversial. Active surveillance for every patient with IPC subclassified as clinical stage T1a or T1b after BPH surgery is unacceptable. Thus, patients who do not meet the criteria for active surveillance can be recommended for radiotherapy or radical prostatectomy. Radiotherapy is safe for patients with a history of BPH surgery and is related to an acceptable quality of life. However, undergoing radical prostatectomy is technically challenging for patients with a history of TURP (<xref ref-type="bibr" rid="B40">40</xref>). Our analysis showed no significant difference in terms of patients age and prostate volume rather than PSA level. However, other potential risk factors such as PSA density, PSA velocity, or underlying diseases could not be investigated due to the limited data obtained from the included studies. Nevertheless, one previous research indicated that higher preoperative PSA density and velocity, preoperative treatment with 5-alpha reductase inhibitors, and diabetes was identified to have a significant correlation with the diagnosis of IPC after surgery for BPH (<xref ref-type="bibr" rid="B41">41</xref>–<xref ref-type="bibr" rid="B44">44</xref>). Future study regarding more important risk factors of IPC with sufficient data are still needed for early screening and identification of IPC patients. Abedi et al. (<xref ref-type="bibr" rid="B18">18</xref>) indicated that the cut-off point of PSA for detecting IPC was 3.8ng/mL, which showed low sensitivity and high specificity. The relevant information regarding this issue was limited reported in all the included studies. Hence, future studies with high-quality should focus on the PSA referral cut-off value for the diagnosis of IPC after BPH surgery, so as to improve the early recognition of IPC.</p>
+      </sec>
+      <sec>
+        <title>Strengths and limitations</title>
+        <p>Our meta-analysis exhibited crucial strengths in several ways. Firstly, to our knowledge, the present meta-analysis is the first one focusing on the prevalence and clinical risk factors of IPC after BPH surgery. Moreover, sensitive and meta-regression analyses were performed to determine the potential factors that moderated the level of heterogeneity and results of the meta-analysis according to the PRISMA guidelines. Secondly, multivariate-adjusted risk estimates were applied to minimize the other relevant confounding factors that may influence the overall results. Lastly, the results of the sensitivity analysis and meta-regression validated the rationality and reliability of this meta-analysis.</p>
+        <p>However, some limitations should also be addressed and merit further discussion when interpreting our results. Firstly, significant heterogeneity was observed. Therefore, the introduction of potentially significant heterogeneity was imminent even though meta-regression was conducted. The reason may be that all included studies were observational design with the disadvantages of heterogeneity and variations in terms of histopathological examination. Secondly, we did not evaluate data regarding the cancer clinical stage (TNM system) of patients because few studies have reported related information. Thirdly, potential publication bias is likely to exist, although our data search included a number of databases combined with freehand search. Moreover, related results may be affected with the continuous advancement of surgical techniques. Finally, our understanding of predictors which accurately foretell prostate cancer progression remains insufficient because related data have been investigated inadequately.</p>
+      </sec>
+    </sec>
+    <sec sec-type="conclusions">
+      <title>CONCLUSION</title>
+      <p>The prevalence of IPC was similar amongst patients undergoing TURP, HoLEP, and OP for presumed BPH. Moreover, increased PSA level was an important predictor of the presence of IPC after BPH surgery. However, no effect of age and prostate volume was observed. Therefore, further prospective studies should be conducted in a multicentric population to evaluate other relevant variables that can accurately predict the progression of prostate cancer to determine the optimal treatment for IPC patients after BPH.</p>
+      <p>Trial and protocol registration: PROSPERO CRD42021268051.</p>
+      <p>Zunguang Bai 1*, Jun Pan, MD, 1*</p>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn fn-type="financial-disclosure" id="fn1">
+        <p>
+          <bold>FUNDING</bold>
+        </p>
+        <p>This study was supported by grants from the Science and Technology Research Project of Guangdong Provincial Hospital of Chinese Medicine (No. YN2019ML05).</p>
+      </fn>
+      <fn id="fn2" fn-type="data-availability">
+        <p>
+          <bold>AVAILABILITY OF DATA AND MATERIALS</bold>
+        </p>
+        <p>All data generated or analyzed during this study are included in this published article.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="B1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Siegel</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>KD</given-names>
+            </name>
+            <name>
+              <surname>Fuchs</surname>
+              <given-names>HE</given-names>
+            </name>
+            <name>
+              <surname>Jemal</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Cancer Statistics, 2021</article-title>
+          <source>CA Cancer J Clin</source>
+          <year>2021</year>
+          <volume>71</volume>
+          <fpage>7</fpage>
+          <lpage>33</lpage>
+          <comment>Erratum in: CA Cancer J Clin. 2021; 71:359</comment>
+        </element-citation>
+        <mixed-citation>1 Siegel RL, Miller KD, Fuchs HE, Jemal A. Cancer Statistics, 2021. CA Cancer J Clin. 2021; 71:7-33. Erratum in: CA Cancer J Clin. 2021; 71:359.</mixed-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tanaka</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Koie</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ohyama</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Hashimoto</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Imai</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Tobisawa</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Incidental prostate cancer in patients with muscle-invasive bladder cancer who underwent radical cystoprostatectomy</article-title>
+          <source>Jpn J Clin Oncol</source>
+          <year>2017</year>
+          <volume>47</volume>
+          <fpage>1078</fpage>
+          <lpage>1082</lpage>
+        </element-citation>
+        <mixed-citation>2 Tanaka T, Koie T, Ohyama C, Hashimoto Y, Imai A, Tobisawa Y, et al. Incidental prostate cancer in patients with muscle-invasive bladder cancer who underwent radical cystoprostatectomy. Jpn J Clin Oncol. 2017; 47:1078-82.</mixed-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Capitanio</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Scattoni</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Freschi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Briganti</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Salonia</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Gallina</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Radical prostatectomy for incidental (stage T1a-T1b) prostate cancer: analysis of predictors for residual disease and biochemical recurrence</article-title>
+          <source>Eur Urol</source>
+          <year>2008</year>
+          <volume>54</volume>
+          <fpage>118</fpage>
+          <lpage>125</lpage>
+        </element-citation>
+        <mixed-citation>3 Capitanio U, Scattoni V, Freschi M, Briganti A, Salonia A, Gallina A, et al. Radical prostatectomy for incidental (stage T1a-T1b) prostate cancer: analysis of predictors for residual disease and biochemical recurrence. Eur Urol. 2008; 54:118-25.</mixed-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Joung</surname>
+              <given-names>JY</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>SO</given-names>
+            </name>
+            <name>
+              <surname>Seo</surname>
+              <given-names>HK</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>TS</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>KS</given-names>
+            </name>
+            <name>
+              <surname>Chung</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Incidental prostate cancer detected by cystoprostatectomy in Korean men</article-title>
+          <source>Urology</source>
+          <year>2009</year>
+          <volume>73</volume>
+          <fpage>153</fpage>
+          <lpage>157</lpage>
+        </element-citation>
+        <mixed-citation>4 Joung JY, Yang SO, Seo HK, Kim TS, Han KS, Chung J, et al. Incidental prostate cancer detected by cystoprostatectomy in Korean men. Urology. 2009; 73:153-7.</mixed-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gratzke</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Bachmann</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Descazeaud</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Drake</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Madersbacher</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Mamoulakis</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>EAU Guidelines on the Assessment of Non-neurogenic Male Lower Urinary Tract Symptoms including Benign Prostatic Obstruction</article-title>
+          <source>Eur Urol</source>
+          <year>2015</year>
+          <volume>67</volume>
+          <fpage>1099</fpage>
+          <lpage>1109</lpage>
+        </element-citation>
+        <mixed-citation>5 Gratzke C, Bachmann A, Descazeaud A, Drake MJ, Madersbacher S, Mamoulakis C, et al. EAU Guidelines on the Assessment of Non-neurogenic Male Lower Urinary Tract Symptoms including Benign Prostatic Obstruction. Eur Urol. 2015; 67:1099-109.</mixed-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jones</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Follis</surname>
+              <given-names>HW</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>JR</given-names>
+            </name>
+          </person-group>
+          <article-title>Probability of finding T1a and T1b (incidental) prostate cancer during TURP has decreased in the PSA era</article-title>
+          <source>Prostate Cancer Prostatic Dis</source>
+          <year>2009</year>
+          <volume>12</volume>
+          <fpage>57</fpage>
+          <lpage>60</lpage>
+        </element-citation>
+        <mixed-citation>6 Jones JS, Follis HW, Johnson JR. Probability of finding T1a and T1b (incidental) prostate cancer during TURP has decreased in the PSA era. Prostate Cancer Prostatic Dis. 2009; 12:57-60.</mixed-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zigeuner</surname>
+              <given-names>RE</given-names>
+            </name>
+            <name>
+              <surname>Lipsky</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Riedler</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Auprich</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Schips</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Salfellner</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Did the rate of incidental prostate cancer change in the era of PSA testing? A retrospective study of 1127 patients</article-title>
+          <source>Urology</source>
+          <year>2003</year>
+          <volume>62</volume>
+          <fpage>451</fpage>
+          <lpage>455</lpage>
+        </element-citation>
+        <mixed-citation>7 Zigeuner RE, Lipsky K, Riedler I, Auprich M, Schips L, Salfellner M, et al. Did the rate of incidental prostate cancer change in the era of PSA testing? A retrospective study of 1127 patients. Urology. 2003; 62:451-5.</mixed-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoo</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Oh</surname>
+              <given-names>CY</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>SI</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>YS</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>JY</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Preoperative clinical factors for diagnosis of incidental prostate cancer in the era of tissue-ablative surgery for benign prostatic hyperplasia: a korean multi-center review</article-title>
+          <source>Korean J Urol</source>
+          <year>2012</year>
+          <volume>53</volume>
+          <fpage>391</fpage>
+          <lpage>395</lpage>
+        </element-citation>
+        <mixed-citation>8 Yoo C, Oh CY, Kim SJ, Kim SI, Kim YS, Park JY, et al. Preoperative clinical factors for diagnosis of incidental prostate cancer in the era of tissue-ablative surgery for benign prostatic hyperplasia: a korean multi-center review. Korean J Urol. 2012; 53:391-5.</mixed-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Robinson</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Aus</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Bak</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Gorecki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Herder</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Rosell</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Long-term follow-up of conservatively managed incidental carcinoma of the prostate: a multivariate analysis of prognostic factors</article-title>
+          <source>Scand J Urol Nephrol</source>
+          <year>2007</year>
+          <volume>41</volume>
+          <fpage>103</fpage>
+          <lpage>109</lpage>
+        </element-citation>
+        <mixed-citation>9 Robinson D, Aus G, Bak J, Gorecki T, Herder A, Rosell J, et al. Long-term follow-up of conservatively managed incidental carcinoma of the prostate: a multivariate analysis of prognostic factors. Scand J Urol Nephrol. 2007; 41:103-9.</mixed-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Melchior</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Hadaschik</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Thüroff</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Thomas</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Gillitzer</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Thüroff</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Outcome of radical prostatectomy for incidental carcinoma of the prostate</article-title>
+          <source>BJU Int</source>
+          <year>2009</year>
+          <volume>103</volume>
+          <fpage>1478</fpage>
+          <lpage>1481</lpage>
+        </element-citation>
+        <mixed-citation>10 Melchior S, Hadaschik B, Thüroff S, Thomas C, Gillitzer R, Thüroff J. Outcome of radical prostatectomy for incidental carcinoma of the prostate. BJU Int. 2009; 103:1478-81.</mixed-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <element-citation publication-type="webpage">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Higgins</surname>
+              <given-names>JPT</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <chapter-title>Cochrane Handbook for Systematic Reviews of Interventions. Version 5.1.0. 2011</chapter-title>
+          <source>The Cochrane collaboration. [Internet]</source>
+          <comment>Available at. &lt;<ext-link ext-link-type="uri" xlink:href="https://handbook-5-1.cochrane.org/">https://handbook-5-1.cochrane.org/</ext-link>&gt;</comment>
+        </element-citation>
+        <mixed-citation>11 Higgins JPT, Green S. Cochrane Handbook for Systematic Reviews of Interventions. Version 5.1.0. 2011. The Cochrane collaboration. [Internet]. Available at. &lt;<ext-link ext-link-type="uri" xlink:href="https://handbook-5-1.cochrane.org/">https://handbook-5-1.cochrane.org/</ext-link>&gt;</mixed-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Page</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>McKenzie</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Bossuyt</surname>
+              <given-names>PM</given-names>
+            </name>
+            <name>
+              <surname>Boutron</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Hoffmann</surname>
+              <given-names>TC</given-names>
+            </name>
+            <name>
+              <surname>Mulrow</surname>
+              <given-names>CD</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The PRISMA 2020 statement: an updated guideline for reporting systematic reviews</article-title>
+          <source>BMJ</source>
+          <year>2021</year>
+          <volume>29</volume>
+          <fpage>372:n71</fpage>
+          <lpage>372:n71</lpage>
+        </element-citation>
+        <mixed-citation>12 Page MJ, McKenzie JE, Bossuyt PM, Boutron I, Hoffmann TC, Mulrow CD, et al. The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. BMJ. 2021, 29;372:n71.</mixed-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wells</surname>
+              <given-names>GA</given-names>
+            </name>
+            <name>
+              <surname>Shea</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>O’Connell</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Peterson</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Welch</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Losos</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <chapter-title>The Newcastle-Ottawa Scale (NOS) for assessing the quality of nonrandomised studies in meta-analyses</chapter-title>
+          <year>2014</year>
+          <source>[Internet}</source>
+          <comment>Available at. &lt;<ext-link ext-link-type="uri" xlink:href="http://www.ohri.ca/programs/clinical_epidemiology/oxford.asp">http://www.ohri.ca/programs/clinical_epidemiology/oxford.asp</ext-link>&gt;</comment>
+        </element-citation>
+        <mixed-citation>13 GA Wells, B Shea, D O’Connell, J Peterson, V Welch, M Losos, et al. The Newcastle-Ottawa Scale (NOS) for assessing the quality of nonrandomised studies in meta-analyses. 2014. [Internet}. Available at. &lt;<ext-link ext-link-type="uri" xlink:href="http://www.ohri.ca/programs/clinical_epidemiology/oxford.asp">http://www.ohri.ca/programs/clinical_epidemiology/oxford.asp</ext-link>&gt;</mixed-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Egger</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Davey Smith</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Schneider</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Minder</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>Bias in meta-analysis detected by a simple, graphical test</article-title>
+          <source>BMJ</source>
+          <year>1997</year>
+          <volume>315</volume>
+          <fpage>629</fpage>
+          <lpage>634</lpage>
+        </element-citation>
+        <mixed-citation>14 Egger M, Davey Smith G, Schneider M, Minder C. Bias in meta-analysis detected by a simple, graphical test. BMJ. 1997; 315:629-34.</mixed-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Begg</surname>
+              <given-names>CB</given-names>
+            </name>
+            <name>
+              <surname>Mazumdar</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Operating characteristics of a rank correlation test for publication bias</article-title>
+          <source>Biometrics</source>
+          <year>1994</year>
+          <volume>50</volume>
+          <fpage>1088</fpage>
+          <lpage>1101</lpage>
+        </element-citation>
+        <mixed-citation>15 Begg CB, Mazumdar M. Operating characteristics of a rank correlation test for publication bias. Biometrics. 1994; 50:1088-101.</mixed-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Abedi</surname>
+              <given-names>AR</given-names>
+            </name>
+            <name>
+              <surname>Fallah-Karkan</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Allameh</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Ranjbar</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Shadmehr</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Incidental prostate cancer: a 10-year review of a tertiary center, Tehran, Iran</article-title>
+          <source>Res Rep Urol</source>
+          <year>2018</year>
+          <volume>10</volume>
+          <fpage>1</fpage>
+          <lpage>6</lpage>
+        </element-citation>
+        <mixed-citation>16 Abedi AR, Fallah-Karkan M, Allameh F, Ranjbar A, Shadmehr A. Incidental prostate cancer: a 10-year review of a tertiary center, Tehran, Iran. Res Rep Urol. 2018; 10:1-6.</mixed-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Andrèn</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Garmo</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Mucci</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Andersson</surname>
+              <given-names>SO</given-names>
+            </name>
+            <name>
+              <surname>Johansson</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Fall</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Incidence and mortality of incidental prostate cancer: a Swedish register-based study</article-title>
+          <source>Br J Cancer</source>
+          <year>2009</year>
+          <volume>100</volume>
+          <fpage>170</fpage>
+          <lpage>173</lpage>
+        </element-citation>
+        <mixed-citation>17 Andrèn O, Garmo H, Mucci L, Andersson SO, Johansson JE, Fall K. Incidence and mortality of incidental prostate cancer: a Swedish register-based study. Br J Cancer. 2009; 100:170-3.</mixed-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Argyropoulos</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Doumas</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Farmakis</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Aristas</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Kontogeorgos</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Lykourinas</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Characteristics of patients with stage T1b incidental prostate cancer</article-title>
+          <source>Scand J Urol Nephrol</source>
+          <year>2005</year>
+          <volume>39</volume>
+          <fpage>289</fpage>
+          <lpage>293</lpage>
+        </element-citation>
+        <mixed-citation>18 Argyropoulos A, Doumas K, Farmakis A, Aristas O, Kontogeorgos G, Lykourinas M. Characteristics of patients with stage T1b incidental prostate cancer. Scand J Urol Nephrol. 2005; 39:289-93.</mixed-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Capogrosso</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Capitanio</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Vertosick</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Ventimiglia</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Chierigo</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Oreggia</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Temporal Trend in Incidental Prostate Cancer Detection at Surgery for Benign Prostatic Hyperplasia</article-title>
+          <source>Urology</source>
+          <year>2018</year>
+          <volume>122</volume>
+          <fpage>152</fpage>
+          <lpage>157</lpage>
+        </element-citation>
+        <mixed-citation>19 Capogrosso P, Capitanio U, Vertosick EA, Ventimiglia E, Chierigo F, Oreggia D, at al. Temporal Trend in Incidental Prostate Cancer Detection at Surgery for Benign Prostatic Hyperplasia. Urology. 2018; 122:152-7.</mixed-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Elkoushy</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Elshal</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Elhilali</surname>
+              <given-names>MM</given-names>
+            </name>
+          </person-group>
+          <article-title>Incidental Prostate Cancer Diagnosis During Holmium Laser Enucleation: Assessment of Predictors, Survival, and Disease Progression</article-title>
+          <source>Urology</source>
+          <year>2015</year>
+          <volume>86</volume>
+          <fpage>552</fpage>
+          <lpage>557</lpage>
+        </element-citation>
+        <mixed-citation>20 Elkoushy MA, Elshal AM, Elhilali MM. Incidental Prostate Cancer Diagnosis During Holmium Laser Enucleation: Assessment of Predictors, Survival, and Disease Progression. Urology. 2015; 86:552-7.</mixed-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Froehner</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Buck</surname>
+              <given-names>LM</given-names>
+            </name>
+            <name>
+              <surname>Koch</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Hakenberg</surname>
+              <given-names>OW</given-names>
+            </name>
+            <name>
+              <surname>Wirth</surname>
+              <given-names>MP</given-names>
+            </name>
+          </person-group>
+          <article-title>Derivatives of prostate-specific antigen as predictors of incidental prostate cancer</article-title>
+          <source>BJU Int</source>
+          <year>2009</year>
+          <volume>104</volume>
+          <fpage>25</fpage>
+          <lpage>28</lpage>
+        </element-citation>
+        <mixed-citation>21 Froehner M, Buck LM, Koch R, Hakenberg OW, Wirth MP. Derivatives of prostate-specific antigen as predictors of incidental prostate cancer. BJU Int. 2009; 104:25-8.</mixed-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gunda</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kido</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Kilonzo</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nkandala</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Igenge</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Mpondo</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Prevalence and Associated Factors of Incidentally Diagnosed Prostatic Carcinoma among Patients Who Had Transurethral Prostatectomy in Tanzania: A Retrospective Study</article-title>
+          <source>Ethiop J Health Sci</source>
+          <year>2018</year>
+          <volume>28</volume>
+          <fpage>11</fpage>
+          <lpage>18</lpage>
+        </element-citation>
+        <mixed-citation>22 Gunda D, Kido I, Kilonzo S, Nkandala I, Igenge J, Mpondo B. Prevalence and Associated Factors of Incidentally Diagnosed Prostatic Carcinoma among Patients Who Had Transurethral Prostatectomy in Tanzania: A Retrospective Study. Ethiop J Health Sci. 2018; 28:11-8.</mixed-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Herlemann</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Wegner</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Roosen</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Buchner</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Weinhold</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Bachmann</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>“Finding the needle in a haystack”: oncologic evaluation of patients treated for LUTS with holmium laser enucleation of the prostate (HoLEP) versus transurethral resection of the prostate (TURP)</article-title>
+          <source>World J Urol</source>
+          <year>2017</year>
+          <volume>35</volume>
+          <fpage>1777</fpage>
+          <lpage>1782</lpage>
+        </element-citation>
+        <mixed-citation>23 Herlemann A, Wegner K, Roosen A, Buchner A, Weinhold P, Bachmann A, et al. “Finding the needle in a haystack”: oncologic evaluation of patients treated for LUTS with holmium laser enucleation of the prostate (HoLEP) versus transurethral resection of the prostate (TURP). World J Urol. 2017; 35:1777-82.</mixed-citation>
+      </ref>
+      <ref id="B24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Ku</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Oh</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Paick</surname>
+              <given-names>JS</given-names>
+            </name>
+          </person-group>
+          <article-title>Prostate cancer detected after Holmium laser enucleation of prostate (HoLEP): significance of transrectal ultrasonography</article-title>
+          <source>Int Urol Nephrol</source>
+          <year>2014</year>
+          <volume>46</volume>
+          <fpage>2079</fpage>
+          <lpage>2085</lpage>
+        </element-citation>
+        <mixed-citation>24 Kim M, Song SH, Ku JH, Oh SJ, Paick JS. Prostate cancer detected after Holmium laser enucleation of prostate (HoLEP): significance of transrectal ultrasonography. Int Urol Nephrol. 2014; 46:2079-85.</mixed-citation>
+      </ref>
+      <ref id="B25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Matanhelia</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Croghan</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nason</surname>
+              <given-names>GJ</given-names>
+            </name>
+            <name>
+              <surname>O’Connell</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Galvin</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>The Management of Incidental Prostate Cancer Following TURP</article-title>
+          <source>Ir Med J</source>
+          <year>2019</year>
+          <volume>112</volume>
+          <fpage>866</fpage>
+          <lpage>866</lpage>
+        </element-citation>
+        <mixed-citation>25 Matanhelia DM, Croghan S, Nason GJ, O’Connell C, Galvin DJ. The Management of Incidental Prostate Cancer Following TURP. Ir Med J. 2019; 112:866.</mixed-citation>
+      </ref>
+      <ref id="B26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Misraï</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Kerever</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Pasquie</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bordier</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Guillotreau</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Palasse</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Does mechanical morcellation of large glands compromise incidental prostate cancer detection on specimen analysis? A pathological comparison with open simple prostatectomy</article-title>
+          <source>World J Urol</source>
+          <year>2019</year>
+          <volume>37</volume>
+          <fpage>1315</fpage>
+          <lpage>1320</lpage>
+        </element-citation>
+        <mixed-citation>26 Misraï V, Kerever S, Pasquie M, Bordier B, Guillotreau J, Palasse J, et al. Does mechanical morcellation of large glands compromise incidental prostate cancer detection on specimen analysis? A pathological comparison with open simple prostatectomy. World J Urol. 2019; 37:1315-20.</mixed-citation>
+      </ref>
+      <ref id="B27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nunez</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Hurd</surname>
+              <given-names>KJ</given-names>
+            </name>
+            <name>
+              <surname>Noble</surname>
+              <given-names>BN</given-names>
+            </name>
+            <name>
+              <surname>Castle</surname>
+              <given-names>EP</given-names>
+            </name>
+            <name>
+              <surname>Andrews</surname>
+              <given-names>PE</given-names>
+            </name>
+            <name>
+              <surname>Humphreys</surname>
+              <given-names>MR</given-names>
+            </name>
+          </person-group>
+          <article-title>Incidental prostate cancer revisited: early outcomes after holmium laser enucleation of the prostate</article-title>
+          <source>Int J Urol</source>
+          <year>2011</year>
+          <volume>18</volume>
+          <fpage>543</fpage>
+          <lpage>547</lpage>
+        </element-citation>
+        <mixed-citation>27 Nunez R, Hurd KJ, Noble BN, Castle EP, Andrews PE, Humphreys MR. Incidental prostate cancer revisited: early outcomes after holmium laser enucleation of the prostate. Int J Urol. 2011; 18:543-7.</mixed-citation>
+      </ref>
+      <ref id="B28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ohwaki</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Endo</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Shimbo</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fujisaki</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hattori</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Comorbidities as predictors of incidental prostate cancer after Holmium laser enucleation of the prostate: diabetes and high-risk cancer</article-title>
+          <source>Aging Male</source>
+          <year>2017</year>
+          <volume>20</volume>
+          <fpage>257</fpage>
+          <lpage>260</lpage>
+        </element-citation>
+        <mixed-citation>28 Ohwaki K, Endo F, Shimbo M, Fujisaki A, Hattori K. Comorbidities as predictors of incidental prostate cancer after Holmium laser enucleation of the prostate: diabetes and high-risk cancer. Aging Male. 2017; 20:257-60.</mixed-citation>
+      </ref>
+      <ref id="B29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Otsubo</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Yokomizo</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Mochida</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Shiota</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Tatsugami</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Inokuchi</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Significance of prostate-specific antigen-related factors in incidental prostate cancer treated by holmium laser enucleation of the prostate</article-title>
+          <source>World J Urol</source>
+          <year>2015</year>
+          <volume>33</volume>
+          <fpage>329</fpage>
+          <lpage>333</lpage>
+        </element-citation>
+        <mixed-citation>29 Otsubo S, Yokomizo A, Mochida O, Shiota M, Tatsugami K, Inokuchi J, et al. Significance of prostate-specific antigen-related factors in incidental prostate cancer treated by holmium laser enucleation of the prostate. World J Urol. 2015; 33:329-33.</mixed-citation>
+      </ref>
+      <ref id="B30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Otto</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Barbieri</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Te</surname>
+              <given-names>AE</given-names>
+            </name>
+            <name>
+              <surname>Kaplan</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Robinson</surname>
+              <given-names>B</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Incidental prostate cancer in transurethral resection of the prostate specimens in the modern era</article-title>
+          <source>Adv Urol</source>
+          <year>2014</year>
+          <volume>2014</volume>
+          <fpage>627290</fpage>
+          <lpage>627290</lpage>
+        </element-citation>
+        <mixed-citation>30 Otto B, Barbieri C, Lee R, Te AE, Kaplan SA, Robinson B, et al. Incidental prostate cancer in transurethral resection of the prostate specimens in the modern era. Adv Urol. 2014; 2014:627290.</mixed-citation>
+      </ref>
+      <ref id="B31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Perera</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lawrentschuk</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Perera</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Bolton</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Clouston</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Incidental prostate cancer in transurethral resection of prostate specimens in men aged up to 65 years</article-title>
+          <source>Prostate Int</source>
+          <year>2016</year>
+          <volume>4</volume>
+          <fpage>11</fpage>
+          <lpage>14</lpage>
+        </element-citation>
+        <mixed-citation>31 Perera M, Lawrentschuk N, Perera N, Bolton D, Clouston D. Incidental prostate cancer in transurethral resection of prostate specimens in men aged up to 65 years. Prostate Int. 2016; 4:11-4.</mixed-citation>
+      </ref>
+      <ref id="B32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pirša</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Pezelj</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Knežević</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Spajić</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Tomašković</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Reljić</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Incidental Prostate Cancer in Patients Treated for Benign Prostate Hyperplasia in the Period of 21 Years</article-title>
+          <source>Acta Clin Croat</source>
+          <year>2018</year>
+          <volume>57</volume>
+          <issue>Suppl 1</issue>
+          <fpage>71</fpage>
+          <lpage>76</lpage>
+        </element-citation>
+        <mixed-citation>32 Pirša M, Pezelj I, Knežević M, Spajić B, Tomašković I, Reljić A, et al. Incidental Prostate Cancer in Patients Treated for Benign Prostate Hyperplasia in the Period of 21 Years. Acta Clin Croat. 2018; 57 (Suppl 1):71-6.</mixed-citation>
+      </ref>
+      <ref id="B33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Porcaro</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Siracusano</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Amigoni</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Tafuri</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Rizzetto</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Shakir</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The Influence of Endogenous Testosterone on Incidental Prostate Cancer after Transurethral Prostate Resection</article-title>
+          <source>Urol Int</source>
+          <year>2021</year>
+          <volume>105</volume>
+          <issue>9-10</issue>
+          <fpage>826</fpage>
+          <lpage>834</lpage>
+        </element-citation>
+        <mixed-citation>33 Porcaro AB, Siracusano S, Amigoni N, Tafuri A, Rizzetto R, Shakir A, et al. The Influence of Endogenous Testosterone on Incidental Prostate Cancer after Transurethral Prostate Resection. Urol Int. 2021; 105 (9-10):826-34.</mixed-citation>
+      </ref>
+      <ref id="B34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rosenhammer</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Lausenmeyer</surname>
+              <given-names>EM</given-names>
+            </name>
+            <name>
+              <surname>Mayr</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Burger</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Eichelberg</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>HoLEP provides a higher prostate cancer detection rate compared to bipolar TURP: a matched-pair analysis</article-title>
+          <source>World J Urol</source>
+          <year>2018</year>
+          <volume>36</volume>
+          <fpage>2035</fpage>
+          <lpage>2041</lpage>
+        </element-citation>
+        <mixed-citation>34 Rosenhammer B, Lausenmeyer EM, Mayr R, Burger M, Eichelberg C. HoLEP provides a higher prostate cancer detection rate compared to bipolar TURP: a matched-pair analysis. World J Urol. 2018; 36:2035-41.</mixed-citation>
+      </ref>
+      <ref id="B35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sakamoto</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Matsumoto</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hayakawa</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Maeda</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Sato</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Ninomiya</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Preoperative parameters to predict incidental (T1a and T1b) prostate cancer</article-title>
+          <source>Can Urol Assoc J</source>
+          <year>2014</year>
+          <volume>8</volume>
+          <fpage>E815</fpage>
+          <lpage>E820</lpage>
+        </element-citation>
+        <mixed-citation>35 Sakamoto H, Matsumoto K, Hayakawa N, Maeda T, Sato A, Ninomiya A, et al. Preoperative parameters to predict incidental (T1a and T1b) prostate cancer. Can Urol Assoc J. 2014; 8:E815-20.</mixed-citation>
+      </ref>
+      <ref id="B36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Skrzypczyk</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Dobruch</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Nyk</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Szostek</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Szempliński</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Borówka</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Should all specimens taken during surgical treatment of patients with benign prostatic hyperplasia be assessed by a pathologist?</article-title>
+          <source>Cent European J Urol</source>
+          <year>2014</year>
+          <volume>67</volume>
+          <fpage>227</fpage>
+          <lpage>232</lpage>
+        </element-citation>
+        <mixed-citation>36 Skrzypczyk MA, Dobruch J, Nyk L, Szostek P, Szempliński S, Borówka A. Should all specimens taken during surgical treatment of patients with benign prostatic hyperplasia be assessed by a pathologist? Cent European J Urol. 2014; 67:227-32.</mixed-citation>
+      </ref>
+      <ref id="B37">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tonyali</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ceylan</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Aglamis</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Dogan</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Tastemur</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Karaaslan</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Is there a PSA cut-off value indicating incidental prostate cancer in patients undergoing surgery for benign prostatic hyperplasia?</article-title>
+          <source>Arch Ital Urol Androl</source>
+          <year>2021</year>
+          <volume>93</volume>
+          <fpage>31</fpage>
+          <lpage>34</lpage>
+        </element-citation>
+        <mixed-citation>37 Tonyali S, Ceylan C, Aglamis E, Dogan S, Tastemur S, Karaaslan M. Is there a PSA cut-off value indicating incidental prostate cancer in patients undergoing surgery for benign prostatic hyperplasia? Arch Ital Urol Androl. 2021; 93:31-4.</mixed-citation>
+      </ref>
+      <ref id="B38">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yu</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Elliott</surname>
+              <given-names>SP</given-names>
+            </name>
+            <name>
+              <surname>Wilt</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>McBean</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>Practice patterns in benign prostatic hyperplasia surgical therapy: the dramatic increase in minimally invasive technologies</article-title>
+          <source>J Urol</source>
+          <year>2008</year>
+          <volume>180</volume>
+          <fpage>241</fpage>
+          <lpage>245</lpage>
+        </element-citation>
+        <mixed-citation>38 Yu X, Elliott SP, Wilt TJ, McBean AM. Practice patterns in benign prostatic hyperplasia surgical therapy: the dramatic increase in minimally invasive technologies. J Urol. 2008; 180:241-5.</mixed-citation>
+      </ref>
+      <ref id="B39">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Naspro</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Freschi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Salonia</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Guazzoni</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Girolamo</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Colombo</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Holmium laser enucleation versus transurethral resection of the prostate</article-title>
+          <source>Are histological findings comparable? J Urol</source>
+          <year>2004</year>
+          <volume>171</volume>
+          <fpage>1203</fpage>
+          <lpage>1206</lpage>
+          <comment>Erratum in: J Urol. 2004; 171:1888</comment>
+        </element-citation>
+        <mixed-citation>39 Naspro R, Freschi M, Salonia A, Guazzoni G, Girolamo V, Colombo R, et al. Holmium laser enucleation versus transurethral resection of the prostate. Are histological findings comparable? J Urol. 2004; 171:1203-6. Erratum in: J Urol. 2004; 171:1888.</mixed-citation>
+      </ref>
+      <ref id="B40">
+        <label>40</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Colombo</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Naspro</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Salonia</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Montorsi</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Raber</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Suardi</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Radical prostatectomy after previous prostate surgery: clinical and functional outcomes</article-title>
+          <source>J Urol</source>
+          <year>2006</year>
+          <volume>176</volume>
+          <issue>6 Pt 1</issue>
+          <fpage>2459</fpage>
+          <lpage>2463</lpage>
+        </element-citation>
+        <mixed-citation>40 Colombo R, Naspro R, Salonia A, Montorsi F, Raber M, Suardi N, et al. Radical prostatectomy after previous prostate surgery: clinical and functional outcomes. J Urol. 2006; 176(6 Pt 1):2459-63.</mixed-citation>
+      </ref>
+      <ref id="B41">
+        <label>41</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cheng</surname>
+              <given-names>BK</given-names>
+            </name>
+            <name>
+              <surname>Castellani</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>IS</given-names>
+            </name>
+            <name>
+              <surname>Baker</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Gauhar</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Wroclawski</surname>
+              <given-names>ML</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Incidence, predictive factors and oncological outcomes of incidental prostate cancer after endoscopic enucleation of the prostate: a systematic review and meta-analysis</article-title>
+          <source>World J Urol</source>
+          <year>2021</year>
+          <comment>Online ahead of print</comment>
+        </element-citation>
+        <mixed-citation>41 Cheng BK, Castellani D, Chan IS, Baker A, Gauhar V, Wroclawski ML, et al. Incidence, predictive factors and oncological outcomes of incidental prostate cancer after endoscopic enucleation of the prostate: a systematic review and meta-analysis. World J Urol. 2021. Online ahead of print.</mixed-citation>
+      </ref>
+      <ref id="B42">
+        <label>42</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pinto</surname>
+              <given-names>AMA</given-names>
+            </name>
+            <name>
+              <surname>González</surname>
+              <given-names>MS</given-names>
+            </name>
+          </person-group>
+          <article-title>Endourology and Benign Prostatic Hyperplasia in COVID-19 Pandemic</article-title>
+          <source>Int Braz J Urol</source>
+          <year>2020</year>
+          <volume>46</volume>
+          <issue>suppl.1</issue>
+          <fpage>34</fpage>
+          <lpage>38</lpage>
+        </element-citation>
+        <mixed-citation>42 Pinto AMA, González MS. Endourology and Benign Prostatic Hyperplasia in COVID-19 Pandemic. Int Braz J Urol. 2020; 46(suppl.1):34-38.</mixed-citation>
+      </ref>
+      <ref id="B43">
+        <label>43</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Slongo</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Loeb</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Carrion</surname>
+              <given-names>RE</given-names>
+            </name>
+          </person-group>
+          <article-title>Urolift® with median lobe resection for trilobar BPH</article-title>
+          <source>Int Braz J Urol</source>
+          <year>2020</year>
+          <volume>46</volume>
+          <fpage>868</fpage>
+          <lpage>868</lpage>
+        </element-citation>
+        <mixed-citation>43 Slongo J, Loeb A, Carrion RE. Urolift® with median lobe resection for trilobar BPH. Int Braz J Urol. 2020; 46:868.</mixed-citation>
+      </ref>
+      <ref id="B44">
+        <label>44</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Otaola-Arca</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Álvarez-Ardura</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Molina-Escudero</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Fernández</surname>
+              <given-names>MI</given-names>
+            </name>
+            <name>
+              <surname>Páez-Borda</surname>
+              <given-names>Á</given-names>
+            </name>
+          </person-group>
+          <article-title>A prospective randomized study comparing bipolar plasmakinetic transurethral resection of the prostate and monopolar transurethral resection of the prostate for the treatment of Benign Prostatic Hyperplasia: efficacy, sexual function, Quality of Life, and complications</article-title>
+          <source>Int Braz J Urol</source>
+          <year>2021</year>
+          <volume>47</volume>
+          <fpage>131</fpage>
+          <lpage>144</lpage>
+        </element-citation>
+        <mixed-citation>44 Otaola-Arca H, Álvarez-Ardura M, Molina-Escudero R, Fernández MI, Páez-Borda Á. A prospective randomized study comparing bipolar plasmakinetic transurethral resection of the prostate and monopolar transurethral resection of the prostate for the treatment of Benign Prostatic Hyperplasia: efficacy, sexual function, Quality of Life, and complications. Int Braz J Urol. 2021; 47:131-44.</mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
