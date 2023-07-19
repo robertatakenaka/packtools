@@ -6,14 +6,14 @@ class Authors:
     @property
     def collab(self):
         try:
-            return self.xmltree.xpath(".//front//collab")[0].text
+            return self.xmltree.xpath(".//article-meta//collab")[0].text
         except IndexError:
             return None
 
     @property
     def contribs(self):
         _data = []
-        for node in self.xmltree.xpath(".//front//contrib"):
+        for node in self.xmltree.xpath(".//article-meta//contrib"):
             _author = {}
             for tag in ("surname", "prefix", "suffix"):
                 xpath = f".//{tag}"
