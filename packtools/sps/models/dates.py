@@ -1,3 +1,6 @@
+from packtools.sps.models.article_and_subarticles import FulltextNode
+
+
 class Date:
     """Represents and processes a single date from an XML node.
     
@@ -352,4 +355,3 @@ class ArticleDates:
         if hasattr(self.main_dates, name):
             return getattr(self.main_dates, name)
         raise AttributeError(f"ArticleDates.{name} or FulltextDates.{name} does not exist")
-    
