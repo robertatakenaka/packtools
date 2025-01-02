@@ -1,3 +1,23 @@
+class FulltextNode:
+    def __init__(self, fulltext_node):
+        # article or sub-article
+        self.fulltext_node = fulltext_node
+        self.id = fulltext_node.get("id")
+        self.lang = fulltext_node.get("{http://www.w3.org/XML/1998/namespace}lang")
+        self.article_type = fulltext_node.get("article-type")
+        self.tag = fulltext_node.tag
+
+    @property
+    def data(self):
+        return {
+            "tag": self.tag,
+            "id": self.id,
+            "lang": self.lang,
+            "article_type": self.article_type,
+            # "xpath": "sub-article" if self.tag == "sub-article" else "front | body | back"
+        }
+
+
 class ArticleAndSubArticles:
     def __init__(self, xmltree):
         self.xmltree = xmltree
