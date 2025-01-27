@@ -153,12 +153,12 @@ class ArticleAndSubarticlesTest(TestCase):
         self.assertListEqual(expected, obtained)
 
 
-class TestFulltext(unittest.TestCase):
+class TestFulltext(TestCase):
     def setUp(self):
         """
         Configura o XML básico para os testes
         """
-        self.xml = """<?xml version='1.0' encoding='utf-8'?>
+        self.xml = """
         <article xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:xml="http://www.w3.org/XML/1998/namespace"
                 article-type="research-article"
@@ -191,7 +191,7 @@ class TestFulltext(unittest.TestCase):
 
     def test_front_sub_article(self):
         """Testa propriedade front para sub-article"""
-        xml_sub = """<?xml version='1.0' encoding='utf-8'?>
+        xml_sub = """
         <sub-article article-type="translation" xml:lang="pt" id="s1">
             <front-stub>
                 <article-meta/>
@@ -215,7 +215,7 @@ class TestFulltext(unittest.TestCase):
 
     def test_sub_articles(self):
         """Testa propriedade sub_articles"""
-        xml = """<?xml version='1.0' encoding='utf-8'?>
+        xml = """
         <article>
             <front/>
             <sub-article article-type="translation" xml:lang="es" id="s1">
@@ -234,7 +234,7 @@ class TestFulltext(unittest.TestCase):
 
     def test_translations(self):
         """Testa propriedade translations"""
-        xml = """<?xml version='1.0' encoding='utf-8'?>
+        xml = """
         <article>
             <front/>
             <sub-article article-type="translation" xml:lang="es" id="s1">
@@ -256,7 +256,7 @@ class TestFulltext(unittest.TestCase):
 
     def test_not_translations(self):
         """Testa propriedade not_translations"""
-        xml = """<?xml version='1.0' encoding='utf-8'?>
+        xml = """
         <article>
             <front/>
             <sub-article article-type="translation" xml:lang="es" id="s1">
@@ -295,12 +295,13 @@ class TestFulltext(unittest.TestCase):
             "parent_id": "123",
             "parent_lang": "en",
             "parent_article_type": "research-article",
+            "original_article_type": "research-article",
         }
         self.assertEqual(self.fulltext.attribs_parent_prefixed, expected)
 
     def test_fulltexts(self):
         """Testa propriedade fulltexts"""
-        xml = """<?xml version='1.0' encoding='utf-8'?>
+        xml = """
         <article article-type="research-article" xml:lang="en" id="123">
             <front/>
             <sub-article article-type="translation" xml:lang="es" id="s1">
@@ -333,7 +334,7 @@ class TestFulltext(unittest.TestCase):
 
     def test_missing_optional_attributes(self):
         """Testa inicialização com atributos opcionais ausentes"""
-        xml = """<?xml version='1.0' encoding='utf-8'?>
+        xml = """
         <article>
             <front/>
         </article>"""
@@ -346,7 +347,7 @@ class TestFulltext(unittest.TestCase):
 
     def test_empty_sections(self):
         """Testa artigo sem seções body e back"""
-        xml = """<?xml version='1.0' encoding='utf-8'?>
+        xml = """
         <article>
             <front/>
         </article>"""
