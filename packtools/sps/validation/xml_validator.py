@@ -84,3 +84,7 @@ def validate_xml_content(xmltree, rules):
         "group": "related_articles",
         "items": xml_validations.validate_related_articles(xmltree, params),
     }
+    yield {
+        "group": "peer-reviews",
+        "items": xml_validations.validate_peer_reviews(xmltree, params),    
+    }
