@@ -11,8 +11,7 @@ from packtools.sps.validation.exceptions import (
     ValidationArticleAndSubArticlesSubjectsException,
 )
 from packtools.sps.validation.similarity_utils import most_similar, similarity
-from packtools.sps.validation.utils import format_response
-
+from packtools.sps.validation.utils import format_response, build_response
 
 class ArticleLangValidation:
     def __init__(self, xmltree, params):
@@ -91,8 +90,9 @@ class ArticleLangValidation:
                 parent_id = f'{parent}[@id="{article_id}"]'
 
             advice = None if validated else f'Provide for {parent_id}/@xml:lang one of {language_codes_list}'
+            title = "article" if parent == "article" else f"sub-article {article_id}"
             yield format_response(
-                    title="text language",
+                    title=f"{title} language",
                     parent=parent,
                     parent_id=article_id,
                     parent_article_type=article_type,
@@ -105,7 +105,7 @@ class ArticleLangValidation:
                     obtained=article_lang,
                     advice=advice,
                     data=article,
-                    error_level=self.params["language_error_level"]
+                    error_level=self.params["language_error_level"],
             )
 
 
@@ -179,7 +179,7 @@ class ArticleAttribsValidation:
 
         advice = None if validated else f"Provide for article/@specific-use one of {specific_use_list}"
         yield format_response(
-            title="article/@specific-use",
+            title="sps version",
             parent="article",
             parent_id=None,
             parent_article_type=self.articles.main_article_type,
@@ -257,7 +257,7 @@ class ArticleAttribsValidation:
 
         advice = None if validated else f"Provide for article/@dtd-version one of {dtd_version_list}"
         yield format_response(
-            title="article/@dtd-version",
+            title="JATS version",
             parent="article",
             parent_id=None,
             parent_article_type=self.articles.main_article_type,
@@ -279,7 +279,7 @@ class ArticleTypeValidation:
         self.params = params
         self.xmltree = xmltree
         self.articles = ArticleAndSubArticles(self.xmltree)
-        self.toc_sections = ArticleTocSections(self.xmltree).article_section_dict.get("en")
+        self.subject_english_version = ArticleTocSections(self.xmltree).article_section_dict.get("en")
 
     def validate_article_type(self):
         """
@@ -350,7 +350,7 @@ class ArticleTypeValidation:
         })
         advice = None if validated else f"Provide for article/@article-type one of {article_type_list}"
         yield format_response(
-            title="article/@article-type",
+            title="article type",
             parent="article",
             parent_id=None,
             parent_article_type=self.articles.main_article_type,
@@ -461,7 +461,8 @@ class ArticleTypeValidation:
             ]
         """
 
-        if not self.toc_sections:
+        if not self.subject_english_version:
+            # nao ha section em ingles
             return
         try:
             article_type_list = self.params["article_type_list"]
@@ -470,54 +471,60 @@ class ArticleTypeValidation:
                 "Function requires list of article types to check the similarity with subjects"
             )
 
-        article_type = None
-        for article in self.articles.data:
-            article_type = article_type or article["article_type"]
+        subject = self.subject_english_version
+        article_type = self.articles.main_article_type
+        
+        article_subject = subject["section"]
 
-            if article["lang"] == "en":
+        # compara subject com todos os valores possíveis de article_type
+        calculated_similarity, most_similar_article_type = most_similar(
+            similarity(article_type_list, article_subject)
+        )
 
-                article_subject = article["subject"]
+        expected_similarity = float(self.params.get("article_type_and_subject_expected_similarity")) or 0.6
 
-                # compara subject com todos os valores possíveis de article_type
-                calculated_similarity, most_similar_article_type = most_similar(
-                    similarity(article_type_list, article_subject)
+        # a similaridade pode ser baixa mas o tipo pode estar correto
+        if calculated_similarity >= expected_similarity:
+            # continua a verificar a validade
+            # article-type deve ser similar ao título da seção do sumário (inglês)
+            valid = article_type in most_similar_article_type
+        
+            xml_article_type = f'<article article-type="{article_type}"/>'
+            xml_subject = f'<subject-group subj-group-type="heading"><subject>{article_subject}</subject></subject-group>'
+            
+            data = {
+                "subject": article_subject,
+                "article_type": article_type,
+                "article_type_list": article_type_list,
+                "most_similar_article_type": most_similar_article_type,
+                "similarity": calculated_similarity,
+                "expected similarity": expected_similarity
+            }
+            data.update({
+                "specific_use": self.articles.specific_use,
+                "dtd_version": self.articles.dtd_version
+            })
+
+            title = f"article type and table of contents section"
+            choices = " | ".join(most_similar_article_type)
+            advice = None
+            if not valid:
+                advice = (
+                    f"Check {xml_article_type} and {xml_subject}. Other values for article-type seems to be more suitable: {choices}. "
                 )
-
-                if most_similar_article_type == article_type:
-                    calculated_similarity = 1
-                
-                expected_similarity = float(self.params.get("article_type_similar_to_subject_expected_similarity")) or 0.7
-
-                if calculated_similarity >= expected_similarity:
-                    # o mais similar deve ser igual ao article_type do artigo
-                    valid = True
-
-                    data = {
-                        "subject": article_subject,
-                        "article_type": article_type,
-                        "article_type_list": article_type_list,
-                        "most_similar_article_type": most_similar_article_type,
-                        "similarity": calculated_similarity,
-                        "expected similarity": expected_similarity
-                    }
-
-                    yield format_response(
-                        title="article-type similar to subject",
-                        parent="article",
-                        parent_id=article["article_id"],
-                        parent_article_type=article.get("article_type"),
-                        parent_lang=article.get("lang"),
-                        item="article",
-                        sub_item="@article-type",
-                        validation_type="similarity",
-                        is_valid=valid,
-                        expected=most_similar_article_type,
-                        obtained=article_type,
-                        advice=f"Check @article-type",
-                        data=data,
-                        error_level=self.params["article_type_similar_to_subject_expected_similarity_error_level"]
-                    )
-                break
+            yield build_response(
+                title=title,
+                parent=article,
+                item="article",
+                sub_item="@article-type",
+                validation_type="similarity",
+                is_valid=valid,
+                expected=article_type_list,
+                obtained=article_type,
+                advice=advice,
+                data=data,
+                error_level=self.params["article_type_and_subject_expected_similarity_error_level"],
+            )
 
 
 class ArticleIdValidation:
@@ -571,25 +578,34 @@ class ArticleIdValidation:
         if not self.article_ids.other:
             return
 
+        expected = []
+        order = self.article_ids.other
         try:
-            is_valid = 0 < int(self.article_ids.other) <= 99999
-        except (TypeError, ValueError, AttributeError):
-            is_valid = False
+            valid = 0 < int(order) <= 99999
+            if not valid:
+                expected.append("a numerical value from 1 to 99999")
+        except (TypeError, ValueError):
+            expected.append("a numerical value from 1 to 99999")
 
-        expected_value = "numerical value from 1 to 99999"
-        yield format_response(
-            title='article-id (@pub-id-type="other")',
-            parent="article",
-            parent_id=None,
-            parent_article_type=self.articles.main_article_type,
-            parent_lang=self.articles.main_lang,
+        try:
+            n = len(order)
+            valid = 0 < n <= 5
+            if not valid:
+                expected.append(f"must have maximum 5 characters. Found {n}")
+        except (TypeError, ValueError):
+            expected.append(f"must have maximum 5 characters. Found {n}")
+
+        expected_value = " and ".join(expected)
+        yield build_response(
+            title='article order in table of contents',
+            parent=self.article_ids.data,
             item="article-id",
             sub_item='@pub-id-type="other"',
             validation_type="format",
             is_valid=is_valid,
             expected=expected_value,
-            obtained=self.article_ids.other,
-            advice='Provide for <article-id pub-id-type="other"> numerical value from 1 to 99999',
+            obtained=order,
+            advice=f'Fix the article order in table of contents {order} in <article-id pub-id-type="other">{order}</article-id>. It must be {expected_value}',
             data=self.article_ids.data,
             error_level=self.params["id_other_error_level"],
         )
@@ -608,39 +624,39 @@ class JATSAndDTDVersionValidation:
         sps_version = self.specific_use
         jats_version = self.dtd_version
 
-        if not sps_version:
-            raise ValidationArticleAndSubArticlesArticleTypeException(
-                "Could not determine the SPS version."
-            )
-        if not jats_version:
-            raise ValidationArticleAndSubArticlesArticleTypeException(
-                "Could not determine the JATS version."
-            )
+        versions = self.params["specific_use_list"]
 
-        expected_jats = self.params.get("specific_use_list")
+        expected_jats_versions = versions.get(sps_version) or []
 
-        advise = None
+        advice = None
+        if not versions:
+            advice = f'Complete SPS version <article specific-use=""/> with valid value: {list(versions.keys())}',
 
-        if not expected_jats:
-            advise = f"SPS version '{sps_version}' not supported.",
+        elif jats_version not in expected_jats_versions:
+            xml = f'<article specific-use="" dtd-version=""/>'
+            advice = f"Complete respectively SPS and JATS versions {xml} with compatible values: {versions}"
 
-        elif jats_version not in (expected_jats.get(sps_version) or []):
-            advise = f"Incompatibility: SPS {sps_version} is not compatible with JATS {jats_version}."
-
-        if advise:
-            yield format_response(
-                title='article-id (@pub-id-type="other")',
-                parent="article",
-                parent_id=None,
-                parent_article_type=self.article_and_sub_articles.main_article_type,
-                parent_lang=self.article_and_sub_articles.main_lang,
-                item="dtd-version",
-                sub_item=None,
-                validation_type="match",
-                is_valid=False,
-                expected=self.params["specific_use_list"][sps_version],
-                obtained=jats_version,
-                advice=advise,
-                data=self.article_and_sub_articles.data,
-                error_level=self.params["jats_and_dtd_version_error_level"],
-            )
+        expected = expected_jats_versions or versions
+        got = {
+            "specific-use": sps_version,
+            "dtd-version": jats_version,
+        }
+        data = {
+            "specific-use": sps_version,
+            "dtd-version": jats_version,
+            "expected values": expected,
+        }
+        yield build_response(
+            title='SPS version and JATS version',
+            parent="article",
+            parent=self.article_and_sub_articles.attribs_parent_prefixed,
+            item="dtd-version",
+            sub_item=None,
+            validation_type="match",
+            is_valid=not advice,
+            expected=expected,
+            obtained=got,
+            advice=advice,
+            data=data,
+            error_level=self.params["jats_and_dtd_version_error_level"],
+        )
