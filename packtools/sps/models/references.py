@@ -100,7 +100,7 @@ class Reference:
         if extlink_node is not None:
             previous = extlink_node.getprevious()
             if previous is not None:
-                return previous.tail
+                return (previous.tail or "").strip()
 
     def get_chapter_title(self):
         return node_plain_text(self.ref.find("./element-citation/chapter-title"))

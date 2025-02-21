@@ -62,6 +62,9 @@ class IssueValidation:
         """
         if self.article_issue.volume:
             result = is_valid_value(self.article_issue.volume, zero_is_allowed=False)
+
+            got_xml = f'<volume>{result["got"]}</volume>'
+            expected_xml = f'<volume>{result["expected"]}</volume>'
             return build_response(
                 title="issue volume format",
                 parent={"parent": "article"},
@@ -71,7 +74,7 @@ class IssueValidation:
                 is_valid=result["is_valid"],
                 expected=result["expected"],
                 obtained=result["got"],
-                advice=f'Replace {result["got"]} in <article-meta><volume> with {result["expected"]}',
+                advice=f'Replace {got_xml} in <article> by {expected_xml}',
                 data=self.article_issue.data,
                 error_level=self.params["volume_format_error_level"],
                 element_name="article-meta",
@@ -91,6 +94,8 @@ class IssueValidation:
         """
         if self.article_issue.number:
             result = is_valid_value(self.article_issue.number, zero_is_allowed=False)
+            got_xml = f'<issue>{result["got"]}</issue>'
+            expected_xml = f'<issue>{result["expected"]}</issue>'
             return build_response(
                 title="issue number format",
                 parent={"parent": "article"},
@@ -100,7 +105,7 @@ class IssueValidation:
                 is_valid=result["is_valid"],
                 expected=result["expected"],
                 obtained=result["got"],
-                advice=f'Replace {result["got"]} in <article-meta><issue> with {result["expected"]}',
+                advice=f'Replace {got_xml} in <article> by {expected_xml}',
                 data=self.article_issue.data,
                 error_level=self.params["number_format_error_level"],
                 element_name="article-meta",
@@ -120,6 +125,8 @@ class IssueValidation:
         """
         if self.article_issue.suppl:
             result = is_valid_value(self.article_issue.suppl, zero_is_allowed=True)
+            got_xml = f'<supplement>{result["got"]}</supplement>'
+            expected_xml = f'<supplement>{result["expected"]}</supplement>'
             return build_response(
                 title="supplement format",
                 parent={"parent": "article"},
@@ -129,7 +136,7 @@ class IssueValidation:
                 is_valid=result["is_valid"],
                 expected=result["expected"],
                 obtained=result["got"],
-                advice=f'Replace {result["got"]} in <article-meta><supplement> with {result["expected"]}',
+                advice=f'Replace {got_xml} in <article> by {expected_xml}',
                 data=self.article_issue.data,
                 error_level=self.params["supplement_format_error_level"],
                 element_name="article-meta",
@@ -148,6 +155,7 @@ class IssueValidation:
             dict: Validation response with results if format is invalid
         """
         parsed_issue = self.article_issue.parsed_issue
+        issue = self.article_issue.issue
 
         got_number = parsed_issue.get("number")
         got_type_value = parsed_issue.get("type_value")
@@ -185,9 +193,7 @@ class IssueValidation:
                 expected=expected,
                 obtained=parsed_issue,
                 advice=(
-                    f"""Replace {self.article_issue} in <article-meta><issue>{self.article_issue}</issue> by with one of {expected}"""
-                    if not got_valid_format
-                    else None
+                    f"""Replace {issue} in <article-meta><issue>{issue}</issue></article-meta> by a valid value: {expected}"""
                 ),
                 data={"issue": self.article_issue.issue},
                 error_level=self.params["issue_format_error_level"],

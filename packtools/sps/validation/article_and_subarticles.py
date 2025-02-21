@@ -339,14 +339,16 @@ class ArticleTypeValidation:
         article_subject = subject["section"]
 
         # compara subject com todos os valores possíveis de article_type
-        calculated_similarity, most_similar_article_type = most_similar(
-            similarity(article_type_list, article_subject)
-        )
+        similarity_by_rate = similarity(article_type_list, article_subject)
 
         expected_similarity = float(self.params.get("article_type_and_subject_expected_similarity")) or 0.6
+        most_similar_article_type = []
+        for k, items in similarity_by_rate.items():
+            if k > expected_similarity:
+                most_similar_article_type.extend(items)
 
         # a similaridade pode ser baixa mas o tipo pode estar correto
-        if calculated_similarity >= expected_similarity:
+        if most_similar_article_type:
             # continua a verificar a validade
             # article-type deve ser similar ao título da seção do sumário (inglês)
             valid = article_type in most_similar_article_type
@@ -359,7 +361,7 @@ class ArticleTypeValidation:
                 "article_type": article_type,
                 "article_type_list": article_type_list,
                 "most_similar_article_type": most_similar_article_type,
-                "similarity": calculated_similarity,
+                "similarity_by_rate": similarity_by_rate,
                 "expected similarity": expected_similarity
             }
             data.update({
@@ -524,7 +526,7 @@ class JATSAndDTDVersionValidation:
 
         elif jats_version not in expected_jats_versions:
             xml = f'<article specific-use="" dtd-version=""/>'
-            advice = f"Complete SPS (specific-use="") and JATS (dtd-version="") versions {xml} with compatible values: {versions}"
+            advice = f'Complete SPS (specific-use="") and JATS (dtd-version="") versions in {xml} with compatible values: {versions}'
 
         expected = expected_jats_versions or versions
         got = {
