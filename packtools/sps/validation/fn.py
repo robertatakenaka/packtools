@@ -43,10 +43,10 @@ class XMLFnGroupValidation:
         self.rules = rules
         self.dtd_version = xml_tree
 
-        xml_article = XMLFns(xml_tree)
+        self.xml = XMLFns(xml_tree)
 
-        self.article_fn_groups = list(xml_article.article_fn_groups_notes())
-        self.sub_article_fn_groups = list(xml_article.sub_article_fn_groups_notes())
+        self.article_fn_groups = list(self.xml.article_fn_groups_notes())
+        self.sub_article_fn_groups = list(self.xml.sub_article_fn_groups_notes())
 
     @property
     def dtd_version(self):
@@ -75,16 +75,11 @@ class XMLFnGroupValidation:
         Yields:
             dict: Validation results for each footnote.
         """
-        fn_types = []
         for fn_group in self.article_fn_groups:
-            fn_types.append(fn_group["fn_type"])
             yield from self.validate_fn(fn_group)
 
         for fn_group in self.sub_article_fn_groups:
-            fn_types.append(fn_group["fn_type"])
             yield from self.validate_fn(fn_group)
-
-        yield self.validate_edited_by(fn_types)
 
     def validate_fn(self, fn):
         """
@@ -102,20 +97,21 @@ class XMLFnGroupValidation:
         )
         yield from validator.validate()
 
-    def validate_edited_by(self, fn_types):
-        is_valid = "edited-by" in fn_types and "edited-by" in rules["fn_type_expected_values"]
+    def validate_edited_by(self):
 
-        return build_response(
-            title="edited-by",
-            parent={},
-            item="fn",
-            sub_item="@fn-type",
-            validation_type="value",
-            is_valid=is_valid,
-            expected='<fn fn-type="edited-by">',
-            obtained='<fn fn-type="edited-by">' if is_valid else None,
-            advice='Add mandatory <fn fn-type="edited-by"> to indicate the responsible editor for Open Science. '
-                   'Ensure "edited-by" is required in rules JSON.',
-            data=None,
-            error_level=self.rules["fn_type_error_level"]
-        )
+        for lang, fn in self.xml.fn_edited_by.items():
+            text = fn.get("fn_text")
+            is_valid = bool(text)
+            yield build_response(
+                title="edited-by",
+                parent=fn,
+                item="fn",
+                sub_item="@fn-type",
+                validation_type="exist",
+                is_valid=is_valid,
+                expected='<fn fn-type="edited-by">',
+                obtained=text,
+                advice='Mark the responsible editor with <fn fn-type="edited-by">',
+                data=fn,
+                error_level=self.rules["edited_by_error_level"]
+            )

@@ -1,5 +1,6 @@
 {
 	"fn_rules": {
+		"edited_by_error_level": "CRITICAL",
 		"fn_bold_error_level": "CRITICAL",
 		"fn_title_error_level": "CRITICAL",
 		"fn_label_error_level": "WARNING",
@@ -12,6 +13,7 @@
 		    "conflict",
 		    "corresp",
 		    "custom",
+		    "data-availability",
 		    "deceased",
 		    "edited-by",
 		    "equal",

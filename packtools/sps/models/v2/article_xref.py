@@ -1,6 +1,7 @@
 import itertools
 
 from packtools.sps.utils.xml_utils import put_parent_context, tostring
+from packtools.sps.models.article_and_subarticles import Fulltext
 
 
 # https://jats.nlm.nih.gov/publishing/tag-library/1.4/attribute/ref-type.html
@@ -8,12 +9,24 @@ ELEMENT_NAME = {
     "table": "table-wrap",
     "bibr": "ref",
 }
+REF_TYPE = {
+    "table-wrap": "table",
+    "ref": "bibr",
+}
+
 
 def get_element_name(ref_type):
     try:
         return ELEMENT_NAME[ref_type]
     except KeyError:
         return ref_type
+
+
+def get_ref_type(element_name):
+    try:
+        return REF_TYPE[element_name]
+    except KeyError:
+        return element_name
 
 
 class Xref:
@@ -31,7 +44,8 @@ class Xref:
             "ref-type": self.xref_type,
             "rid": self.xref_rid,
             "text": self.xref_text,
-            "element_name": get_element_name(self.xref_type)
+            "element_name": get_element_name(self.xref_type),
+            "content": " ".join(self.xref_node.xpath(".//text()"))
         }
 
 
@@ -57,7 +71,7 @@ class Id:
 
     @property
     def data(self):
-        return {"tag": self.node_tag, "id": self.node_id}
+        return {"tag": self.node_tag, "id": self.node_id, "ref-type": get_ref_type(self.node_tag)}
 
 
 class Ids:
@@ -94,7 +108,28 @@ class ArticleXref:
     def __init__(self, xml_tree):
         self.xml_tree = xml_tree
 
-    def all_ids(self, element_name):
+    def get_elements_selected_by_attribs(self, attribs):
+        xpaths = []
+        for attr in attribs:
+            name = attr["name"]
+            value = attr["value"]
+
+            xpaths.append(f'.//*[@{name}="{value}"]')
+
+        for node in self.xml_tree.xpath(". | .//sub-article"):
+            fulltext = Fulltext(node)
+
+            for item in fulltext.node.xpath("|".join(xpaths)):
+                data = item.attribs_parent_prefixed
+                data.update({
+                    "tag": item.tag,
+                    "id": item.get("id"),
+                    "ref-type": REF_TYPE.get(item.tag),
+                    "xml": "<" + " ".join(f'{k}="{v}"' for k, v in item.attrib.items()) + ">"
+                })
+                yield data
+
+    def elems_by_id(self, element_name):
         response = {}
         for item in itertools.chain(
             self.article_ids(element_name),
@@ -106,7 +141,7 @@ class ArticleXref:
             response[id].append(item)
         return response
 
-    def all_xref_rids(self):
+    def xrefs_by_rid(self):
         response = {}
         for xref_node in self.xml_tree.xpath(".//xref"):
             xref_data = Xref(xref_node).data

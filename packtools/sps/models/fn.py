@@ -1,4 +1,5 @@
-from packtools.sps.models.basenotes import BaseNoteGroup, BaseNoteGroups
+from packtools.sps.models.basenotes import BaseNoteGroup, BaseNoteGroups, Fn
+from packtools.sps.models.article_and_subarticles import Fulltext
 
 
 class FnGroup(BaseNoteGroup):
@@ -35,3 +36,24 @@ class XMLFns:
     def sub_article_fn_groups_notes(self):
         for sub_article in self.xml_tree.xpath(".//sub-article"):
             yield from FulltextFnGroups(sub_article).items
+
+    @property
+    def fn_edited_by(self):
+        langs = {}
+        xpaths = [
+            './front//fn[@fn-type="edited-by"]',
+            './front-stub//fn[@fn-type="edited-by"]',
+            './body//fn[@fn-type="edited-by"]',
+            './back//fn[@fn-type="edited-by"]',
+        ]
+        xpath = "|".join(xpaths)
+        for node in self.xml_tree.xpath(". | .//sub-article[@article-type='translation']"):
+            fulltext = Fulltext(node)
+            langs[fulltext.lang] = fulltext.attribs_parent_prefixed
+
+            for fn_node in node.xpath(xpath):
+                fn = Fn(fn_node)
+                
+                langs[fulltext.lang].update(fn.data)
+        return langs
+

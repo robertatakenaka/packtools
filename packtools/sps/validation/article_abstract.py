@@ -3,7 +3,7 @@ from packtools.sps.models.article_abstract import (
     ArticleHighlights,
     ArticleAbstract,
 )
-from packtools.sps.validation.utils import format_response
+from packtools.sps.validation.utils import format_response, build_response
 
 
 class AbstractValidationBase:
@@ -368,13 +368,12 @@ class ArticleAbstractsValidation:
             advice = None
             if abstract_type := abstract.get("abstract_type"):
                 advice = f'Replace {abstract_type} in <abstract abstract-type="{abstract_type}"> by a valid value: {expected_abstract_type_list}'
-            is_valid = abstract_type not in (expected_abstract_type_list or [])
-            yield format_response(
+            elif expected_abstract_type_list:
+                advice = f'Complete abstract-type="" in <abstract abstract-type=""> with a valid value: {expected_abstract_type_list}'
+            is_valid = abstract_type in (expected_abstract_type_list or [])
+            yield build_response(
                 title="@abstract-type",
-                parent=abstract.get("parent"),
-                parent_id=abstract.get("parent_id"),
-                parent_article_type=abstract.get("parent_article_type"),
-                parent_lang=abstract.get("parent_lang"),
+                parent=abstract,
                 item="abstract",
                 sub_item="@abstract-type",
                 validation_type="value in list",
