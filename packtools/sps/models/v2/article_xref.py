@@ -46,16 +46,6 @@ class Xref:
         return "".join(items)
 
     @property
-    def element_name(self):
-        return get_element_name(self.xref_type)
-
-    @property
-    def elem_xml(self):
-        if self.xref_rid:
-            return f'<{self.element_name} id="{self.xref_rid}">'
-        return f'<{self.element_name}>'
-
-    @property
     def xml(self):
         return tostring(self.xref_node)
 
@@ -65,8 +55,6 @@ class Xref:
             "ref-type": self.xref_type,
             "rid": self.xref_rid,
             "text": self.xref_text,
-            "elem_xml": self.elem_xml,
-            "elem_name": self.element_name,
             "content": " ".join(self.xref_node.xpath(".//text()")),
             "tag_and_attribs": self.tag_and_attribs,
         }
@@ -107,18 +95,12 @@ class Element:
     def ref_type(self):
         return get_ref_type(self.node_tag)
 
-    @property
-    def xref_xml(self):
-        if self.node_id:
-            return f'<xref ref-type="{self.ref_type}" rid="{self.node_id}">'
-        return f'<xref ref-type="{self.ref_type}">'
-
     def __str__(self):
         return tostring(self.node)
 
     @property
     def data(self):
-        return {"tag": self.node_tag, "id": self.node_id, "xref_xml": self.xref_xml, "tag_id": self.tag_id, "tag_and_attribs": self.tag_and_attribs}
+        return {"tag": self.node_tag, "id": self.node_id, "tag_id": self.tag_id, "tag_and_attribs": self.tag_and_attribs}
 
 
 class XMLCrossReference:
@@ -144,7 +126,7 @@ class XMLCrossReference:
                 data.update(elem.data)
                 e_id = item.get("id")
                 elems.setdefault(e_id, [])
-                elems[e_id].append(data)
+                elems[e_id] = data
         return elems
 
     def xrefs_by_rid(self):

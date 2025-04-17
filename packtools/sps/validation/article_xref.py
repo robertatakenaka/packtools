@@ -60,29 +60,30 @@ class ArticleXrefValidation:
             A dictionary containing validation results with standard keys.
         """
         elements_by_id = self.xml_cross_refs.elems_by_id("*")
+        article_type = self.xml_tree.get("article-type")
+
         for rid, xrefs in self.xrefs_by_rid.items():
+
+            element_data = elements_by_id.get(rid)
+            element_name = element_data.get("tag")
+
+            expected = element_data.get("tag_id")
+
             for xref in xrefs:
-                element_data = elements_by_id.get(rid)
-                is_valid = bool(element_data)
-                element_name = xref.get("element_name")
+                is_valid = element_data.get("tag") == xref.get("element_name")
                 xref_content = xref.get("content")
                 advice = (
-                    f'Found {xref.get("xml")}, but not found the corresponding {xref.get("elem_xml")}'
+                    f'Found {xref.get("xml")}. Expected {expected}'
                 )
 
-                yield format_response(
+                yield build_response(
                     title=f'<xref> is linked to {element_name}',
-                    parent="article",
-                    parent_id=None,
-                    parent_article_type=self.xml_tree.get("article-type"),
-                    parent_lang=self.xml_tree.get(
-                        "{http://www.w3.org/XML/1998/namespace}lang"
-                    ),
+                    parent=xref,
                     item="xref",
                     sub_item="@rid",
                     validation_type="match",
                     is_valid=is_valid,
-                    expected=f'{element_name} which id="{rid}"',
+                    expected=expected,
                     obtained=element_data,
                     advice=advice,
                     data={"xref": xref, "element": element_data, "missing_xrefs": self.missing_xrefs, "missing_elems": self.missing_elems},
@@ -105,41 +106,40 @@ class ArticleXrefValidation:
         elements_requires_xref_rid = set(elements_requires_xref_rid)
 
         for element_name in elements_requires_xref_rid:
-            for id, elems in self.xml_cross_refs.elems_by_id(element_name).items():
-                for elem_data in elems:
-                    tag = elem_data.get("tag")
-                    xrefs = xrefs_by_rid.get(id)
-                    is_valid = bool(xrefs)
-                    tag_and_attribs = elem_data.get("tag_and_attribs")
-                    xref_xml = elem_data.get("xref_xml")
+            for id, elem_data in self.xml_cross_refs.elems_by_id(element_name).items():
+                tag = elem_data.get("tag")
+                xrefs = xrefs_by_rid.get(id)
+                is_valid = bool(xrefs)
+                tag_and_attribs = elem_data.get("tag_and_attribs")
+                xref_xml = elem_data.get("xref_xml")
 
-                    label = elem_data.get("label")
-                    if label:
-                        advice = (
-                            f'Found {tag_and_attribs}, but no corresponding {xref_xml} was found. '
-                            f'Mark {label}, mention to {tag_and_attribs}, with {xref_xml}'
-                        )
-                    else:
-                        advice = (
-                            f'Found {tag_and_attribs}, but no corresponding {xref_xml} was found. '
-                        )
-
-                    yield format_response(
-                        title=f'{tag_and_attribs} is linked to <xref>',
-                        parent=elem_data.get("parent"),
-                        parent_id=elem_data.get("parent_id"),
-                        parent_article_type=elem_data.get("parent_article_type"),
-                        parent_lang=elem_data.get("parent_lang"),
-                        item=elem_data.get("tag"),
-                        sub_item="@id",
-                        validation_type="match",
-                        is_valid=is_valid,
-                        expected=xref_xml,
-                        obtained=xrefs,
-                        advice=advice,
-                        data={"element": elem_data, "xref": xrefs, "missing_xrefs": self.missing_xrefs, "missing_elems": self.missing_elems},
-                        error_level=error_level,
+                label = elem_data.get("label")
+                if label:
+                    advice = (
+                        f'Found {tag_and_attribs}, but no corresponding {xref_xml} was found. '
+                        f'Mark {label}, mention to {tag_and_attribs}, with {xref_xml}'
                     )
+                else:
+                    advice = (
+                        f'Found {tag_and_attribs}, but no corresponding {xref_xml} was found. '
+                    )
+
+                yield format_response(
+                    title=f'{tag_and_attribs} is linked to <xref>',
+                    parent=elem_data.get("parent"),
+                    parent_id=elem_data.get("parent_id"),
+                    parent_article_type=elem_data.get("parent_article_type"),
+                    parent_lang=elem_data.get("parent_lang"),
+                    item=elem_data.get("tag"),
+                    sub_item="@id",
+                    validation_type="match",
+                    is_valid=is_valid,
+                    expected=xref_xml,
+                    obtained=xrefs,
+                    advice=advice,
+                    data={"element": elem_data, "xref": xrefs, "missing_xrefs": self.missing_xrefs, "missing_elems": self.missing_elems},
+                    error_level=error_level,
+                )
 
     def validate_attrib_name_and_value_has_corresponding_xref(self):
         """
