@@ -92,7 +92,7 @@
     </xsl:template>
 
     <xsl:template match="author-notes/*" mode="back-section-content">
-        <xsl:apply-templates select="*[name()!='label']" mode="div-fn-list-item"/>
+        <xsl:apply-templates select="." mode="div-fn-list-item"/>
     </xsl:template>
 
     <xsl:template match="corresp" mode="back-section-content" priority="1">
