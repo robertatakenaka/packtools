@@ -44,17 +44,21 @@
     <xsl:template match="fn | corresp" mode="back-section-title">
         <xsl:choose>
             <xsl:when test="label">
+                <xsl:comment>back-section-title, label</xsl:comment>
                 <xsl:apply-templates select="label"/>
             </xsl:when>
             <xsl:when test="title">
+                <xsl:comment>back-section-title, title</xsl:comment>
                 <xsl:apply-templates select="title"/>
             </xsl:when>
             <xsl:when test="@fn-type">
+                <xsl:comment>back-section-title, @fn-type</xsl:comment>
                 <xsl:apply-templates select="." mode="text-labels">
                     <xsl:with-param name="text">author-notes-fn-<xsl:value-of select="@fn-type"/></xsl:with-param>
                 </xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
+                <xsl:comment>back-section-title, otherwise</xsl:comment>
                 <xsl:apply-templates select="." mode="text-labels">
                     <xsl:with-param name="text"><xsl:value-of select="name()"/></xsl:with-param>
                 </xsl:apply-templates>

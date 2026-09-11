@@ -9,9 +9,11 @@
         <xsl:variable name="text"><xsl:apply-templates select=".//text()"/></xsl:variable>
         <xsl:choose>
             <xsl:when test="contains('123456789',substring(normalize-space($text),1,1))">
+                <xsl:comment>match label 123..</xsl:comment>
                 <sup><strong><xsl:apply-templates select="*|text()"/></strong></sup>
             </xsl:when>
             <xsl:otherwise>
+                <xsl:comment>match label otherwise</xsl:comment>
                 <strong><xsl:apply-templates select="*|text()"/></strong>
             </xsl:otherwise>
         </xsl:choose>
