@@ -29,16 +29,13 @@
         </div>
     </xsl:template>
 
-    <xsl:template match="fn | corresp | fn[@fn-type='edited-by'] | fn[@fn-type='data-availability']" mode="back-section-h">
+    <xsl:template match="fn | corresp" mode="back-section-h">
         <!--
             Apresenta o título da seção no texto completo
         -->
-        <xsl:variable name="name" select="@fn-type"/>
-        <xsl:if test="not(preceding-sibling::node()) or preceding-sibling::*[1][not(@fn-type)] or preceding-sibling::*[1][@fn-type!=$name]">
-            <h2 class="h5">
-                <xsl:apply-templates select="." mode="back-section-title"/>
-            </h2>
-        </xsl:if>
+        <h2 class="h5">
+            <xsl:apply-templates select="." mode="back-section-title"/>
+        </h2>
     </xsl:template>
 
     <xsl:template match="fn | corresp" mode="back-section-title">
