@@ -5,7 +5,7 @@
 
     <xsl:include href="../v2.0/article-text-back.xsl"/>
 
-    <xsl:template match="*[title] | *[label] | *[@fn-type] | corresp" mode="back-section-menu">
+    <xsl:template match="*" mode="back-section-menu">
         <xsl:variable name="name" select="@fn-type"/>
         <!-- cria menu somente para o primeiro ref-list (há casos de série de ref-list) -->       
         <xsl:if test="not(preceding-sibling::node()) or preceding-sibling::*[1][@fn-type!=$name]">
@@ -17,8 +17,10 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template match="*" mode="author-notes-content">
-        <xsl:apply-templates select="*[name()!='label']|text()"/>
+    <xsl:template match="*" mode="back-section-h">
+        <h2 class="h5">
+            <xsl:apply-templates select="." mode="back-section-title"/>
+        </h2>
     </xsl:template>
 
 </xsl:stylesheet>
