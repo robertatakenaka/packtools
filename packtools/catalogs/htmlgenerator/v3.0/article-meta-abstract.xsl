@@ -56,7 +56,7 @@
     </xsl:template>
 
     <xsl:template match="abstract[not(title)] | trans-abstract[not(title)]" mode="anchor-and-title">
-        <xsl:if test="not($has_abstract_title)">
+        <xsl:if test="not($has_abstract_title) and not(@abstract-type)">
             <xsl:variable name="title">
                 <xsl:apply-templates select="." mode="translate">
                     <xsl:with-param name="term">Abstract</xsl:with-param>
@@ -79,7 +79,7 @@
     <xsl:template match="abstract[title] | trans-abstract[title]" mode="anchor-and-title">
         <!-- Apresenta a âncora e o título, ou seja, Abstract, Resumo, ou Resumen -->
 
-        <xsl:if test="not($gs_abstract_lang)">
+        <xsl:if test="not($gs_abstract_lang) and not(@abstract-type)">
             <!-- âncora -->
             <!-- manter pareado class="articleSection" e data-anchor="nome da seção no menu esquerdo" -->
             <xsl:call-template name="article-section-header">

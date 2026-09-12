@@ -5,23 +5,20 @@
 
     <xsl:include href="../v2.0/article-text-back.xsl"/>
 
-    <xsl:template match="author-notes/*" mode="back-section">
-        <xsl:apply-templates select="@id" mode="add_span_id"/>
-        <div>
-            <xsl:apply-templates select="." mode="back-section-menu"/>
-            <xsl:apply-templates select="." mode="back-section-h"/>
-            <xsl:apply-templates select="." mode="back-section-content"/>
-        </div>
+    <xsl:template match="*[title] | *[label] | *[@fn-type] | corresp" mode="back-section-menu">
+        <xsl:variable name="name" select="@fn-type"/>
+        <!-- cria menu somente para o primeiro ref-list (há casos de série de ref-list) -->       
+        <xsl:if test="not(preceding-sibling::node()) or preceding-sibling::*[1][@fn-type!=$name]">
+            <!-- manter pareado class="articleSection" e data-anchor="nome da seção no menu esquerdo" -->
+            <xsl:attribute name="class">articleSection</xsl:attribute>
+            <xsl:attribute name="data-anchor">
+                <xsl:apply-templates select="." mode="back-section-title"/>
+            </xsl:attribute>
+        </xsl:if>
     </xsl:template>
 
-    <xsl:template match="*" mode="back-section-h">
-        <xsl:if test="title or label">
-            <h2 class="h5">
-                <xsl:apply-templates select="label"/>
-                <xsl:if test="label and title">&#160;</xsl:if>
-                <xsl:apply-templates select="title"/>
-            </h2>
-        </xsl:if>
+    <xsl:template match="*" mode="author-notes-content">
+        <xsl:apply-templates select="*[name()!='label']|text()"/>
     </xsl:template>
 
 </xsl:stylesheet>
